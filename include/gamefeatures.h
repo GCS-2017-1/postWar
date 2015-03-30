@@ -10,7 +10,7 @@
 
 using namespace std;
 
-typedef struct _Unidade{
+typedef struct _Unidade {
 	SDL_Surface *ataque;
 	SDL_Surface *ataque_baixo;
 	SDL_Surface *ataque_cima;
@@ -30,14 +30,14 @@ typedef struct _Unidade{
 	int id;
 } Unidade;
 
-typedef struct _Construcao{
+typedef struct _Construcao {
 	SDL_Surface *nome;
 	string tipo;
 	int ganho;
 	int conquistado;
-}Construcao;
+} Construcao;
 
-typedef struct _Hexagonos{
+typedef struct _Hexagonos {
 	int x;
 	int y;
 	int indice;
@@ -52,20 +52,20 @@ typedef struct _Hexagonos{
 } Hexagono;
 
 
-typedef struct _Hexagono_selecao{
+typedef struct _Hexagono_selecao {
 	int i;
 	int j;
 	int i_antes;
 	int j_antes;
 } Hex_selecao;
 
-typedef struct _Pais{
+typedef struct _Pais {
 	int ouro;
 	int comida;
 	int minerio;
 	string nome;
 	string cor;
-}Pais;
+} Pais;
 
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
@@ -109,7 +109,6 @@ extern SDL_Surface *opcoes_sel;
 extern SDL_Surface *sair_sel;
 extern int valida;
 extern SDL_Surface *screen1;
-
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
@@ -183,4 +182,3 @@ extern void eventos(void*);
 extern int eventos2(void *);
 
 #endif
-

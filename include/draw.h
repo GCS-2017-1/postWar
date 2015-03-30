@@ -1,6 +1,8 @@
-// Autor: Edson Alves
-// Data: 24/12/2012
-// e-mail: edsonalves@unb.br
+/*
+ * Autor: Edson Alves
+ * Data: 24/12/2012
+ * e-mail: edsonalves@unb.br
+ */
 #ifndef DRAW_H
 #define DRAW_H
 #include<string>
@@ -10,7 +12,6 @@ using namespace std;
 
 extern Uint32 getPixel(SDL_Surface *surface, int x, int y);
 extern void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel);
-
 extern void drawCircle(SDL_Surface *screen, int radius, int x, int y,
 	SDL_Color color);
 extern void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1,

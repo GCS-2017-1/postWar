@@ -11,4 +11,3 @@ extern void setup_window();
 extern SDL_Surface * setup_video();
 
 #endif
-
