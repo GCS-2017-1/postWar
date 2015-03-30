@@ -5,7 +5,7 @@
  */
 #ifndef DRAW_H
 #define DRAW_H
-#include<string>
+#include <string>
 #include <SDL/SDL.h>
 
 using namespace std;
