@@ -4,7 +4,7 @@
 #include <SDL/SDL.h>
 #include <string>
 
-typedef struct _Sound{
+typedef struct _Sound {
 	int position;
 	Uint8 *buffer;
 	int size;
