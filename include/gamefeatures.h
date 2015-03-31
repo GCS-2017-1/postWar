@@ -70,7 +70,7 @@ typedef struct _Pais {
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
 extern Hex_selecao *hex_selecao;
-extern vector<vector <Hexagono *>> hexagonos;
+extern vector<vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
 extern vector<Unidade *> unidades_vermelhas;
 extern SDL_Surface *malha;

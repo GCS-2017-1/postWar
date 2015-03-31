@@ -5,25 +5,23 @@
 #include "../../../include/draw.h"
 #include "../../../include/gamefeatures.h"
 
-void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
-    char fonte[] = "atfantrg.ttf";
+void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size)
+{
+	char fonte[] = "atfantrg.ttf";
 	TTF_Font *font = TTF_OpenFont(fonte, size);
-	if(font == NULL){
-        cout << "Nao carreguei a fonte"<< endl;
-        }
-    const char* txt = texto.c_str();
+	if (font == NULL) {
+		cout << "Nao carreguei a fonte" << endl;
+	}
+	const char *txt = texto.c_str();
 	SDL_Color cor;
 	cor.r = red;
 	cor.g = green;
 	cor.b = blue;
 
-	SDL_Surface* escrita = TTF_RenderText_Solid(font, txt, cor);
+	SDL_Surface *escrita = TTF_RenderText_Solid(font, txt, cor);
 	SDL_Rect pos;
 	pos.x = x;
 	pos.y = y;
 	SDL_BlitSurface(escrita, NULL, screen, &pos);
-    //SDL_Flip(screen);
-    //cout << "digitei o ip 1" << endl;
-    //SDL_FreeSurface(escrita);
-    TTF_CloseFont(font);
+	TTF_CloseFont(font);
 }
