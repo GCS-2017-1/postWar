@@ -1,6 +1,6 @@
 #include <iostream>
 
-void collision_Step(){
-
+void collision_Step()
+{
 
 }

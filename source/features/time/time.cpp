@@ -1,5 +1,6 @@
 #include <iostream>
 
-void Time(){
+void Time()
+{
 
 }

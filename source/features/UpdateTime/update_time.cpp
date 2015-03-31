@@ -1,6 +1,6 @@
-#include<iostream>
+#include <iostream>
 
-
-void update_time(){
+void update_time()
+{
 
 }

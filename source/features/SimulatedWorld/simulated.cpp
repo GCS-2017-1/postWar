@@ -1,6 +1,6 @@
-#include<iostream>
+#include <iostream>
 
-
-void simulated_World(){
+void simulated_World()
+{
 
 }
