@@ -14,10 +14,10 @@ typedef struct _vetormouse {
 	char* letra;
 } Vetor_mouse;
 
-extern void desenha_texto(char *texto, 
-                          SDL_Surface* dst, 
-                          int x, 
-                          int y, 
+extern void desenha_texto(char *texto,
+                          SDL_Surface *dst,
+                          int x,
+                          int y,
                           int size);
 extern Vetor_mouse *get_Input();
 extern int compara_selecao(int x_min,
@@ -28,14 +28,14 @@ extern int compara_selecao(int x_min,
                            int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern int criar_servidor();
-extern void mover_soldado(SDL_Surface *screen, 
-                          int x, 
-                          int y, 
-                          int totalElapsedTime, 
-                          int delay, 
+extern void mover_soldado(SDL_Surface *screen,
+                          int x,
+                          int y,
+                          int totalElapsedTime,
+                          int delay,
                           int lastdt);
-extern int testeaudio(void*);
-extern int conectar(char* ip_text);
+extern int testeaudio(void *);
+extern int conectar(char *ip_text);
 extern TCPsocket Sclient;
 extern TCPsocket Cserver;
 

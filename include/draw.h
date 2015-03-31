@@ -12,15 +12,22 @@ using namespace std;
 
 extern Uint32 getPixel(SDL_Surface *surface, int x, int y);
 extern void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel);
-extern void drawCircle(SDL_Surface *screen, int radius, int x, int y,
-	SDL_Color color);
-extern void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1,
-	SDL_Color color);
+extern void drawCircle(SDL_Surface *screen,
+                       int radius,
+                       int x,
+                       int y,
+                       SDL_Color color);
+extern void drawLine(SDL_Surface *screen,
+                     int x0,
+                     int y0,
+                     int x1,
+                     int y1,
+                     SDL_Color color);
 extern SDL_Surface *render_World();
 extern void inicio(SDL_Surface *screen);
 extern void opcoes(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
-extern SDL_Surface *load_Image(string path,SDL_Surface *screen);
+extern SDL_Surface *load_Image(string path, SDL_Surface *screen);
 extern void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y);
 extern void free_image(SDL_Surface *image);
 extern void drawYouLose(SDL_Surface *screen);

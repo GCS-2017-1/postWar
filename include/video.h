@@ -8,6 +8,6 @@
 
 extern void init_sdl();
 extern void setup_window();
-extern SDL_Surface * setup_video();
+extern SDL_Surface *setup_video();
 
 #endif
