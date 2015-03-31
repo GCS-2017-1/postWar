@@ -1,6 +1,6 @@
 #include <iostream>
 
-void zuera(){
-
+void zuera()
+{
 
 }

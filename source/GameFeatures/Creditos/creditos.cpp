@@ -16,22 +16,22 @@ int saiu_creditos;
 
 void RunImage(SDL_Surface *screen1, SDL_Surface *screen2, SDL_Surface *screen3)
 {
-	if (saiu_creditos==0) {
+	if (saiu_creditos == 0) {
 		Vetor_mouse *vetor = new Vetor_mouse;
-		for(int j = 680; j >= -680; j-=2) {
+		for (int j = 680; j >= -680; j-=2) {
 			vetor = get_Input();
 			if (vetor->number == 39) {
-				saiu_creditos=1;
+				saiu_creditos = 1;
 				break;
 			}
 			else if (compara_selecao(46, 77, vetor->x, 38, 76, vetor->y)) {
-				saiu_creditos=1;
+				saiu_creditos = 1;
 				break;
 			}
 
 			BlitImage(screen1, screen3, 0, 0);
 			BlitImage(screen1, screen2, 0, j);
-			BlitImage(screen1,botao_sair,46,38);
+			BlitImage(screen1, botao_sair, 46, 38);
 			SDL_Flip(screen1);
 			SDL_Delay(20);
 		}
@@ -45,7 +45,7 @@ void RunImage(SDL_Surface *screen1, SDL_Surface *screen2, SDL_Surface *screen3)
 
 void creditos(SDL_Surface *screen)
 {
-	saiu_creditos =0;
+	saiu_creditos = 0;
 	string tela = "source/GameFeatures/Creditos/Images/fundo_creditos.png";
 	SDL_Surface *telapreta = load_Image(tela, screen);
 	string imagem_bryj = "source/GameFeatures/Creditos/Images/logo_postwar.png";
@@ -55,19 +55,19 @@ void creditos(SDL_Surface *screen)
 	string imagem_ubuntu = "source/GameFeatures/Creditos/Images/ubuntu_logo.png";
 	SDL_Surface *ubuntu = load_Image(imagem_ubuntu, screen);
 	string imagem_16 = "source/GameFeatures/Creditos/Images/nome_jogo.png";
-	SDL_Surface *jogo_nome= load_Image(imagem_16, screen);
+	SDL_Surface *jogo_nome = load_Image(imagem_16, screen);
 	string creditos_path = "source/GameFeatures/Creditos/Images/nome_creditos.png";
-	SDL_Surface *creditos= load_Image(creditos_path, screen);
+	SDL_Surface *creditos = load_Image(creditos_path, screen);
 	string creditos_path1 = "source/GameFeatures/Creditos/Images/nome_creditos1.png";
-	SDL_Surface *creditos1= load_Image(creditos_path1, screen);
+	SDL_Surface *creditos1 = load_Image(creditos_path1, screen);
 	string creditos_path2 = "source/GameFeatures/Creditos/Images/nome_creditos2.png";
-	SDL_Surface *creditos2= load_Image(creditos_path2, screen);
+	SDL_Surface *creditos2 = load_Image(creditos_path2, screen);
 	string creditos_path3 = "source/GameFeatures/Creditos/Images/nome_creditos3.png";
-	SDL_Surface *creditos3= load_Image(creditos_path3, screen);
+	SDL_Surface *creditos3 = load_Image(creditos_path3, screen);
 	string creditos_path4 = "source/GameFeatures/Creditos/Images/nome_creditos4.png";
-	SDL_Surface *creditos4= load_Image(creditos_path4, screen);
+	SDL_Surface *creditos4 = load_Image(creditos_path4, screen);
 	string credito = "source/GameFeatures/Creditos/Images/botaoDeSair.png";
-	botao_sair =  load_Image(credito, screen);
+	botao_sair = load_Image(credito, screen);
 
 	SDL_Flip(screen);
 
@@ -77,7 +77,7 @@ void creditos(SDL_Surface *screen)
 	RunImage(screen, creditos1, telapreta);
 	RunImage(screen, creditos2, telapreta);
 	RunImage(screen, creditos3, telapreta);
-	RunImage(screen, creditos4, telapreta);	
+	RunImage(screen, creditos4, telapreta);
 	RunImage(screen, bryj, telapreta);
 	RunImage(screen, sdl, telapreta);
 	RunImage(screen, ubuntu, telapreta);
@@ -87,6 +87,4 @@ void creditos(SDL_Surface *screen)
 	Mix_HaltMusic();
 	Mix_CloseAudio();
 	load_menu(screen);
-
 }
-

@@ -21,17 +21,17 @@ int main()
 	SDL_Surface *screen = render_World();
 	load_menu(screen);
 	/*
-	while (1) {
-		update_time();
-		get_Input();
-		get_Network_Messages();
-		simulated_World();
-		collision_Step();
-		update_Objects();
-		render_World();
-		misc_Tasks();
-		menu(screen);
-		return 0;
-	}
-	*/
+	 * while (1) {
+	 *     update_time();
+	 *     get_Input();
+	 *	   get_Network_Messages();
+	 *	   simulated_World();
+	 *	   collision_Step();
+	 *	   update_Objects();
+	 *	   render_World();
+	 *     misc_Tasks();
+	 *	   menu(screen);
+	 *	   return 0;
+	 * }
+	 */
 }
