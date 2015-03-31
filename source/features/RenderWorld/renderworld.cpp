@@ -1,25 +1,24 @@
-// Autor: Edson Alves
-// Data: 26/12/2012
-// e-mail: edsonalves@unb.br
+/*
+ * Autor: Edson Alves
+ * Data: 26/12/2012
+ * e-mail: edsonalves@unb.br
+ */
 #include <iostream>
 #include <SDL/SDL.h>
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
-//#include "../../../include/gamefeatures.h"
 #include "draw.h"
 #include "video.h"
 
 using namespace std;
 
-SDL_Surface *render_World(){
-
-
+SDL_Surface *render_World()
+{
 
 	init_sdl();
 	setup_window();
 	SDL_Surface *screen = setup_video();
-    //Vetor_mouse *vetor = new Vetor_mouse();
 
     string tela = "source/features/RenderWorld/images/tela_preta.png";
     SDL_Surface *preta = load_Image(tela, screen);
@@ -30,7 +29,6 @@ SDL_Surface *render_World(){
     BlitImage(screen, end1, 0, 0);
     SDL_Flip(screen);
     SDL_Delay(3000);
-
 
     string dois = "source/features/RenderWorld/images/front_end2.png";
     SDL_Surface *end2 = load_Image(dois, screen);
@@ -60,9 +58,5 @@ SDL_Surface *render_World(){
     SDL_Flip(screen);
     SDL_Delay(3000);
 
-
     return screen;
 }
-
-
-

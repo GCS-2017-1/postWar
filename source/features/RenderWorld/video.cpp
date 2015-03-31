@@ -1,6 +1,8 @@
-// Autor: Edson Alves
-// Data: 26/12/2012
-// e-mail: edsonalves@unb.br
+/*
+ * Autor: Edson Alves
+ * Data: 26/12/2012
+ * e-mail: edsonalves@unb.br
+ */
 #include <iostream>
 #include <cstdlib>
 #include <SDL/SDL_ttf.h>
@@ -19,23 +21,22 @@ void init_sdl()
     int ar = SDL_Init(SDL_INIT_AUDIO);
     red = 255;
     green = blue = 0;
-    if (ar != 0){
+    if (ar != 0) {
         cerr << "Erro na inicialização do audio:" << SDL_GetError() << endl;
         exit(-1);
-        }
+    }
 
     int rf = TTF_Init();
 
     if (rf != 0) {
 		fprintf(stderr, "Erro na inicializacao da SDL_ttf: %s\n",
-			TTF_GetError());
-			exit(0);
+			    TTF_GetError());
+			    exit(0);
     }
 
 	int rc = SDL_Init(SDL_INIT_VIDEO);
 
-	if (rc == -1)
-	{
+	if (rc == -1) {
 		cerr << "Erro na inicializacao da SDL: " << SDL_GetError() << endl;
 		exit(-1);
 	}
@@ -66,13 +67,11 @@ SDL_Surface * setup_video()
 
 	screen = SDL_SetVideoMode(width, height, bitsPerPixel, videoOptions);
 
-	if (!screen)
-	{
+	if (!screen) {
 		cerr << "Nao foi possivel inicializar o video com as configuracoes "
-			<< "indicadas: " << SDL_GetError() << endl;
+			 << "indicadas: " << SDL_GetError() << endl;
 		exit(-2);
 	}
 
 	return screen;
 }
-

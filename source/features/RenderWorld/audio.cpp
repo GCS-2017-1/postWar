@@ -1,6 +1,8 @@
-// Autor: Edson Alves
-// Data: 26/12/2012
-// e-mail: edsonalves@unb.br
+/*
+ * Autor: Edson Alves
+ * Data: 26/12/2012
+ * e-mail: edsonalves@unb.br
+ */
 #include <iostream>
 #include <cstdlib>
 #include <SDL/SDL_ttf.h>
@@ -9,9 +11,7 @@
 
 using namespace std;
 
-init_audio(){
-
-
-
+init_audio()
+{
 
 }
