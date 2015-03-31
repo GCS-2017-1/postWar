@@ -1,6 +1,6 @@
 #include <iostream>
 
-
-void update_Objects(){
+void update_Objects()
+{
 
 }
