@@ -40,12 +40,12 @@ void evolucao_soldado(Pais *pais)
 	}
 	for (unsigned int i=0;i<hexagonos.size();i++) {
 		for (unsigned int j=0;j<hexagonos[i].size();j++) {
-			if (hexagonos[i][j]->contem_unidade==1) {
-				if (hexagonos[i][j]->unidade->unit_color == pais->unit_color) {
-					if (hexagonos[i][j]->unidade->unit_type == "soldado") {
-						hexagonos[i][j]->unidade->health_points = 250;
-						hexagonos[i][j]->unidade->attack_points = 150;
-						hexagonos[i][j]->unidade->deffense_points = 150;
+			if (hexagonos[i][j]->contains_unit==1) {
+				if (hexagonos[i][j]->unit->unit_color == pais->unit_color) {
+					if (hexagonos[i][j]->unit->unit_type == "soldado") {
+						hexagonos[i][j]->unit->health_points = 250;
+						hexagonos[i][j]->unit->attack_points = 150;
+						hexagonos[i][j]->unit->deffense_points = 150;
 					}
 					else {
 						/* nothing to do */
@@ -88,10 +88,10 @@ void evolucao_quartel(Pais *pais)
 	}
 	for (unsigned int i=0;i<hexagonos.size();i++) {
 		for (unsigned int j=0;j<hexagonos[i].size();j++) {
-			if (hexagonos[i][j]->contem_unidade==1) {
-				if (hexagonos[i][j]->unidade->unit_color == pais->unit_color) {
-					if (hexagonos[i][j]->unidade->unit_type == "quartel") {
-						if (hexagonos[i][j]->unidade->unit_color == "azul") {
+			if (hexagonos[i][j]->contains_unit==1) {
+				if (hexagonos[i][j]->unit->unit_color == pais->unit_color) {
+					if (hexagonos[i][j]->unit->unit_type == "quartel") {
+						if (hexagonos[i][j]->unit->unit_color == "azul") {
 							string caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_quartel_azul.png";
 							nome1 = load_Image(caminho, screen);
 						}
@@ -99,10 +99,10 @@ void evolucao_quartel(Pais *pais)
 							string caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_quartel_vermelho.png";
 							nome1 = load_Image(caminho, screen);
 						}
-						hexagonos[i][j]->unidade->health_points = 1250;
-						hexagonos[i][j]->unidade->attack_points = 0;
-						hexagonos[i][j]->unidade->deffense_points = 500;
-						hexagonos[i][j]->unidade->unit_name = nome1;
+						hexagonos[i][j]->unit->health_points = 1250;
+						hexagonos[i][j]->unit->attack_points = 0;
+						hexagonos[i][j]->unit->deffense_points = 500;
+						hexagonos[i][j]->unit->unit_name = nome1;
 					}
 					else {
 					   /* nothing to do */

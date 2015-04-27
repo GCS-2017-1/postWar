@@ -40,13 +40,13 @@ void ataque_unidade(SDL_Surface *screen,
 
 
 		if (hexagonos[hex_selecao->i_antes]
-		    [hex_selecao->j_antes]->contem_unidade == 0)
+		    [hex_selecao->j_antes]->contains_unit == 0)
 		{
 			break;
 		}
 
-		temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-		temp_defensor = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
+		temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit;
+		temp_defensor = hexagonos[hex_selecao->i][hex_selecao->j]->unit;
 		if (temp->unit_type == tipoquartel) {
 			cout << "Nao pode atacar" << endl;
 			return;

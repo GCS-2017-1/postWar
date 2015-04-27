@@ -41,8 +41,8 @@ void carrega_urss(SDL_Surface *screen){
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unidade = unidades_azul[i];
-        hexagonos[i*2][3]->contem_unidade = 1;
+        hexagonos[i*2][3]->unit = unidades_azul[i];
+        hexagonos[i*2][3]->contains_unit = 1;
 
 
         caminho = "source/GameFeatures/Jogar/Fase3/images/bryjstudios_cabana_vermelha.png";
@@ -52,20 +52,20 @@ void carrega_urss(SDL_Surface *screen){
         setar_quartel(quartel_a,unit_color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
         id++;
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
-        hexagonos[5][1]->unidade = quartel_a;
-        hexagonos[5][1]->contem_unidade = 1;
-        hexagonos[6][1]->unidade = quartel_a;
-        hexagonos[6][1]->contem_unidade = 1;
-        hexagonos[6][2]->contem_unidade = 1;
-        hexagonos[6][2]->unidade = quartel_a;
-        hexagonos[7][1]->contem_unidade = 1;
-        hexagonos[7][1]->unidade = quartel_a;
-        hexagonos[8][1]->contem_unidade = 1;
-        hexagonos[8][1]->unidade = quartel_a;
-        hexagonos[8][2]->contem_unidade = 1;
-        hexagonos[8][2]->unidade = quartel_a;
-        hexagonos[9][1]->contem_unidade = 1;
-        hexagonos[9][1]->unidade = quartel_a;
+        hexagonos[5][1]->unit = quartel_a;
+        hexagonos[5][1]->contains_unit = 1;
+        hexagonos[6][1]->unit = quartel_a;
+        hexagonos[6][1]->contains_unit = 1;
+        hexagonos[6][2]->contains_unit = 1;
+        hexagonos[6][2]->unit = quartel_a;
+        hexagonos[7][1]->contains_unit = 1;
+        hexagonos[7][1]->unit = quartel_a;
+        hexagonos[8][1]->contains_unit = 1;
+        hexagonos[8][1]->unit = quartel_a;
+        hexagonos[8][2]->contains_unit = 1;
+        hexagonos[8][2]->unit = quartel_a;
+        hexagonos[9][1]->contains_unit = 1;
+        hexagonos[9][1]->unit = quartel_a;
 
     }
 
@@ -94,8 +94,8 @@ void carrega_urss(SDL_Surface *screen){
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unidade = unidades_azul[i];
-        hexagonos[i*2][3]->contem_unidade = 1;
+        hexagonos[i*2][3]->unit = unidades_azul[i];
+        hexagonos[i*2][3]->contains_unit = 1;
     }
 
 
@@ -124,8 +124,8 @@ for (int i=8;i<9;i++){
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unidade = unidades_azul[i];
-        hexagonos[i*2][3]->contem_unidade = 1;
+        hexagonos[i*2][3]->unit = unidades_azul[i];
+        hexagonos[i*2][3]->contains_unit = 1;
         unidades_azul[0]->x = hexagonos[i*2][3]->x;
         unidades_azul[0]->y = hexagonos[i*2][3]->y;
     }

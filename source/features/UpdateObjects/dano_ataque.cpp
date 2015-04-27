@@ -28,9 +28,9 @@ void dano_ataque(SDL_Surface *screen)
 	int rand_atacante = rand() % 50 + 40;
 
 	Unit *atacante = hexagonos[hex_selecao->i_antes]
-								 [hex_selecao->j_antes]->unidade;
+								 [hex_selecao->j_antes]->unit;
 	Unit *defensor = hexagonos[hex_selecao->i]
-								 [hex_selecao->j]->unidade;
+								 [hex_selecao->j]->unit;
 
 	if (atacante->unit_type == tipoquartel) {
 		cout << "Unit não pode atacar" << endl;
@@ -65,13 +65,13 @@ void dano_ataque(SDL_Surface *screen)
 						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x,
 						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y,
 						totalElapsedTime, delay, lastdt);
-		hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade = NULL;
+		hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit = NULL;
 		hexagonos[hex_selecao->i_antes]
-				 [hex_selecao->j_antes]->contem_unidade = 0;
+				 [hex_selecao->j_antes]->contains_unit = 0;
 	}
 	else {
 		hexagonos[hex_selecao->i_antes]
-				 [hex_selecao->j_antes]->unidade->health_points = atacante->health_points;
+				 [hex_selecao->j_antes]->unit->health_points = atacante->health_points;
 	}
 	if (defensor->health_points <= 0) {
 		if (defensor->unit_type.compare("quartel") != 0) {
@@ -81,68 +81,68 @@ void dano_ataque(SDL_Surface *screen)
 								hexagonos[hex_selecao->i][hex_selecao->j]->x,
 								hexagonos[hex_selecao->i][hex_selecao->j]->y,
 								totalElapsedTime, delay, lastdt);
-				hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
-				hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
+				hexagonos[hex_selecao->i][hex_selecao->j]->unit = NULL;
+				hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit = 0;
 			}
 			else if (defensor->unit_color == "azul") {
 				play_effect(efeito_explosao);
-				hexagonos[9][12]->unidade = NULL;
-				hexagonos[9][12]->contem_unidade = 0;
-				hexagonos[10][12]->unidade = NULL;
-				hexagonos[10][12]->contem_unidade = 0;
-				hexagonos[11][12]->unidade = NULL;
-				hexagonos[11][12]->contem_unidade = 0;
-				hexagonos[12][12]->unidade = NULL;
-				hexagonos[12][12]->contem_unidade = 0;
-				hexagonos[13][12]->unidade = NULL;
-				hexagonos[13][12]->contem_unidade = 0;
+				hexagonos[9][12]->unit = NULL;
+				hexagonos[9][12]->contains_unit = 0;
+				hexagonos[10][12]->unit = NULL;
+				hexagonos[10][12]->contains_unit = 0;
+				hexagonos[11][12]->unit = NULL;
+				hexagonos[11][12]->contains_unit = 0;
+				hexagonos[12][12]->unit = NULL;
+				hexagonos[12][12]->contains_unit = 0;
+				hexagonos[13][12]->unit = NULL;
+				hexagonos[13][12]->contains_unit = 0;
 			}
 			else {
 				play_effect(efeito_explosao);
-				hexagonos[6][4]->unidade = NULL;
-				hexagonos[6][4]->contem_unidade = 0;
-				hexagonos[7][4]->unidade = NULL;
-				hexagonos[7][4]->contem_unidade = 0;
-				hexagonos[8][4]->unidade = NULL;
-				hexagonos[8][4]->contem_unidade = 0;
+				hexagonos[6][4]->unit = NULL;
+				hexagonos[6][4]->contains_unit = 0;
+				hexagonos[7][4]->unit = NULL;
+				hexagonos[7][4]->contains_unit = 0;
+				hexagonos[8][4]->unit = NULL;
+				hexagonos[8][4]->contains_unit = 0;
 			}
 		}
 		else if (defensor->unit_color == "azul") {
 			play_effect(efeito_explosao);
-			hexagonos[7][13]->unidade = NULL;
-			hexagonos[7][13]->contem_unidade = 0;
-			hexagonos[7][14]->unidade = NULL;
-			hexagonos[7][14]->contem_unidade = 0;
-			hexagonos[8][14]->unidade = NULL;
-			hexagonos[8][14]->contem_unidade = 0;
-			hexagonos[9][13]->unidade = NULL;
-			hexagonos[9][13]->contem_unidade = 0;
-			hexagonos[9][14]->unidade = NULL;
-			hexagonos[9][14]->contem_unidade = 0;
-			hexagonos[10][14]->unidade = NULL;
-			hexagonos[10][14]->contem_unidade = 0;
+			hexagonos[7][13]->unit = NULL;
+			hexagonos[7][13]->contains_unit = 0;
+			hexagonos[7][14]->unit = NULL;
+			hexagonos[7][14]->contains_unit = 0;
+			hexagonos[8][14]->unit = NULL;
+			hexagonos[8][14]->contains_unit = 0;
+			hexagonos[9][13]->unit = NULL;
+			hexagonos[9][13]->contains_unit = 0;
+			hexagonos[9][14]->unit = NULL;
+			hexagonos[9][14]->contains_unit = 0;
+			hexagonos[10][14]->unit = NULL;
+			hexagonos[10][14]->contains_unit = 0;
 
 		}
 		else {
 			play_effect(efeito_explosao);
-			hexagonos[5][1]->unidade = NULL;
-			hexagonos[5][1]->contem_unidade = 0;
-			hexagonos[6][1]->unidade = NULL;
-			hexagonos[6][1]->contem_unidade = 0;
-			hexagonos[6][2]->contem_unidade = 0;
-			hexagonos[6][2]->unidade = NULL;
-			hexagonos[7][1]->contem_unidade = 0;
-			hexagonos[7][1]->unidade = NULL;
-			hexagonos[8][1]->contem_unidade = 0;
-			hexagonos[8][1]->unidade = NULL;
-			hexagonos[8][2]->contem_unidade = 0;
-			hexagonos[8][2]->unidade = NULL;
-			hexagonos[9][1]->contem_unidade = 0;
-			hexagonos[9][1]->unidade = NULL;
+			hexagonos[5][1]->unit = NULL;
+			hexagonos[5][1]->contains_unit = 0;
+			hexagonos[6][1]->unit = NULL;
+			hexagonos[6][1]->contains_unit = 0;
+			hexagonos[6][2]->contains_unit = 0;
+			hexagonos[6][2]->unit = NULL;
+			hexagonos[7][1]->contains_unit = 0;
+			hexagonos[7][1]->unit = NULL;
+			hexagonos[8][1]->contains_unit = 0;
+			hexagonos[8][1]->unit = NULL;
+			hexagonos[8][2]->contains_unit = 0;
+			hexagonos[8][2]->unit = NULL;
+			hexagonos[9][1]->contains_unit = 0;
+			hexagonos[9][1]->unit = NULL;
 		}
 	}
 	else {
-		hexagonos[hex_selecao->i][hex_selecao->j]->unidade->health_points = defensor->health_points;
+		hexagonos[hex_selecao->i][hex_selecao->j]->unit->health_points = defensor->health_points;
 	}
 }
 

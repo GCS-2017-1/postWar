@@ -20,8 +20,8 @@ int verifica_hexagono(int x, int y)
 
 	for (unsigned int i=0;i<hexagonos.size();i++) {
 		for (unsigned int j=0;j<hexagonos[i].size();j++) {
-			vx = abs(x_f - hexagonos[i][j]->centro_x);
-			vy = abs(y_f - hexagonos[i][j]->centro_y);
+			vx = abs(x_f - hexagonos[i][j]->center_in_x);
+			vy = abs(y_f - hexagonos[i][j]->center_in_y);
 			re = (vx*vx)+(vy*vy);
 			re = sqrt(re);
 			if (re <= 20) {
@@ -40,8 +40,8 @@ return 0;
 /* verifies if theres a unit */
 int possui_unidade(string unit_color)
 {
-	if (hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade) {
-		if (!hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_color.compare(unit_color)) {
+	if (hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit) {
+		if (!hexagonos[hex_selecao->i][hex_selecao->j]->unit->unit_color.compare(unit_color)) {
 			return 1;
 		}
 		else {
@@ -66,7 +66,7 @@ int alcance_movimento_soldado()
 		else {
 			/* nothing to do */
 		}
-		if (hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade) {
+		if (hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit) {
 			return 0;
 		}
 		else {
@@ -95,9 +95,9 @@ int alcance_ataque_soldado()
 			/* nothing to do */
 		}
 
-		if (hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade) {
-			Unit *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-			Unit *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
+		if (hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit) {
+			Unit *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit;
+			Unit *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unit;
 			if (temp2->unit_color != temp1->unit_color) {
 				return 1;
 			}

@@ -65,7 +65,7 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 						if (possui_unidade("vermelho")) {
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
+							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
 							blit_cima(franca,screen);
 							while (1) {
 								start1 = SDL_GetTicks();
@@ -73,8 +73,8 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
 									if (possui_unidade("vermelho")
-										|| (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo
-										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type
+										|| (hexagonos[hex_selecao->i][hex_selecao->j]->barrier
+										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type
 										!= "helicoptero")) {
 										break;
 									}
@@ -390,7 +390,7 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 							blit_cima(uk,screen);
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
+							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
 							while(1) {
 								start1 = SDL_GetTicks();
 								blit_cima(uk,screen);
@@ -398,8 +398,8 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
 									if (possui_unidade("azul")
-										|| (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo
-										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type
+										|| (hexagonos[hex_selecao->i][hex_selecao->j]->barrier
+										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type
 										!= "helicoptero")) {
 										break;
 									}

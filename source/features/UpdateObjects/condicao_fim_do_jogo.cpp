@@ -16,9 +16,9 @@ void verifica_derrota(SDL_Surface *screen)
 		cout << "andando i: " << i << endl;
 		for (unsigned int j = 0; j < hexagonos[i].size() ; j++) {
 			cout << "andando j: " << j << endl;
-			if (hexagonos[i][j]->contem_unidade == 1) {
-				cout << "achei uma unidade" << endl;
-				temp = hexagonos[i][j]->unidade;
+			if (hexagonos[i][j]->contains_unit == 1) {
+				cout << "achei uma unit" << endl;
+				temp = hexagonos[i][j]->unit;
 				cout << "temp unit_type:" << temp->unit_type << endl;
 				if (temp->unit_type == unit_type && temp->health_points == 0) {
 					string mensagem = "Você perdeu!LOSER!!";

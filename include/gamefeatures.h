@@ -37,19 +37,19 @@ typedef struct _Building {
 	int conquered;
 } Building;
 
-typedef struct _Hexagonos {
+typedef struct _Hexagons {
 	int x;
 	int y;
-	int indice;
-	bool contem_unidade : 1;
-	bool obstaculo : 1;
-	int mina;
-	Unit *unidade;
-	Building *construcao;
-	int centro_x;
-	int centro_y;
-	int raio;
-} Hexagono;
+	int index;
+	bool contains_unit : 1;
+	bool barrier : 1;
+	int mine;
+	Unit *unit;
+	Building *building;
+	int center_in_x;
+	int center_in_y;
+	int radius;
+} Hexagons;
 
 
 typedef struct _Hexagono_selecao {
@@ -70,7 +70,7 @@ typedef struct _Pais {
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
 extern Hex_selecao *hex_selecao;
-extern vector<vector <Hexagono *> > hexagonos;
+extern vector<vector <Hexagons *> > hexagonos;
 extern vector<Unit *> unidades_azul;
 extern vector<Unit *> unidades_vermelhas;
 extern SDL_Surface *malha;
@@ -218,13 +218,13 @@ extern void setar_pais (Pais *pais,
 						int minerals,
 						string unit_name,
 						string unit_color);
-extern void setar_construcao (Building *construcao,
+extern void setar_construcao (Building *building,
 							  SDL_Surface *unit_name,
 							  string unit_type,
 							  int profit);
 extern void carrega_eua (SDL_Surface *screen,string lado);
 extern string convertInt (int number);
-extern void blit_lateral (Unit *unidade,SDL_Surface *screen);
+extern void blit_lateral (Unit *unit,SDL_Surface *screen);
 extern void blit_cima (Pais *pais, SDL_Surface *screen);
 extern void mapeia_hexagono ();
 extern void carrega_construcoes (SDL_Surface *screen);

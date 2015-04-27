@@ -28,8 +28,8 @@ void carrega_china_azul(SDL_Surface *screen){
         caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_lateral.png";
         SDL_Surface *soldado_lateral_v = load_Image(caminho, screen);
         Unit *soldado = new Unit();
-        string unidade = "soldado";
-        setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v, id);
+        string unit = "soldado";
+        setar_soldado(soldado, cor2, unit, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v, id);
         id++;
         unidades_vermelhas.push_back(soldado);
 
@@ -40,8 +40,8 @@ void carrega_china_azul(SDL_Surface *screen){
         dst.w = 0;
         SDL_BlitSurface(unidades_vermelhas[i]->unit_name, &cutBox,  screen, &dst);
         //BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[2][12]->x,hexagonos[2][12]->y);
-        hexagonos[i*2][12]->unidade = unidades_vermelhas[i];
-        hexagonos[i*2][12]->contem_unidade = 1;
+        hexagonos[i*2][12]->unit = unidades_vermelhas[i];
+        hexagonos[i*2][12]->contains_unit = 1;
         unidades_vermelhas[0]->x = hexagonos[i*2][12]->x;
         unidades_vermelhas[0]->y = hexagonos[i*2][12]->y;
 
@@ -62,16 +62,16 @@ void carrega_china_azul(SDL_Surface *screen){
         unidades_vermelhas.push_back(metralhadora);
 
         BlitImage(screen,unidades_vermelhas[i]->unit_name,hexagonos[2][13]->x,hexagonos[2][13]->y);
-        hexagonos[2][13]->unidade = unidades_vermelhas[i];
-        hexagonos[2][13]->contem_unidade = 1;
-        hexagonos[3][13]->unidade = unidades_vermelhas[i];
-        hexagonos[3][13]->contem_unidade = 1;
-        hexagonos[4][13]->unidade = unidades_vermelhas[i];
-        hexagonos[4][13]->contem_unidade = 1;
-        hexagonos[5][13]->unidade = unidades_vermelhas[i];
-        hexagonos[5][13]->contem_unidade = 1;
-        hexagonos[6][13]->unidade = unidades_vermelhas[i];
-        hexagonos[6][13]->contem_unidade = 1;
+        hexagonos[2][13]->unit = unidades_vermelhas[i];
+        hexagonos[2][13]->contains_unit = 1;
+        hexagonos[3][13]->unit = unidades_vermelhas[i];
+        hexagonos[3][13]->contains_unit = 1;
+        hexagonos[4][13]->unit = unidades_vermelhas[i];
+        hexagonos[4][13]->contains_unit = 1;
+        hexagonos[5][13]->unit = unidades_vermelhas[i];
+        hexagonos[5][13]->contains_unit = 1;
+        hexagonos[6][13]->unit = unidades_vermelhas[i];
+        hexagonos[6][13]->contains_unit = 1;
     }
 
     ///Carregar os sprites do quartel azul
@@ -82,23 +82,23 @@ void carrega_china_azul(SDL_Surface *screen){
     setar_quartel(quartel_a,cor2,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
     id++;
     BlitImage(screen,quartel_azul_cabana,hexagonos[7][13]->x,hexagonos[7][13]->y);
-    hexagonos[7][13]->unidade = quartel_a;
-    hexagonos[7][13]->contem_unidade= 1;
-    hexagonos[7][14]->unidade = quartel_a;
-    hexagonos[7][14]->contem_unidade= 1;
-    hexagonos[8][14]->unidade = quartel_a;
-    hexagonos[8][14]->contem_unidade= 1;
-    hexagonos[9][13]->unidade = quartel_a;
-    hexagonos[9][13]->contem_unidade= 1;
-    hexagonos[9][14]->unidade = quartel_a;
-    hexagonos[9][14]->contem_unidade= 1;
-    hexagonos[10][14]->unidade = quartel_a;
-    hexagonos[10][14]->contem_unidade= 1;
+    hexagonos[7][13]->unit = quartel_a;
+    hexagonos[7][13]->contains_unit= 1;
+    hexagonos[7][14]->unit = quartel_a;
+    hexagonos[7][14]->contains_unit= 1;
+    hexagonos[8][14]->unit = quartel_a;
+    hexagonos[8][14]->contains_unit= 1;
+    hexagonos[9][13]->unit = quartel_a;
+    hexagonos[9][13]->contains_unit= 1;
+    hexagonos[9][14]->unit = quartel_a;
+    hexagonos[9][14]->contains_unit= 1;
+    hexagonos[10][14]->unit = quartel_a;
+    hexagonos[10][14]->contains_unit= 1;
     unidades_vermelhas.push_back(quartel_a);
 
     /*BlitImage(screen,unidades_vermelhas[5]->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
-    hexagonos[14][12]->unidade = unidades_vermelhas[5];
-    hexagonos[14][12]->contem_unidade = 1;
+    hexagonos[14][12]->unit = unidades_vermelhas[5];
+    hexagonos[14][12]->contains_unit = 1;
     unidades_vermelhas[5]->x = hexagonos[14][12]->x;
     unidades_vermelhas[5]->y = hexagonos[14][12]->y;*/
 

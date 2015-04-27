@@ -26,20 +26,20 @@ void mapeia_hexagono()
 	int je=136;
 	int contador=0;
 	while (ja<500) {
-		vector <Hexagono *> hex_temp;
+		vector <Hexagons *> hex_temp;
 		for (ia=35, ie=44;ia<1050;ia+=68,ie+=68) {
 
 			//BlitImage(screen,unidades_azul[0]->unit_name,ia,ja);
-			Hexagono *hexagon = new Hexagono;
-			hexagon->centro_x = ie;
-			hexagon->centro_y = je;
-			hexagon->raio = 20;
+			Hexagons *hexagon = new Hexagons;
+			hexagon->center_in_x = ie;
+			hexagon->center_in_y = je;
+			hexagon->radius = 20;
 			hexagon->x = ia;
 			hexagon->y = ja;
-			hexagon->indice = contador;
-			hexagon->contem_unidade=0;
-			hexagon->obstaculo=0;
-			hexagon->obstaculo = 0;
+			hexagon->index = contador;
+			hexagon->contains_unit=0;
+			hexagon->barrier=0;
+			hexagon->barrier = 0;
 			if (contador==132) {
 				//string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
 				//SDL_Surface *soldado1 = load_Image(caminho, screen);
@@ -55,21 +55,21 @@ void mapeia_hexagono()
 		hexagonos.push_back(hex_temp);
 		ja+=19;
 		je+=20;
-		vector <Hexagono *> hex_temp2;
+		vector <Hexagons *> hex_temp2;
 		for (ia=65,ie=78;ia<1050;ia+=68,ie+=68) {
 
 			//BlitImage(screen,unidades_azul[0]->unit_name,ia,ja);
 
-			Hexagono *hexagon = new Hexagono;
+			Hexagons *hexagon = new Hexagons;
 			hexagon->x = ia;
 			hexagon->y = ja;
-			hexagon->obstaculo = 0;
-			hexagon->centro_x = ie;
-			hexagon->centro_y = je;
-			hexagon->indice = contador;
-			hexagon->raio = 20;
-			hexagon->obstaculo=0;
-			hexagon->contem_unidade=0;
+			hexagon->barrier = 0;
+			hexagon->center_in_x = ie;
+			hexagon->center_in_y = je;
+			hexagon->index = contador;
+			hexagon->radius = 20;
+			hexagon->barrier=0;
+			hexagon->contains_unit=0;
 			hex_temp2.push_back(hexagon);
 			contador++;
 		}
@@ -140,13 +140,13 @@ void carregar_fase1(SDL_Surface *screen)
 
 	mapeia_hexagono();
 
-	hexagonos[1][12]->obstaculo =1;
-	hexagonos[1][3]->obstaculo =1;
-	hexagonos[10][6]->obstaculo =1;
-	hexagonos[11][10]->obstaculo =1;
-	hexagonos[12][11]->obstaculo =1;
-	hexagonos[12][0]->obstaculo =1;
-	hexagonos[13][0]->obstaculo =1;
+	hexagonos[1][12]->barrier =1;
+	hexagonos[1][3]->barrier =1;
+	hexagonos[10][6]->barrier =1;
+	hexagonos[11][10]->barrier =1;
+	hexagonos[12][11]->barrier =1;
+	hexagonos[12][0]->barrier =1;
+	hexagonos[13][0]->barrier =1;
 
 	carrega_china(screen);
 	carrega_eua(screen);
@@ -155,7 +155,7 @@ void carregar_fase1(SDL_Surface *screen)
 	for(int i=0; i<hexagonos.size();i++){
 		for(int j=0; j<hexagonos[i].size();j++){
 		BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[i][j]->x,hexagonos[i][j]->y);
-		cout<<hexagonos[i][j]->indice<<" ";
+		cout<<hexagonos[i][j]->index<<" ";
 		}
 		cout<<endl;
 	}*/

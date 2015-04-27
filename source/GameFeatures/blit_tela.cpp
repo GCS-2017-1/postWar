@@ -52,10 +52,10 @@ void blit_tela(SDL_Surface *screen, int tela)
 	 */
 	for (unsigned int i = 0; i < hexagonos.size(); i++) {
 		for (unsigned int j=0; j<hexagonos[i].size(); j++) {
-			if (hexagonos[i][j]->contem_unidade == 1) {
-				if (hexagonos[i][j]->unidade->unit_type == "soldado" ||
-				    hexagonos[i][j]->unidade->unit_type == "helicoptero" ||
-				    hexagonos[i][j]->unidade->unit_type == "tanque")
+			if (hexagonos[i][j]->contains_unit == 1) {
+				if (hexagonos[i][j]->unit->unit_type == "soldado" ||
+				    hexagonos[i][j]->unit->unit_type == "helicoptero" ||
+				    hexagonos[i][j]->unit->unit_type == "tanque")
 				{
 					SDL_Rect cutBox = {32, 0, 32, 32};
 					SDL_Rect dst;
@@ -63,47 +63,47 @@ void blit_tela(SDL_Surface *screen, int tela)
 					dst.y = hexagonos[i][j]->y;
 					dst.h = 0;
 					dst.w = 0;
-					SDL_BlitSurface(hexagonos[i][j]->unidade->unit_name,
+					SDL_BlitSurface(hexagonos[i][j]->unit->unit_name,
 					                &cutBox,
 					                screen,
 					                &dst);
 				}
-				else if (hexagonos[i][j]->unidade->unit_type == "quartel" &&
-				        hexagonos[i][j]->unidade->unit_color == "vermelho")
+				else if (hexagonos[i][j]->unit->unit_type == "quartel" &&
+				        hexagonos[i][j]->unit->unit_color == "vermelho")
 				{
 					BlitImage(screen,
-					          hexagonos[6][1]->unidade->unit_name,
+					          hexagonos[6][1]->unit->unit_name,
 					          hexagonos[6][1]->x,
 					          hexagonos[6][1]->y);
 				}
-				else if (hexagonos[i][j]->unidade->unit_type == "quartel" &&
-				         hexagonos[i][j]->unidade->unit_color == "azul")
+				else if (hexagonos[i][j]->unit->unit_type == "quartel" &&
+				         hexagonos[i][j]->unit->unit_color == "azul")
 				{
 					BlitImage(screen,
-					          hexagonos[7][13]->unidade->unit_name,
+					          hexagonos[7][13]->unit->unit_name,
 					          hexagonos[7][13]->x,
 					          hexagonos[7][13]->y);
 				}
 				else {
-					if (hexagonos[6][4]->contem_unidade) {
-						BlitImage(screen,hexagonos[6][4]->unidade->unit_name,
+					if (hexagonos[6][4]->contains_unit) {
+						BlitImage(screen,hexagonos[6][4]->unit->unit_name,
 						          hexagonos[6][4]->x,
 						          hexagonos[6][4]->y);
 					}
-					//BlitImage(screen,hexagonos[14][12]->unidade->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
-					if (hexagonos[10][12]->contem_unidade) {
-						BlitImage(screen,hexagonos[10][12]->unidade->unit_name,
+					//BlitImage(screen,hexagonos[14][12]->unit->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
+					if (hexagonos[10][12]->contains_unit) {
+						BlitImage(screen,hexagonos[10][12]->unit->unit_name,
 						          hexagonos[10][12]->x,
 						          hexagonos[10][12]->y);
 					}
-					if (hexagonos[2][13]->contem_unidade) {
-						BlitImage(screen,hexagonos[2][13]->unidade->unit_name,
+					if (hexagonos[2][13]->contains_unit) {
+						BlitImage(screen,hexagonos[2][13]->unit->unit_name,
 						          hexagonos[2][13]->x,
 						          hexagonos[2][13]->y);
 					}
 				}
 			}
-			//BlitImage(screen, hexagonos[2][8]->construcao->unit_name, hexagonos[2][8]->x, hexagonos[2][8]->y);
+			//BlitImage(screen, hexagonos[2][8]->building->unit_name, hexagonos[2][8]->x, hexagonos[2][8]->y);
 		}
 	}
 }
@@ -128,30 +128,30 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 	for (unsigned int i = 0; i < hexagonos.size(); i++) {
 		for (unsigned int j = 0; j < hexagonos[i].size(); j++) {
 
-			if (hexagonos[i][j]->contem_unidade == 1) {
+			if (hexagonos[i][j]->contains_unit == 1) {
 				/*
 				 * cout << "foi, i: " << i << "j: " << j << endl;
 				 * cout << "cheguei aqui" << endl;
-				 * cout << "unidade ID:"
-				 *		<<	hexagonos[i][j]->unidade->id
+				 * cout << "unit ID:"
+				 *		<<	hexagonos[i][j]->unit->id
 				 *		<<	endl;
 				 * cout << "x e y aponta para:"
-				 *      << hexagonos[x][y]->unidade
+				 *      << hexagonos[x][y]->unit
 				 *      << endl;
-				 * cout << "unidade unit_type:"
+				 * cout << "unit unit_type:"
 				 *      << hexagonos[hex_selecao->i_antes]
-				 *      			[hex_selecao->j_antes]->unidade->unit_type
+				 *      			[hex_selecao->j_antes]->unit->unit_type
 				 *      << endl;
 				 */
-				if (hexagonos[i][j]->unidade->id == id) {
+				if (hexagonos[i][j]->unit->id == id) {
 					/* cout << "entrei if" << endl; */
 					int w = hexagonos[hex_selecao->i_antes]
-					                 [hex_selecao->j_antes]->unidade->x;
+					                 [hex_selecao->j_antes]->unit->x;
 					int s = hexagonos[hex_selecao->i_antes]
-					                 [hex_selecao->j_antes]->unidade->y;
+					                 [hex_selecao->j_antes]->unit->y;
 					Unit *temp;
 					temp = hexagonos[hex_selecao->i_antes]
-					                [hex_selecao->j_antes]->unidade;
+					                [hex_selecao->j_antes]->unit;
 					/* cout << "temp:" << temp->unit_type << endl; */
 					SDL_Surface *temp_s;
 					string unit_color = "vermelho";
@@ -160,8 +160,8 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 					string tipo2 = "soldado";
 					string tipo3 = "helicoptero";
 					string tipo4 = "tanque";
-					/* cout << "unit_color da unidade atual:" << temp->unit_color << endl; */
-					/* cout << "Tipo unidade atual:" << temp->unit_type << endl; */
+					/* cout << "unit_color da unit atual:" << temp->unit_color << endl; */
+					/* cout << "Tipo unit atual:" << temp->unit_type << endl; */
 
 					SDL_Rect cutBox = {0, 0, 32, 32};
 					/* acha tanque azul */
@@ -246,10 +246,10 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 
 				}
 
-				if ((hexagonos[i][j]->unidade->unit_type == "soldado" ||
-				      hexagonos[i][j]->unidade->unit_type == "helicoptero" ||
-				      hexagonos[i][j]->unidade->unit_type == "tanque") &&
-				 	 (hexagonos[i][j]->unidade->id != id))
+				if ((hexagonos[i][j]->unit->unit_type == "soldado" ||
+				      hexagonos[i][j]->unit->unit_type == "helicoptero" ||
+				      hexagonos[i][j]->unit->unit_type == "tanque") &&
+				 	 (hexagonos[i][j]->unit->id != id))
 				{
 					SDL_Rect cutBox = {32, 0, 32, 32};
 					SDL_Rect dst;
@@ -259,40 +259,40 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 					dst.w = 0;
 					/* cout << "fiz isso i " << i << endl; */
 
-					SDL_BlitSurface(hexagonos[i][j]->unidade->unit_name,
+					SDL_BlitSurface(hexagonos[i][j]->unit->unit_name,
 					                &cutBox,
 					                screen,
 					                &dst);
 				}
-				else if (hexagonos[i][j]->unidade->unit_type == "quartel" &&
-				         hexagonos[i][j]->unidade->unit_color == "vermelho")
+				else if (hexagonos[i][j]->unit->unit_type == "quartel" &&
+				         hexagonos[i][j]->unit->unit_color == "vermelho")
 				{
 					BlitImage(screen,
-					          hexagonos[6][1]->unidade->unit_name,
+					          hexagonos[6][1]->unit->unit_name,
 					          hexagonos[6][1]->x,
 					          hexagonos[6][1]->y);
 				}
-				else if (hexagonos[i][j]->unidade->unit_type == "quartel" &&
-				         hexagonos[i][j]->unidade->unit_color == "azul")
+				else if (hexagonos[i][j]->unit->unit_type == "quartel" &&
+				         hexagonos[i][j]->unit->unit_color == "azul")
 				{
-					if (hexagonos[7][13]->contem_unidade) {
+					if (hexagonos[7][13]->contains_unit) {
 						BlitImage(screen,
-						          hexagonos[7][13]->unidade->unit_name,
+						          hexagonos[7][13]->unit->unit_name,
 						          hexagonos[7][13]->x,
 						          hexagonos[7][13]->y);
 					}
 				}
 				else {
-					if (hexagonos[6][4]->contem_unidade) {
+					if (hexagonos[6][4]->contains_unit) {
 						BlitImage(screen,
-						          hexagonos[6][4]->unidade->unit_name,
+						          hexagonos[6][4]->unit->unit_name,
 						          hexagonos[6][4]->x,
 						          hexagonos[6][4]->y);
 					}
-					//BlitImage(screen,hexagonos[14][12]->unidade->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
-					if (hexagonos[10][12]->contem_unidade) {
+					//BlitImage(screen,hexagonos[14][12]->unit->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
+					if (hexagonos[10][12]->contains_unit) {
 						BlitImage(screen,
-						          hexagonos[10][12]->unidade->unit_name,
+						          hexagonos[10][12]->unit->unit_name,
 						          hexagonos[10][12]->x,
 						          hexagonos[10][12]->y);
 					}
@@ -301,9 +301,9 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 
 
 				/*
-				 * else if (hexagonos[i][j]->unidade->unit_type == "quartel") {
+				 * else if (hexagonos[i][j]->unit->unit_type == "quartel") {
 				 *     BlitImage(screen,
-				 *	             hexagonos[6][1]->unidade->unit_name,
+				 *	             hexagonos[6][1]->unit->unit_name,
 				 *	             hexagonos[6][1]->x,
 				 *	             hexagonos[6][1]->y);
 				 * }
@@ -312,11 +312,11 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 				 * else {
 				 *	   if (aux == 0){
 				 *	       aux = 1;
-				 *		   unit = hexagonos[i][j]->unidade;
+				 *		   unit = hexagonos[i][j]->unit;
 				 *		   i_menor = i;
 				 *		   j_menor = j;
 				 *		   BlitImage(screen,
-				 *		             hexagonos[i][j]->unidade->unit_name,
+				 *		             hexagonos[i][j]->unit->unit_name,
 				 *		             hexagonos[i][j]->x,
 				 *		             hexagonos[i][j]->y);
 				 *	    }

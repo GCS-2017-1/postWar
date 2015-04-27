@@ -52,14 +52,14 @@ void fase1(SDL_Surface *screen,
 						if (possui_unidade("vermelho") ) {
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
+							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
 							blit_cima(pais_serv,screen);
 							while(1) {
 								start1 = SDL_GetTicks();
 								vetor = get_Input();
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
-									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")) {
+									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")) {
 										break;
 									}
 									else {
@@ -118,8 +118,8 @@ void fase1(SDL_Surface *screen,
 										/*nothing to do */
 									}
 									if (alcance_movimento_soldado()) {
-										if (hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1) {
-											if (hexagonos[2][8]->construcao->conquered == 1) {
+										if (hexagonos[hex_selecao->i][hex_selecao->j]->mine == 1) {
+											if (hexagonos[2][8]->building->conquered == 1) {
 												break;
 											}
 											else {
@@ -381,14 +381,14 @@ void fase1(SDL_Surface *screen,
 							blit_cima(pais_client,screen);
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
+							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
 								while(1) {
 									start1 = SDL_GetTicks();
 									blit_cima(pais_client,screen);
 									vetor = get_Input();
 									if (vetor->click == 1) {
 										verifica_hexagono(vetor->x,vetor->y);
-										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")) {
+										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")) {
 											break;
 										}
 										else {
@@ -437,8 +437,8 @@ void fase1(SDL_Surface *screen,
 											/* nothing to do */
 										}
 										if (alcance_movimento_soldado()) {
-											if (hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1) {
-												if (hexagonos[2][8]->construcao->conquered == 1) {
+											if (hexagonos[hex_selecao->i][hex_selecao->j]->mine == 1) {
+												if (hexagonos[2][8]->building->conquered == 1) {
 													break;
 												}
 												else {
@@ -627,8 +627,8 @@ void desenha_pontos(int number, SDL_Surface *screen)
 /* selects the blit */
 void blit_selecao(SDL_Surface *screen)
 {
-	if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_type.compare("quartel")!=0 ) {
-		if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_type.compare("metralhadora")!=0 ) {
+	if (hexagonos[hex_selecao->i][hex_selecao->j]->unit->unit_type.compare("quartel")!=0 ) {
+		if (hexagonos[hex_selecao->i][hex_selecao->j]->unit->unit_type.compare("metralhadora")!=0 ) {
 			string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
 			SDL_Surface *selecao = load_Image(caminho, screen);
 			if (hex_selecao->i%2==1) {
