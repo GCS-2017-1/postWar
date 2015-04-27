@@ -11,3 +11,7 @@
 *.lai
 *.la
 *.a
+
+# Binary Archives
+*.exe
+PostWar
