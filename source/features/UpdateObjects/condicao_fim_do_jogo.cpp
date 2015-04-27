@@ -10,8 +10,8 @@
 void verifica_derrota(SDL_Surface *screen)
 {
 	cout << "Entrei na condicao" << endl;
-	Unidade *temp;
-	string tipo = "quartel";
+	Unit *temp;
+	string unit_type = "quartel";
 	for (unsigned int i = 0; i < hexagonos.size(); i++) {
 		cout << "andando i: " << i << endl;
 		for (unsigned int j = 0; j < hexagonos[i].size() ; j++) {
@@ -19,8 +19,8 @@ void verifica_derrota(SDL_Surface *screen)
 			if (hexagonos[i][j]->contem_unidade == 1) {
 				cout << "achei uma unidade" << endl;
 				temp = hexagonos[i][j]->unidade;
-				cout << "temp tipo:" << temp->tipo << endl;
-				if (temp->tipo == tipo && temp->hp == 0) {
+				cout << "temp unit_type:" << temp->unit_type << endl;
+				if (temp->unit_type == unit_type && temp->health_points == 0) {
 					string mensagem = "Você perdeu!LOSER!!";
 					desenha_texto(mensagem, screen, 50, 50, 60);
 				}

@@ -18,11 +18,11 @@ void mover_soldado(SDL_Surface *screen,
 
 	string tipo1 = "quartel";
 	string tipo2 = "metralhadora";
-	Unidade *temp;
+	Unit *temp;
 
 	temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
 
-	if (temp->tipo == tipo1 || temp->tipo == tipo2) {
+	if (temp->unit_type == tipo1 || temp->unit_type == tipo2) {
 		cout << "Nao pode mover" << endl;
 		return;
 	}
@@ -34,7 +34,7 @@ void mover_soldado(SDL_Surface *screen,
 
 	int tempo_delay;
 
-	if (temp->tipo=="helicoptero") {
+	if (temp->unit_type=="helicoptero") {
 		tempo_delay = 10;
 	}
 	else {
@@ -99,7 +99,7 @@ void mover_soldado(SDL_Surface *screen,
 		{
 			cout<<"WOLOLOLO"<<endl;
 		}
-		SDL_BlitSurface(temp->nome, &cutBox, screen, &dest);
+		SDL_BlitSurface(temp->unit_name, &cutBox, screen, &dest);
 		SDL_Delay(tempo_delay);
 		SDL_Flip(screen);
 	}

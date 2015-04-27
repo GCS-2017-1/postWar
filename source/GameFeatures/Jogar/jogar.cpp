@@ -18,8 +18,8 @@ Hex_selecao *hex_selecao;
 char codigo[100];
 SDL_Surface *mapa1;
 
-vector <Unidade *> unidades_azul;
-vector <Unidade *> unidades_vermelhas;
+vector <Unit *> unidades_azul;
+vector <Unit *> unidades_vermelhas;
 vector< vector <Hexagono*> > hexagonos;
 int id;
 
@@ -189,19 +189,19 @@ void escolha_mapa(SDL_Surface *screen)
 				strcpy(codigo_s,"1");
 				enviar_msg(Sclient,codigo_s);
 				Pais *china = new Pais();
-				string nome = "China";
-				string cor = "vermelho";
-				setar_pais(china, 50, 100, 50, nome, cor);
+				string unit_name = "China";
+				string unit_color = "vermelho";
+				setar_pais(china, 50, 100, 50, unit_name, unit_color);
 				Pais *eua = new Pais();
-				nome = "EUA";
-				cor = "azul";
-				setar_pais(eua, 100, 50, 50, nome, cor);
+				unit_name = "EUA";
+				unit_color = "azul";
+				setar_pais(eua, 100, 50, 50, unit_name, unit_color);
 				Mix_HaltMusic();
 				carregar_fase1(screen);
 				play_music(musica_fase_1);
 				fase1(screen,"servidor",china,eua);
 			}
-		}   
+		}
 		/* Fase2 */
 		else if(compara_selecao(253, 397, vetor->x, 333, 499, vetor->y)) {
 			BlitImage(screen,maps,0,0);
@@ -211,13 +211,13 @@ void escolha_mapa(SDL_Surface *screen)
 				strcpy(codigo_s,"2");
 				enviar_msg(Sclient,codigo_s);
 				Pais *franca = new Pais();
-				string nome = "França";
-				string cor = "vermelho";
-				setar_pais(franca, 50, 50, 100, nome, cor);
+				string unit_name = "França";
+				string unit_color = "vermelho";
+				setar_pais(franca, 50, 50, 100, unit_name, unit_color);
 				Pais *uk = new Pais();
-				nome = "UK";
-				cor = "azul";
-				setar_pais(uk, 100, 40, 50, nome, cor);
+				unit_name = "UK";
+				unit_color = "azul";
+				setar_pais(uk, 100, 40, 50, unit_name, unit_color);
 				Mix_HaltMusic();
 				carregar_fase2(screen);
 				play_music(musica_fase_2);
@@ -233,13 +233,13 @@ void escolha_mapa(SDL_Surface *screen)
 				strcpy(codigo_s,"3");
 				enviar_msg(Sclient,codigo_s);
 				Pais *urss = new Pais();
-				string nome = "URSS";
-				string cor = "vermelho";
-				setar_pais(urss, 50, 100, 40, nome, cor);
+				string unit_name = "URSS";
+				string unit_color = "vermelho";
+				setar_pais(urss, 50, 100, 40, unit_name, unit_color);
 				Pais *uk = new Pais();
-				nome = "UK";
-				cor = "azul";
-				setar_pais(uk, 100, 40, 50, nome, cor);
+				unit_name = "UK";
+				unit_color = "azul";
+				setar_pais(uk, 100, 40, 50, unit_name, unit_color);
 				Mix_HaltMusic();
 				carregar_fase3(screen);
 				play_music(musica_fase_3);
@@ -255,13 +255,13 @@ void escolha_mapa(SDL_Surface *screen)
 				strcpy(codigo_s,"4");
 				enviar_msg(Sclient,codigo_s);
 				Pais *urss = new Pais();
-				string nome = "URSS";
-				string cor = "vermelho";
-				setar_pais(urss, 50, 100, 40, nome, cor);
+				string unit_name = "URSS";
+				string unit_color = "vermelho";
+				setar_pais(urss, 50, 100, 40, unit_name, unit_color);
 				Pais *china = new Pais();
-				nome = "China";
-				cor = "azul";
-				setar_pais(china, 50, 100, 50, nome, cor);
+				unit_name = "China";
+				unit_color = "azul";
+				setar_pais(china, 50, 100, 50, unit_name, unit_color);
 				Mix_HaltMusic();
 				carregar_fase4(screen);
 				play_music(musica_fase_4);
@@ -277,13 +277,13 @@ void escolha_mapa(SDL_Surface *screen)
 				strcpy(codigo_s,"5");
 				enviar_msg(Sclient,codigo_s);
 				Pais *franca = new Pais();
-				string nome = "França";
-				string cor = "vermelho";
-				setar_pais(franca, 50, 50, 100, nome, cor);
+				string unit_name = "França";
+				string unit_color = "vermelho";
+				setar_pais(franca, 50, 50, 100, unit_name, unit_color);
 				Pais *eua = new Pais();
-				nome = "EUA";
-				cor = "azul";
-				setar_pais(eua, 100, 50, 50, nome, cor);
+				unit_name = "EUA";
+				unit_color = "azul";
+				setar_pais(eua, 100, 50, 50, unit_name, unit_color);
 				Mix_HaltMusic();
 				carregar_fase5(screen);
 				play_music(musica_fase_5);
@@ -351,61 +351,61 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen)
 				receber_msg(Cserver,code_recv);
 				if(strcmp(code_recv,"1")==0) {
 					Pais *china = new Pais();
-					string nome = "China";
-					string cor = "vermelho";
-					setar_pais(china, 50, 100, 50, nome, cor);
+					string unit_name = "China";
+					string unit_color = "vermelho";
+					setar_pais(china, 50, 100, 50, unit_name, unit_color);
 					Pais *eua = new Pais();
-					nome = "EUA";
-					cor = "azul";
-					setar_pais(eua, 100, 50, 50, nome, cor);
+					unit_name = "EUA";
+					unit_color = "azul";
+					setar_pais(eua, 100, 50, 50, unit_name, unit_color);
 					carregar_fase1(screen );
 					fase1(screen,"cliente",china,eua);
 				}
 				else if (strcmp(code_recv,"2")==0) {
 					Pais *franca = new Pais();
-					string nome = "França";
-					string cor = "vermelho";
-					setar_pais(franca, 50, 50, 100, nome, cor);
+					string unit_name = "França";
+					string unit_color = "vermelho";
+					setar_pais(franca, 50, 50, 100, unit_name, unit_color);
 					Pais *uk = new Pais();
-					nome = "UK";
-					cor = "azul";
-					setar_pais(uk, 100, 40, 50, nome, cor);
+					unit_name = "UK";
+					unit_color = "azul";
+					setar_pais(uk, 100, 40, 50, unit_name, unit_color);
 					carregar_fase2(screen );
 					fase1(screen,"cliente",franca,uk);
 				}
 				else if (strcmp(code_recv, "3")==0) {
 					Pais *urss = new Pais();
-					string nome = "URSS";
-					string cor = "vermelho";
-					setar_pais(urss, 50, 100, 40, nome, cor);
+					string unit_name = "URSS";
+					string unit_color = "vermelho";
+					setar_pais(urss, 50, 100, 40, unit_name, unit_color);
 					Pais *uk = new Pais();
-					nome = "UK";
-					cor = "azul";
-					setar_pais(uk, 100, 40, 50, nome, cor);
+					unit_name = "UK";
+					unit_color = "azul";
+					setar_pais(uk, 100, 40, 50, unit_name, unit_color);
 					carregar_fase3(screen );
 					fase1(screen,"cliente",urss,uk);
 				}
 				else if (strcmp(code_recv, "4")==0) {
 					Pais *urss = new Pais();
-					string nome = "URSS";
-					string cor = "vermelho";
-					setar_pais(urss, 50, 100, 40, nome, cor);
+					string unit_name = "URSS";
+					string unit_color = "vermelho";
+					setar_pais(urss, 50, 100, 40, unit_name, unit_color);
 					Pais *china = new Pais();
-					nome = "China";
-					cor = "azul";
-					setar_pais(china, 50, 100, 50, nome, cor);
+					unit_name = "China";
+					unit_color = "azul";
+					setar_pais(china, 50, 100, 50, unit_name, unit_color);
 					carregar_fase4(screen );
 					fase1(screen,"cliente",urss,china);
 				}
 				else if (strcmp(code_recv, "5")==0) {
 					Pais *franca = new Pais();
-					string nome = "França";
-					string cor = "vermelho";
-					setar_pais(franca, 50, 50, 100, nome, cor);
+					string unit_name = "França";
+					string unit_color = "vermelho";
+					setar_pais(franca, 50, 50, 100, unit_name, unit_color);
 					Pais *eua = new Pais();
-					nome = "EUA";
-					cor = "azul";
-					setar_pais(eua, 100, 50, 50, nome, cor);
+					unit_name = "EUA";
+					unit_color = "azul";
+					setar_pais(eua, 100, 50, 50, unit_name, unit_color);
 					carregar_fase5(screen );
 					fase1(screen,"cliente",franca,eua);
 				}

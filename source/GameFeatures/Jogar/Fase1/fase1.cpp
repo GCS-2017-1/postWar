@@ -59,7 +59,7 @@ void fase1(SDL_Surface *screen,
 								vetor = get_Input();
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
-									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")) {
+									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")) {
 										break;
 									}
 									else {
@@ -72,7 +72,7 @@ void fase1(SDL_Surface *screen,
 										ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
 										dano_ataque(screen);
 										//cout << "enviei" << endl;
-										//cout << "animei ataque" << endl;
+										//cout << "animei attack" << endl;
 										if (derrotado.compare(cor1) == 0) {
 											vermelhoperde = 1;
 											vermelhoganha = 0;
@@ -388,7 +388,7 @@ void fase1(SDL_Surface *screen,
 									vetor = get_Input();
 									if (vetor->click == 1) {
 										verifica_hexagono(vetor->x,vetor->y);
-										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")) {
+										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")) {
 											break;
 										}
 										else {
@@ -404,7 +404,7 @@ void fase1(SDL_Surface *screen,
 														   delay,
 														   lastdt);
 											dano_ataque(screen);
-											//cout << "animei ataque" << endl;
+											//cout << "animei attack" << endl;
 											if (derrotado.compare(cor1) == 0) {
 												vermelhoperde = 1;
 												vermelhoganha = 0;
@@ -580,7 +580,7 @@ void amigo_movimenta(char code_recv[],
 				  delay,
 				  lastdt);
 	blit_tela(screen,0);
-	}	
+	}
 	else if (code_recv[0] == '0' && code_recv[1] == '1') {
 		hex_selecao->i_antes = code_recv[2] - 48;
 		hex_selecao->j_antes = code_recv[3] - 48;
@@ -627,8 +627,8 @@ void desenha_pontos(int number, SDL_Surface *screen)
 /* selects the blit */
 void blit_selecao(SDL_Surface *screen)
 {
-	if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("quartel")!=0 ) {
-		if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("metralhadora")!=0 ) {
+	if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_type.compare("quartel")!=0 ) {
+		if (hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_type.compare("metralhadora")!=0 ) {
 			string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
 			SDL_Surface *selecao = load_Image(caminho, screen);
 			if (hex_selecao->i%2==1) {

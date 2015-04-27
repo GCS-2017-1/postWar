@@ -97,7 +97,7 @@ void carregar_fase4(SDL_Surface *screen){
 /*
     for(int i=0; i<hexagonos.size();i++){
         for(int j=0; j<hexagonos[i].size();j++){
-        BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+        BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[i][j]->x,hexagonos[i][j]->y);
         cout<<hexagonos[i][j]->indice<<" ";
         }
         cout<<endl;

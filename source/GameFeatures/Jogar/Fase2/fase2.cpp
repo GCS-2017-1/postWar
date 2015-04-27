@@ -16,13 +16,13 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 {
 	FPS = 150;
 	Pais *franca = new Pais();
-	string nome = "França";
-	string cor = "vermelho";
-	setar_pais(franca, 50, 50, 100, nome, cor);
+	string unit_name = "França";
+	string unit_color = "vermelho";
+	setar_pais(franca, 50, 50, 100, unit_name, unit_color);
 	Pais *uk = new Pais();
-	nome = "UK";
-	cor = "azul";
-	setar_pais(uk, 100, 40, 50, nome, cor);
+	unit_name = "UK";
+	unit_color = "azul";
+	setar_pais(uk, 100, 40, 50, unit_name, unit_color);
 
 	char pais_serv[100] = "franca";
 	char pais_client[100] = "uk";
@@ -74,7 +74,7 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 									verifica_hexagono(vetor->x,vetor->y);
 									if (possui_unidade("vermelho")
 										|| (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo
-										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo
+										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type
 										!= "helicoptero")) {
 										break;
 									}
@@ -397,9 +397,9 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 								vetor = get_Input();
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
-									if (possui_unidade("azul") 
-										|| (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo 
-										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo 
+									if (possui_unidade("azul")
+										|| (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo
+										&& hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type
 										!= "helicoptero")) {
 										break;
 									}
@@ -409,11 +409,11 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 									if (alcance_ataque_soldado()) {
 										codifica_ataque(codigo_s);
 										enviar_msg(Cserver,codigo_s);
-										ataque_unidade(screen, 
+										ataque_unidade(screen,
 													   hexagonos[hex_selecao->i][hex_selecao->j]->x,
-													   hexagonos[hex_selecao->i][hex_selecao->j]->y, 
-													   totalElapsedTime, 
-													   delay, 
+													   hexagonos[hex_selecao->i][hex_selecao->j]->y,
+													   totalElapsedTime,
+													   delay,
 													   lastdt);
 										dano_ataque(screen);
 										if (derrotado.compare(cor1) == 0) {
@@ -455,11 +455,11 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 										codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
 										enviar_msg(Cserver,codigo_s);
 
-										mover_soldado(screen, 
+										mover_soldado(screen,
 													  hexagonos[hex_selecao->i][hex_selecao->j]->x,
-													  hexagonos[hex_selecao->i][hex_selecao->j]->y, 
-													  totalElapsedTime, 
-													  delay, 
+													  hexagonos[hex_selecao->i][hex_selecao->j]->y,
+													  totalElapsedTime,
+													  delay,
 													  lastdt);
 										pontos_jogador2 -= 3;
 										if (pontos_jogador2 < 3) {

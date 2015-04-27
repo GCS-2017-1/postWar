@@ -10,29 +10,29 @@
 
 using namespace std;
 
-typedef struct _Unidade {
-	SDL_Surface *ataque;
-	SDL_Surface *ataque_baixo;
-	SDL_Surface *ataque_cima;
-	SDL_Surface *nome;
-	SDL_Surface *imagem_lateral;
-	int hp;
-	int atk;
-	int def;
-	int alcance;
-	int ouro;
-	int comida;
-	int minerio;
-	string cor;
-	string tipo;
+typedef struct _Unit {
+	SDL_Surface *attack;
+	SDL_Surface *down_attack;
+	SDL_Surface *up_attack;
+	SDL_Surface *unit_name;
+	SDL_Surface *lateral_image;
+	int health_points;
+	int attack_points;
+	int deffense_points;
+	int attack_range;
+	int gold_coins;
+	int food;
+	int minerals;
+	string unit_color;
+	string unit_type;
 	int x;
 	int y;
 	int id;
-} Unidade;
+} Unit;
 
 typedef struct _Construcao {
-	SDL_Surface *nome;
-	string tipo;
+	SDL_Surface *unit_name;
+	string unit_type;
 	int ganho;
 	int conquistado;
 } Construcao;
@@ -44,7 +44,7 @@ typedef struct _Hexagonos {
 	bool contem_unidade : 1;
 	bool obstaculo : 1;
 	int mina;
-	Unidade *unidade;
+	Unit *unidade;
 	Construcao *construcao;
 	int centro_x;
 	int centro_y;
@@ -60,19 +60,19 @@ typedef struct _Hexagono_selecao {
 } Hex_selecao;
 
 typedef struct _Pais {
-	int ouro;
-	int comida;
-	int minerio;
-	string nome;
-	string cor;
+	int gold_coins;
+	int food;
+	int minerals;
+	string unit_name;
+	string unit_color;
 } Pais;
 
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
 extern Hex_selecao *hex_selecao;
 extern vector<vector <Hexagono *> > hexagonos;
-extern vector<Unidade *> unidades_azul;
-extern vector<Unidade *> unidades_vermelhas;
+extern vector<Unit *> unidades_azul;
+extern vector<Unit *> unidades_vermelhas;
 extern SDL_Surface *malha;
 extern SDL_Surface *hud;
 extern SDL_Surface *sem_malha;
@@ -150,7 +150,7 @@ extern void ataque_unidade (SDL_Surface *screen,
 	                        int totalElapsedTime,
 	                        int delay,
 	                        int lastdt);
-extern int possui_unidade (string cor);
+extern int possui_unidade (string unit_color);
 extern int alcance_movimento_soldado ();
 extern int alcance_ataque_soldado ();
 extern void dano_ataque (SDL_Surface *screen);
@@ -163,68 +163,68 @@ extern void amigo_movimenta (char code_recv[],
 							 int lastdt);
 extern void codifica_ataque (char codigo[]);
 extern void verifica_derrota (SDL_Surface *screen);
-extern void blit_lateral (Unidade *lateral,SDL_Surface *screen);
+extern void blit_lateral (Unit *lateral,SDL_Surface *screen);
 extern void blit_cima (Pais *pais, SDL_Surface *screen);
 extern void setar_pais (Pais *pais,
-						int ouro,
-						int comida,
-						int minerio,
-						string nome,
-						string cor);
-extern void setar_soldado (Unidade *soldado,
-						   string cor,
-						   string tipo,
-						   SDL_Surface *nome,
-						   SDL_Surface *ataque,
-						   SDL_Surface *ataque_baixo,
-						   SDL_Surface *ataque_cima,
+						int gold_coins,
+						int food,
+						int minerals,
+						string unit_name,
+						string unit_color);
+extern void setar_soldado (Unit *soldado,
+						   string unit_color,
+						   string unit_type,
+						   SDL_Surface *unit_name,
+						   SDL_Surface *attack,
+						   SDL_Surface *down_attack,
+						   SDL_Surface *up_attack,
 						   SDL_Surface *soldado_lateral,
 						   int id);
-extern void setar_helicoptero (Unidade *helicoptero,
-							   string cor,
-							   string tipo,
-							   SDL_Surface *nome,
-							   SDL_Surface *ataque,
-							   SDL_Surface *ataque_baixo,
-							   SDL_Surface *ataque_cima,
+extern void setar_helicoptero (Unit *helicoptero,
+							   string unit_color,
+							   string unit_type,
+							   SDL_Surface *unit_name,
+							   SDL_Surface *attack,
+							   SDL_Surface *down_attack,
+							   SDL_Surface *up_attack,
 							   SDL_Surface *helicoptero_lateral,
 							   int id);
-extern void setar_metralhadora (Unidade *metralhadora,
-								string cor,
-								string tipo,
-								SDL_Surface *nome,
-								SDL_Surface *ataque,
+extern void setar_metralhadora (Unit *metralhadora,
+								string unit_color,
+								string unit_type,
+								SDL_Surface *unit_name,
+								SDL_Surface *attack,
 								SDL_Surface *lateral,
 								int id);
-extern void setar_tanque (Unidade *tanque,
-						  string cor,
-						  string tipo,
-						  SDL_Surface *nome,
-						  SDL_Surface *ataque,
-						  SDL_Surface *ataque_baixo,
-						  SDL_Surface *ataque_cima,
+extern void setar_tanque (Unit *tanque,
+						  string unit_color,
+						  string unit_type,
+						  SDL_Surface *unit_name,
+						  SDL_Surface *attack,
+						  SDL_Surface *down_attack,
+						  SDL_Surface *up_attack,
 						  SDL_Surface *tanque_lateral,
 						  int id);
-extern void setar_quartel (Unidade *quartel,
-						   string cor,
-						   string tipo,
-						   SDL_Surface *nome,
-						   SDL_Surface *ataque,
+extern void setar_quartel (Unit *quartel,
+						   string unit_color,
+						   string unit_type,
+						   SDL_Surface *unit_name,
+						   SDL_Surface *attack,
 						   SDL_Surface *lateral,
 						   int id);
 extern void setar_pais (Pais *pais,
-						int ouro,
-						int comida,
-						int minerio,
-						string nome,
-						string cor);
+						int gold_coins,
+						int food,
+						int minerals,
+						string unit_name,
+						string unit_color);
 extern void setar_construcao (Construcao *construcao,
-							  SDL_Surface *nome,
-							  string tipo,
+							  SDL_Surface *unit_name,
+							  string unit_type,
 							  int ganho);
 extern void carrega_eua (SDL_Surface *screen,string lado);
 extern string convertInt (int number);
-extern void blit_lateral (Unidade *unidade,SDL_Surface *screen);
+extern void blit_lateral (Unit *unidade,SDL_Surface *screen);
 extern void blit_cima (Pais *pais, SDL_Surface *screen);
 extern void mapeia_hexagono ();
 extern void carrega_construcoes (SDL_Surface *screen);

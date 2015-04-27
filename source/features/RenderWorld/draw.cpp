@@ -286,23 +286,23 @@ void drawN(SDL_Surface *screen)
 	}
 }
 
-void fillPoints(SDL_Surface *screen, int cx, int cy, int x, int y, Uint32 color)
+void fillPoints(SDL_Surface *screen, int cx, int cy, int x, int y, Uint32 unit_color)
 {
 	for (int j = x; j <= y; j++) {
-		putPixel(screen, cx + x, cy + j, color);
-		putPixel(screen, cx + x, cy - j, color);
-		putPixel(screen, cx - x, cy + j, color);
-		putPixel(screen, cx - x, cy - j, color);
-		putPixel(screen, cx + j, cy + x, color);
-		putPixel(screen, cx + j, cy - x, color);
-		putPixel(screen, cx - j, cy + x, color);
-		putPixel(screen, cx - j, cy - x, color);
+		putPixel(screen, cx + x, cy + j, unit_color);
+		putPixel(screen, cx + x, cy - j, unit_color);
+		putPixel(screen, cx - x, cy + j, unit_color);
+		putPixel(screen, cx - x, cy - j, unit_color);
+		putPixel(screen, cx + j, cy + x, unit_color);
+		putPixel(screen, cx + j, cy - x, unit_color);
+		putPixel(screen, cx - j, cy + x, unit_color);
+		putPixel(screen, cx - j, cy - x, unit_color);
 	}
 }
 
-void drawCircle(SDL_Surface *screen, int radius, int x, int y, SDL_Color color)
+void drawCircle(SDL_Surface *screen, int radius, int x, int y, SDL_Color unit_color)
 {
-	Uint32 pixelColor = SDL_MapRGB(screen->format, color.r, color.g, color.b);
+	Uint32 pixelColor = SDL_MapRGB(screen->format, unit_color.r, unit_color.g, unit_color.b);
 
 	/* algoritmo de Bresenham para círculos */
 	int error = 3 - (radius << 1);
@@ -328,9 +328,9 @@ void drawLine(SDL_Surface *screen,
 			  int y1,
 			  int x2,
 			  int y2,
-			  SDL_Color color)
+			  SDL_Color unit_color)
 {
-	Uint32 pixelColor = SDL_MapRGB(screen->format, color.r, color.g, color.b);
+	Uint32 pixelColor = SDL_MapRGB(screen->format, unit_color.r, unit_color.g, unit_color.b);
 
 	/* bresenham's line algorithm */
 	const bool steep = (fabs(y2 - y1) > fabs(x2 - x1));

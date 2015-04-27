@@ -38,10 +38,10 @@ return 0;
 }
 
 /* verifies if theres a unit */
-int possui_unidade(string color)
+int possui_unidade(string unit_color)
 {
 	if (hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade) {
-		if (!hexagonos[hex_selecao->i][hex_selecao->j]->unidade->cor.compare(color)) {
+		if (!hexagonos[hex_selecao->i][hex_selecao->j]->unidade->unit_color.compare(unit_color)) {
 			return 1;
 		}
 		else {
@@ -87,7 +87,7 @@ int alcance_ataque_soldado()
 	if ((abs(hex_selecao->j_antes - hex_selecao->j) <= 1)
 		 &&(abs(hex_selecao->i_antes - hex_selecao->i) > 0)
 		 &&(abs(hex_selecao->i_antes - hex_selecao->i) < 3)) {
-		if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2)  
+		if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2)
 			 &&(abs(hex_selecao->j_antes - hex_selecao->j) == 1 )) {
 			return 0;
 		}
@@ -96,9 +96,9 @@ int alcance_ataque_soldado()
 		}
 
 		if (hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade) {
-			Unidade *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-			Unidade *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
-			if (temp2->cor != temp1->cor) {
+			Unit *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
+			Unit *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
+			if (temp2->unit_color != temp1->unit_color) {
 				return 1;
 			}
 			else {

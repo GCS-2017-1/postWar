@@ -14,7 +14,7 @@ using namespace std;
 void carrega_urss(SDL_Surface *screen){
 
     string lado1("servidor");
-    string cor = "vermelho";
+    string unit_color = "vermelho";
 
     for(int i=0, j=1;i<6;i++,j+=30){
 
@@ -23,15 +23,15 @@ void carrega_urss(SDL_Surface *screen){
         caminho = "source/GameFeatures/Jogar/Fase3/images/soldado_vermelho_ataque.png";
         SDL_Surface *ataque_soldado = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/soldado_vermelho_ataque_baixo.png";
-        SDL_Surface *ataque_baixo = load_Image(caminho, screen);
+        SDL_Surface *down_attack = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/soldado_vermelho_ataque_cima.png";
-        SDL_Surface *ataque_cima = load_Image(caminho, screen);
+        SDL_Surface *up_attack = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/soldado_lateral_vermelho.png";
         SDL_Surface *soldado_lateral_a= load_Image(caminho, screen);
-        Unidade *soldado = new Unidade();
+        Unit *soldado = new Unit();
 
         string unidadea1 = "soldado";
-        setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima,soldado_lateral_a, id);
+        setar_soldado(soldado, unit_color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
         id++;
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
@@ -40,16 +40,16 @@ void carrega_urss(SDL_Surface *screen){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
 
 
         caminho = "source/GameFeatures/Jogar/Fase3/images/bryjstudios_cabana_vermelha.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
-        Unidade *quartel_a = new Unidade();
+        Unit *quartel_a = new Unit();
         string quarte = "quartel";
-        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
+        setar_quartel(quartel_a,unit_color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
         id++;
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
         hexagonos[5][1]->unidade = quartel_a;
@@ -76,15 +76,15 @@ void carrega_urss(SDL_Surface *screen){
         caminho = "source/GameFeatures/Jogar/Fase3/images/tanque_ataqueVermelho.png";
         SDL_Surface *ataque_tanque = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/tanque_ataqueParaBaixo(vermelho).png";
-        SDL_Surface *ataque_baixo = load_Image(caminho, screen);
+        SDL_Surface *down_attack = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/tanque_ataqueParaCima(vermelho).png";
-        SDL_Surface *ataque_cima = load_Image(caminho, screen);
+        SDL_Surface *up_attack = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase3/images/tanque_lateral_vermelho.png";
         SDL_Surface *tanque_lateral= load_Image(caminho, screen);
-        Unidade *tanque1 = new Unidade();
+        Unit *tanque1 = new Unit();
 
         string unidadea1 = "tanque";
-        setar_tanque(tanque1, cor, unidadea1, tanque, ataque_tanque, ataque_baixo, ataque_cima,tanque_lateral, id);
+        setar_tanque(tanque1, unit_color, unidadea1, tanque, ataque_tanque, down_attack, up_attack,tanque_lateral, id);
         id++;
         unidades_azul.push_back(tanque1);
         //if(i+2<=hexagonos.size()){
@@ -93,7 +93,7 @@ void carrega_urss(SDL_Surface *screen){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
     }
@@ -112,9 +112,9 @@ for (int i=8;i<9;i++){
         SDL_Surface *helicoptero_lateral = load_Image(caminho, screen);
         //caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_azul_ataque_baixo.png";
         //SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
-        Unidade *helicoptero = new Unidade();
+        Unit *helicoptero = new Unit();
         string unidade1 = "helicoptero";
-        setar_helicoptero(helicoptero, cor, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
+        setar_helicoptero(helicoptero, unit_color, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
         id++;
         unidades_azul.push_back(helicoptero);
 
@@ -123,7 +123,7 @@ for (int i=8;i<9;i++){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
         unidades_azul[0]->x = hexagonos[i*2][3]->x;

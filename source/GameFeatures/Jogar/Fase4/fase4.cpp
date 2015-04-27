@@ -16,13 +16,13 @@ void fase4(SDL_Surface *screen,string qual_maquina){
 
     FPS = 150;
     Pais *urss = new Pais();
-    string nome = "URSS";
-    string cor = "vermelho";
-    setar_pais(urss, 50, 100, 40, nome, cor);
+    string unit_name = "URSS";
+    string unit_color = "vermelho";
+    setar_pais(urss, 50, 100, 40, unit_name, unit_color);
     Pais *china = new Pais();
-    nome = "China";
-    cor = "azul";
-    setar_pais(china, 50, 100, 50, nome, cor);
+    unit_name = "China";
+    unit_color = "azul";
+    setar_pais(china, 50, 100, 50, unit_name, unit_color);
 
     char pais_serv[100] = "urss";
     char pais_client[100] = "china";
@@ -82,7 +82,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
+                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
@@ -94,7 +94,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         dano_ataque(screen);
                                         //cout << "enviei" << endl;
-                                        //cout << "animei ataque" << endl;
+                                        //cout << "animei attack" << endl;
                                         if(derrotado.compare(cor1) == 0){
                                             vermelhoperde = 1;
                                             vermelhoganha = 0;
@@ -324,7 +324,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
+                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->unit_type != "helicoptero")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
@@ -335,7 +335,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                                 //cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 dano_ataque(screen);
-                                                //cout << "animei ataque" << endl;
+                                                //cout << "animei attack" << endl;
                                                 if(derrotado.compare(cor1) == 0){
                                                     vermelhoperde = 1;
                                                     vermelhoganha = 0;

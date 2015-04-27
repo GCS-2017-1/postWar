@@ -27,40 +27,40 @@ void dano_ataque(SDL_Surface *screen)
 	int rand_defensor = rand() % 50 + 30;
 	int rand_atacante = rand() % 50 + 40;
 
-	Unidade *atacante = hexagonos[hex_selecao->i_antes]
+	Unit *atacante = hexagonos[hex_selecao->i_antes]
 								 [hex_selecao->j_antes]->unidade;
-	Unidade *defensor = hexagonos[hex_selecao->i]
+	Unit *defensor = hexagonos[hex_selecao->i]
 								 [hex_selecao->j]->unidade;
 
-	if (atacante->tipo == tipoquartel) {
-		cout << "Unidade não pode atacar" << endl;
+	if (atacante->unit_type == tipoquartel) {
+		cout << "Unit não pode atacar" << endl;
 		return;
 	}
 
-	int dano_no_atacante = ((defensor->atk/atacante->def)+1) *
+	int dano_no_atacante = ((defensor->attack_points/atacante->deffense_points)+1) *
 						   (rand_defensor/2);
-	int dano_no_defensor = ((atacante->atk/ defensor->def)+1)*
+	int dano_no_defensor = ((atacante->attack_points/ defensor->deffense_points)+1)*
 						   (rand_atacante);
 	cout << "dano no atacante:" << dano_no_atacante << endl;
 	cout << "dano no defensor:" << dano_no_defensor << endl;
-	atacante->hp -= dano_no_atacante;
-	if (atacante->hp <= 0) {
-		atacante->hp  = 0;
+	atacante->health_points -= dano_no_atacante;
+	if (atacante->health_points <= 0) {
+		atacante->health_points  = 0;
 	}
-	defensor->hp -= dano_no_defensor;
-	if (defensor->hp < 0) {
-		defensor->hp  = 0;
+	defensor->health_points -= dano_no_defensor;
+	if (defensor->health_points < 0) {
+		defensor->health_points  = 0;
 	}
 
-	if (defensor->tipo == tipoquartel && defensor->hp == 0) {
-		cout << "defensor:" << defensor->cor << endl;
-		derrotado = defensor->cor;
+	if (defensor->unit_type == tipoquartel && defensor->health_points == 0) {
+		cout << "defensor:" << defensor->unit_color << endl;
+		derrotado = defensor->unit_color;
 		cout << "derrotado:" << derrotado << endl;
 	}
-	cout << "atacante hp:" << atacante->hp << endl;
-	cout << "defensor hp:" << defensor->hp << endl;
+	cout << "atacante health_points:" << atacante->health_points << endl;
+	cout << "defensor health_points:" << defensor->health_points << endl;
 
-	if (atacante->hp <= 0) {
+	if (atacante->health_points <= 0) {
 		explode_unidade(screen,
 						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x,
 						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y,
@@ -71,11 +71,11 @@ void dano_ataque(SDL_Surface *screen)
 	}
 	else {
 		hexagonos[hex_selecao->i_antes]
-				 [hex_selecao->j_antes]->unidade->hp = atacante->hp;
+				 [hex_selecao->j_antes]->unidade->health_points = atacante->health_points;
 	}
-	if (defensor->hp <= 0) {
-		if (defensor->tipo.compare("quartel") != 0) {
-			if (defensor->tipo.compare("metralhadora") != 0) {
+	if (defensor->health_points <= 0) {
+		if (defensor->unit_type.compare("quartel") != 0) {
+			if (defensor->unit_type.compare("metralhadora") != 0) {
 				play_effect(efeito_explosao);
 				explode_unidade(screen,
 								hexagonos[hex_selecao->i][hex_selecao->j]->x,
@@ -84,7 +84,7 @@ void dano_ataque(SDL_Surface *screen)
 				hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
 				hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
 			}
-			else if (defensor->cor == "azul") {
+			else if (defensor->unit_color == "azul") {
 				play_effect(efeito_explosao);
 				hexagonos[9][12]->unidade = NULL;
 				hexagonos[9][12]->contem_unidade = 0;
@@ -107,7 +107,7 @@ void dano_ataque(SDL_Surface *screen)
 				hexagonos[8][4]->contem_unidade = 0;
 			}
 		}
-		else if (defensor->cor == "azul") {
+		else if (defensor->unit_color == "azul") {
 			play_effect(efeito_explosao);
 			hexagonos[7][13]->unidade = NULL;
 			hexagonos[7][13]->contem_unidade = 0;
@@ -142,7 +142,7 @@ void dano_ataque(SDL_Surface *screen)
 		}
 	}
 	else {
-		hexagonos[hex_selecao->i][hex_selecao->j]->unidade->hp = defensor->hp;
+		hexagonos[hex_selecao->i][hex_selecao->j]->unidade->health_points = defensor->health_points;
 	}
 }
 

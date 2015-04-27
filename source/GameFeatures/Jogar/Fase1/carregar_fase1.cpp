@@ -29,7 +29,7 @@ void mapeia_hexagono()
 		vector <Hexagono *> hex_temp;
 		for (ia=35, ie=44;ia<1050;ia+=68,ie+=68) {
 
-			//BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+			//BlitImage(screen,unidades_azul[0]->unit_name,ia,ja);
 			Hexagono *hexagon = new Hexagono;
 			hexagon->centro_x = ie;
 			hexagon->centro_y = je;
@@ -58,7 +58,7 @@ void mapeia_hexagono()
 		vector <Hexagono *> hex_temp2;
 		for (ia=65,ie=78;ia<1050;ia+=68,ie+=68) {
 
-			//BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+			//BlitImage(screen,unidades_azul[0]->unit_name,ia,ja);
 
 			Hexagono *hexagon = new Hexagono;
 			hexagon->x = ia;
@@ -154,7 +154,7 @@ void carregar_fase1(SDL_Surface *screen)
 /*
 	for(int i=0; i<hexagonos.size();i++){
 		for(int j=0; j<hexagonos[i].size();j++){
-		BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+		BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[i][j]->x,hexagonos[i][j]->y);
 		cout<<hexagonos[i][j]->indice<<" ";
 		}
 		cout<<endl;
