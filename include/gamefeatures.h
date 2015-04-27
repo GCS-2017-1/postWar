@@ -30,12 +30,12 @@ typedef struct _Unit {
 	int id;
 } Unit;
 
-typedef struct _Construcao {
+typedef struct _Building {
 	SDL_Surface *unit_name;
 	string unit_type;
-	int ganho;
-	int conquistado;
-} Construcao;
+	int profit;
+	int conquered;
+} Building;
 
 typedef struct _Hexagonos {
 	int x;
@@ -45,7 +45,7 @@ typedef struct _Hexagonos {
 	bool obstaculo : 1;
 	int mina;
 	Unit *unidade;
-	Construcao *construcao;
+	Building *construcao;
 	int centro_x;
 	int centro_y;
 	int raio;
@@ -218,10 +218,10 @@ extern void setar_pais (Pais *pais,
 						int minerals,
 						string unit_name,
 						string unit_color);
-extern void setar_construcao (Construcao *construcao,
+extern void setar_construcao (Building *construcao,
 							  SDL_Surface *unit_name,
 							  string unit_type,
-							  int ganho);
+							  int profit);
 extern void carrega_eua (SDL_Surface *screen,string lado);
 extern string convertInt (int number);
 extern void blit_lateral (Unit *unidade,SDL_Surface *screen);

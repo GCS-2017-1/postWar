@@ -119,7 +119,7 @@ void fase1(SDL_Surface *screen,
 									}
 									if (alcance_movimento_soldado()) {
 										if (hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1) {
-											if (hexagonos[2][8]->construcao->conquistado == 1) {
+											if (hexagonos[2][8]->construcao->conquered == 1) {
 												break;
 											}
 											else {
@@ -438,7 +438,7 @@ void fase1(SDL_Surface *screen,
 										}
 										if (alcance_movimento_soldado()) {
 											if (hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1) {
-												if (hexagonos[2][8]->construcao->conquistado == 1) {
+												if (hexagonos[2][8]->construcao->conquered == 1) {
 													break;
 												}
 												else {
