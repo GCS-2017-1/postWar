@@ -69,7 +69,7 @@ typedef struct _Nation {
 
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
-extern Hexagon_selected *hex_selecao;
+extern Hexagon_selected *hexagon_selected;
 extern vector<vector <Hexagons *> > hexagonos;
 extern vector<Unit *> unidades_azul;
 extern vector<Unit *> unidades_vermelhas;

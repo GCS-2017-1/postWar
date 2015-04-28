@@ -13,7 +13,7 @@ using namespace std;
 void carregar_fase3(SDL_Surface *screen){
 
 
-    hex_selecao = new Hexagon_selected();
+    hexagon_selected = new Hexagon_selected();
 
     string caminho = "source/GameFeatures/Jogar/Fase3/images/Loading.png";
     SDL_Surface *loading = load_Image(caminho, screen);

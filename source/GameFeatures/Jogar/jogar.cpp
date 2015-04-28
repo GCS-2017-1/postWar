@@ -14,7 +14,7 @@ using namespace std;
 
 char codigo_s[100];
 
-Hexagon_selected *hex_selecao;
+Hexagon_selected *hexagon_selected;
 char codigo[100];
 SDL_Surface *mapa1;
 

@@ -47,19 +47,19 @@ void fase1(SDL_Surface *screen,
 						/* nothing to do */
 					}
 					if (verifica_hexagono(vetor->x,vetor->y)) {
-						hex_selecao->i_before = hex_selecao->i;
-						hex_selecao->j_before = hex_selecao->j;
+						hexagon_selected->i_before = hexagon_selected->i;
+						hexagon_selected->j_before = hexagon_selected->j;
 						if (possui_unidade("vermelho") ) {
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
+							blit_lateral(hexagonos[hexagon_selected->i][hexagon_selected->j]->unit,screen);
 							blit_cima(pais_serv,screen);
 							while(1) {
 								start1 = SDL_GetTicks();
 								vetor = get_Input();
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
-									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")) {
+									if (possui_unidade("vermelho") || (hexagonos[hexagon_selected->i][hexagon_selected->j]->barrier && hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")) {
 										break;
 									}
 									else {
@@ -69,7 +69,7 @@ void fase1(SDL_Surface *screen,
 										codifica_ataque(codigo_s);
 										//cout << "passei codifica" << endl;
 										enviar_msg(Sclient,codigo_s);
-										ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+										ataque_unidade(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
 										dano_ataque(screen);
 										//cout << "enviei" << endl;
 										//cout << "animei attack" << endl;
@@ -118,7 +118,7 @@ void fase1(SDL_Surface *screen,
 										/*nothing to do */
 									}
 									if (alcance_movimento_soldado()) {
-										if (hexagonos[hex_selecao->i][hex_selecao->j]->mine == 1) {
+										if (hexagonos[hexagon_selected->i][hexagon_selected->j]->mine == 1) {
 											if (hexagonos[2][8]->building->conquered == 1) {
 												break;
 											}
@@ -133,12 +133,12 @@ void fase1(SDL_Surface *screen,
 											/* nothing to do */
 										}
 										strcpy (codigo_s,"00");
-										codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
-										codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
-										codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
-										codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+										codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+										codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+										codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
+										codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
 										enviar_msg(Sclient,codigo_s);
-										mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+										mover_soldado(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
 										pontos_jogador1 -= 3;
 										if (pontos_jogador1<3) {
 											minha_vez = 0;
@@ -375,20 +375,20 @@ void fase1(SDL_Surface *screen,
 						/* nothing to do */
 					}
 					if (verifica_hexagono(vetor->x,vetor->y)) {
-						hex_selecao->i_before = hex_selecao->i;
-						hex_selecao->j_before = hex_selecao->j;
+						hexagon_selected->i_before = hexagon_selected->i;
+						hexagon_selected->j_before = hexagon_selected->j;
 						if (possui_unidade("azul")) {
 							blit_cima(pais_client,screen);
 							blit_tela(screen,1);
 							blit_selecao(screen);
-							blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unit,screen);
+							blit_lateral(hexagonos[hexagon_selected->i][hexagon_selected->j]->unit,screen);
 								while(1) {
 									start1 = SDL_GetTicks();
 									blit_cima(pais_client,screen);
 									vetor = get_Input();
 									if (vetor->click == 1) {
 										verifica_hexagono(vetor->x,vetor->y);
-										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")) {
+										if (possui_unidade("azul") || (hexagonos[hexagon_selected->i][hexagon_selected->j]->barrier && hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")) {
 											break;
 										}
 										else {
@@ -398,8 +398,8 @@ void fase1(SDL_Surface *screen,
 											codifica_ataque(codigo_s);
 											enviar_msg(Cserver,codigo_s);
 											ataque_unidade(screen,
-														   hexagonos[hex_selecao->i][hex_selecao->j]->x,
-														   hexagonos[hex_selecao->i][hex_selecao->j]->y,
+														   hexagonos[hexagon_selected->i][hexagon_selected->j]->x,
+														   hexagonos[hexagon_selected->i][hexagon_selected->j]->y,
 														   totalElapsedTime,
 														   delay,
 														   lastdt);
@@ -437,7 +437,7 @@ void fase1(SDL_Surface *screen,
 											/* nothing to do */
 										}
 										if (alcance_movimento_soldado()) {
-											if (hexagonos[hex_selecao->i][hex_selecao->j]->mine == 1) {
+											if (hexagonos[hexagon_selected->i][hexagon_selected->j]->mine == 1) {
 												if (hexagonos[2][8]->building->conquered == 1) {
 													break;
 												}
@@ -452,14 +452,14 @@ void fase1(SDL_Surface *screen,
 												/* nothing to do */
 											}
 											strcpy (codigo_s,"00");
-											codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
-											codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
-											codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
-											codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+											codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+											codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+											codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
+											codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
 											enviar_msg(Cserver,codigo_s);
 											mover_soldado(screen,
-														  hexagonos[hex_selecao->i][hex_selecao->j]->x,
-														  hexagonos[hex_selecao->i][hex_selecao->j]->y,
+														  hexagonos[hexagon_selected->i][hexagon_selected->j]->x,
+														  hexagonos[hexagon_selected->i][hexagon_selected->j]->y,
 														  totalElapsedTime,
 														  delay,
 														  lastdt);
@@ -547,10 +547,10 @@ void fase1(SDL_Surface *screen,
 void codifica_ataque(char codigo_s[])
 {
 	strcpy(codigo_s,"01");
-	codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
-	codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
-	codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
-	codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+	codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+	codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+	codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
+	codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
 	/*codigo_s[6] = hp1/1000;
 	codigo_s[7] = ((hp1%1000) - (hp1%100))/100;
 	codigo_s[8] = ((hp1%100) - (hp1%10))/10;
@@ -569,26 +569,26 @@ void amigo_movimenta(char code_recv[],
 					 int lastdt)
 {
 	if (code_recv[0] == '0' && code_recv[1] == '0') {
-	hex_selecao->i_before = code_recv[2] - 48;
-	hex_selecao->j_before = code_recv[3] - 48;
-	hex_selecao->i = code_recv[4] - 48;
-	hex_selecao->j = code_recv[5] - 48;
+	hexagon_selected->i_before = code_recv[2] - 48;
+	hexagon_selected->j_before = code_recv[3] - 48;
+	hexagon_selected->i = code_recv[4] - 48;
+	hexagon_selected->j = code_recv[5] - 48;
 	mover_soldado(screen,
-				  hexagonos[hex_selecao->i][hex_selecao->j]->x,
-				  hexagonos[hex_selecao->i][hex_selecao->j]->y,
+				  hexagonos[hexagon_selected->i][hexagon_selected->j]->x,
+				  hexagonos[hexagon_selected->i][hexagon_selected->j]->y,
 				  totalElapsedTime,
 				  delay,
 				  lastdt);
 	blit_tela(screen,0);
 	}
 	else if (code_recv[0] == '0' && code_recv[1] == '1') {
-		hex_selecao->i_before = code_recv[2] - 48;
-		hex_selecao->j_before = code_recv[3] - 48;
-		hex_selecao->i = code_recv[4] - 48;
-		hex_selecao->j = code_recv[5] - 48;
+		hexagon_selected->i_before = code_recv[2] - 48;
+		hexagon_selected->j_before = code_recv[3] - 48;
+		hexagon_selected->i = code_recv[4] - 48;
+		hexagon_selected->j = code_recv[5] - 48;
 		ataque_unidade(screen,
-					   hexagonos[hex_selecao->i][hex_selecao->j]->x,
-					   hexagonos[hex_selecao->i][hex_selecao->j]->y,
+					   hexagonos[hexagon_selected->i][hexagon_selected->j]->x,
+					   hexagonos[hexagon_selected->i][hexagon_selected->j]->y,
 					   totalElapsedTime,
 					   delay,
 					   lastdt);
@@ -627,21 +627,21 @@ void desenha_pontos(int number, SDL_Surface *screen)
 /* selects the blit */
 void blit_selecao(SDL_Surface *screen)
 {
-	if (hexagonos[hex_selecao->i][hex_selecao->j]->unit->unit_type.compare("quartel")!=0 ) {
-		if (hexagonos[hex_selecao->i][hex_selecao->j]->unit->unit_type.compare("metralhadora")!=0 ) {
+	if (hexagonos[hexagon_selected->i][hexagon_selected->j]->unit->unit_type.compare("quartel")!=0 ) {
+		if (hexagonos[hexagon_selected->i][hexagon_selected->j]->unit->unit_type.compare("metralhadora")!=0 ) {
 			string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
 			SDL_Surface *selecao = load_Image(caminho, screen);
-			if (hex_selecao->i%2==1) {
+			if (hexagon_selected->i%2==1) {
 				BlitImage(screen,
 						  selecao,
-						  hexagonos[hex_selecao->i][hex_selecao->j]->x-45,
-						  hexagonos[hex_selecao->i][hex_selecao->j]->y-47);
+						  hexagonos[hexagon_selected->i][hexagon_selected->j]->x-45,
+						  hexagonos[hexagon_selected->i][hexagon_selected->j]->y-47);
 			}
 			else {
 					BlitImage(screen,
 							  selecao,
-							  hexagonos[hex_selecao->i][hex_selecao->j]->x-49,
-							  hexagonos[hex_selecao->i][hex_selecao->j]->y-49);
+							  hexagonos[hexagon_selected->i][hexagon_selected->j]->x-49,
+							  hexagonos[hexagon_selected->i][hexagon_selected->j]->y-49);
 			}
 		}
 		else {

@@ -97,7 +97,7 @@ void mapeia_hexagono()
 
 void carregar_fase1(SDL_Surface *screen)
 {
-	hex_selecao = new Hexagon_selected();
+	hexagon_selected = new Hexagon_selected();
 
 	string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
 	SDL_Surface *loading = load_Image(caminho, screen);

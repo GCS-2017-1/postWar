@@ -27,10 +27,10 @@ void dano_ataque(SDL_Surface *screen)
 	int rand_defensor = rand() % 50 + 30;
 	int rand_atacante = rand() % 50 + 40;
 
-	Unit *atacante = hexagonos[hex_selecao->i_before]
-								 [hex_selecao->j_before]->unit;
-	Unit *defensor = hexagonos[hex_selecao->i]
-								 [hex_selecao->j]->unit;
+	Unit *atacante = hexagonos[hexagon_selected->i_before]
+								 [hexagon_selected->j_before]->unit;
+	Unit *defensor = hexagonos[hexagon_selected->i]
+								 [hexagon_selected->j]->unit;
 
 	if (atacante->unit_type == tipoquartel) {
 		cout << "Unit não pode atacar" << endl;
@@ -62,27 +62,27 @@ void dano_ataque(SDL_Surface *screen)
 
 	if (atacante->health_points <= 0) {
 		explode_unidade(screen,
-						hexagonos[hex_selecao->i_before][hex_selecao->j_before]->x,
-						hexagonos[hex_selecao->i_before][hex_selecao->j_before]->y,
+						hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->x,
+						hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->y,
 						totalElapsedTime, delay, lastdt);
-		hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit = NULL;
-		hexagonos[hex_selecao->i_before]
-				 [hex_selecao->j_before]->contains_unit = 0;
+		hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit = NULL;
+		hexagonos[hexagon_selected->i_before]
+				 [hexagon_selected->j_before]->contains_unit = 0;
 	}
 	else {
-		hexagonos[hex_selecao->i_before]
-				 [hex_selecao->j_before]->unit->health_points = atacante->health_points;
+		hexagonos[hexagon_selected->i_before]
+				 [hexagon_selected->j_before]->unit->health_points = atacante->health_points;
 	}
 	if (defensor->health_points <= 0) {
 		if (defensor->unit_type.compare("quartel") != 0) {
 			if (defensor->unit_type.compare("metralhadora") != 0) {
 				play_effect(efeito_explosao);
 				explode_unidade(screen,
-								hexagonos[hex_selecao->i][hex_selecao->j]->x,
-								hexagonos[hex_selecao->i][hex_selecao->j]->y,
+								hexagonos[hexagon_selected->i][hexagon_selected->j]->x,
+								hexagonos[hexagon_selected->i][hexagon_selected->j]->y,
 								totalElapsedTime, delay, lastdt);
-				hexagonos[hex_selecao->i][hex_selecao->j]->unit = NULL;
-				hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit = 0;
+				hexagonos[hexagon_selected->i][hexagon_selected->j]->unit = NULL;
+				hexagonos[hexagon_selected->i][hexagon_selected->j]->contains_unit = 0;
 			}
 			else if (defensor->color == "azul") {
 				play_effect(efeito_explosao);
@@ -142,7 +142,7 @@ void dano_ataque(SDL_Surface *screen)
 		}
 	}
 	else {
-		hexagonos[hex_selecao->i][hex_selecao->j]->unit->health_points = defensor->health_points;
+		hexagonos[hexagon_selected->i][hexagon_selected->j]->unit->health_points = defensor->health_points;
 	}
 }
 
