@@ -52,7 +52,7 @@ void mapeia_hexagono()
 			hex_temp.push_back(hexagon);
 			contador++;
 		}
-		hexagonos.push_back(hex_temp);
+		hexagons.push_back(hex_temp);
 		ja+=19;
 		je+=20;
 		vector <Hexagons *> hex_temp2;
@@ -73,20 +73,20 @@ void mapeia_hexagono()
 			hex_temp2.push_back(hexagon);
 			contador++;
 		}
-		hexagonos.push_back(hex_temp2);
+		hexagons.push_back(hex_temp2);
 		ja+=20;
 		je+=20;
 	}
 	/*
 	string bora="0";
 	string bora1="0";
-	for(int i=0; i<hexagonos.size();i++){
-		for(int j=0; j<hexagonos[i].size();j++){
+	for(int i=0; i<hexagons.size();i++){
+		for(int j=0; j<hexagons[i].size();j++){
 			bora[0]+=i;
 			bora1[0] += j;
 			//cout<<"bora: "<<bora1<<endl;
-			desenha_texto(bora,screen,hexagonos[i][j]->x,hexagonos[i][j]->y,20);
-			desenha_texto(bora1,screen,hexagonos[i][j]->x+10,hexagonos[i][j]->y,20);
+			desenha_texto(bora,screen,hexagons[i][j]->x,hexagons[i][j]->y,20);
+			desenha_texto(bora1,screen,hexagons[i][j]->x+10,hexagons[i][j]->y,20);
 			bora="0";
 			bora1="0";
 		}
@@ -140,22 +140,22 @@ void carregar_fase1(SDL_Surface *screen)
 
 	mapeia_hexagono();
 
-	hexagonos[1][12]->barrier =1;
-	hexagonos[1][3]->barrier =1;
-	hexagonos[10][6]->barrier =1;
-	hexagonos[11][10]->barrier =1;
-	hexagonos[12][11]->barrier =1;
-	hexagonos[12][0]->barrier =1;
-	hexagonos[13][0]->barrier =1;
+	hexagons[1][12]->barrier =1;
+	hexagons[1][3]->barrier =1;
+	hexagons[10][6]->barrier =1;
+	hexagons[11][10]->barrier =1;
+	hexagons[12][11]->barrier =1;
+	hexagons[12][0]->barrier =1;
+	hexagons[13][0]->barrier =1;
 
 	carrega_china(screen);
 	carrega_eua(screen);
 	carrega_construcoes(screen);
 /*
-	for(int i=0; i<hexagonos.size();i++){
-		for(int j=0; j<hexagonos[i].size();j++){
-		BlitImage(screen,unidades_vermelhas[0]->name,hexagonos[i][j]->x,hexagonos[i][j]->y);
-		cout<<hexagonos[i][j]->index<<" ";
+	for(int i=0; i<hexagons.size();i++){
+		for(int j=0; j<hexagons[i].size();j++){
+		BlitImage(screen,unidades_vermelhas[0]->name,hexagons[i][j]->x,hexagons[i][j]->y);
+		cout<<hexagons[i][j]->index<<" ";
 		}
 		cout<<endl;
 	}*/

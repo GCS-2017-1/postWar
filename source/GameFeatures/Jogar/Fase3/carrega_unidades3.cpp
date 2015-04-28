@@ -34,15 +34,15 @@ void carrega_urss(SDL_Surface *screen){
         setar_soldado(soldado, color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
         id++;
         unidades_azul.push_back(soldado);
-        //if(i+2<=hexagonos.size()){
+        //if(i+2<=hexagons.size()){
         SDL_Rect dst;
-        dst.x = hexagonos[i*2][3]->x;
-        dst.y = hexagonos[i*2][3]->y;
+        dst.x = hexagons[i*2][3]->x;
+        dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unit = unidades_azul[i];
-        hexagonos[i*2][3]->contains_unit = 1;
+        hexagons[i*2][3]->unit = unidades_azul[i];
+        hexagons[i*2][3]->contains_unit = 1;
 
 
         caminho = "source/GameFeatures/Jogar/Fase3/images/bryjstudios_cabana_vermelha.png";
@@ -51,21 +51,21 @@ void carrega_urss(SDL_Surface *screen){
         string quarte = "quartel";
         setar_quartel(quartel_a,color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
         id++;
-        BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
-        hexagonos[5][1]->unit = quartel_a;
-        hexagonos[5][1]->contains_unit = 1;
-        hexagonos[6][1]->unit = quartel_a;
-        hexagonos[6][1]->contains_unit = 1;
-        hexagonos[6][2]->contains_unit = 1;
-        hexagonos[6][2]->unit = quartel_a;
-        hexagonos[7][1]->contains_unit = 1;
-        hexagonos[7][1]->unit = quartel_a;
-        hexagonos[8][1]->contains_unit = 1;
-        hexagonos[8][1]->unit = quartel_a;
-        hexagonos[8][2]->contains_unit = 1;
-        hexagonos[8][2]->unit = quartel_a;
-        hexagonos[9][1]->contains_unit = 1;
-        hexagonos[9][1]->unit = quartel_a;
+        BlitImage(screen,quartel_azul_cabana,hexagons[6][1]->x,hexagons[6][1]->y);
+        hexagons[5][1]->unit = quartel_a;
+        hexagons[5][1]->contains_unit = 1;
+        hexagons[6][1]->unit = quartel_a;
+        hexagons[6][1]->contains_unit = 1;
+        hexagons[6][2]->contains_unit = 1;
+        hexagons[6][2]->unit = quartel_a;
+        hexagons[7][1]->contains_unit = 1;
+        hexagons[7][1]->unit = quartel_a;
+        hexagons[8][1]->contains_unit = 1;
+        hexagons[8][1]->unit = quartel_a;
+        hexagons[8][2]->contains_unit = 1;
+        hexagons[8][2]->unit = quartel_a;
+        hexagons[9][1]->contains_unit = 1;
+        hexagons[9][1]->unit = quartel_a;
 
     }
 
@@ -87,15 +87,15 @@ void carrega_urss(SDL_Surface *screen){
         setar_tanque(tanque1, color, unidadea1, tanque, ataque_tanque, down_attack, up_attack,tanque_lateral, id);
         id++;
         unidades_azul.push_back(tanque1);
-        //if(i+2<=hexagonos.size()){
+        //if(i+2<=hexagons.size()){
         SDL_Rect dst;
-        dst.x = hexagonos[i*2][3]->x;
-        dst.y = hexagonos[i*2][3]->y;
+        dst.x = hexagons[i*2][3]->x;
+        dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unit = unidades_azul[i];
-        hexagonos[i*2][3]->contains_unit = 1;
+        hexagons[i*2][3]->unit = unidades_azul[i];
+        hexagons[i*2][3]->contains_unit = 1;
     }
 
 
@@ -119,15 +119,15 @@ for (int i=8;i<9;i++){
         unidades_azul.push_back(helicoptero);
 
         SDL_Rect dst;
-        dst.x = hexagonos[i*2][3]->x;
-        dst.y = hexagonos[i*2][3]->y;
+        dst.x = hexagons[i*2][3]->x;
+        dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagonos[i*2][3]->unit = unidades_azul[i];
-        hexagonos[i*2][3]->contains_unit = 1;
-        unidades_azul[0]->x = hexagonos[i*2][3]->x;
-        unidades_azul[0]->y = hexagonos[i*2][3]->y;
+        hexagons[i*2][3]->unit = unidades_azul[i];
+        hexagons[i*2][3]->contains_unit = 1;
+        unidades_azul[0]->x = hexagons[i*2][3]->x;
+        unidades_azul[0]->y = hexagons[i*2][3]->y;
     }
 
 

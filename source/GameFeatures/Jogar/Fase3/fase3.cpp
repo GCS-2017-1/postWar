@@ -70,10 +70,10 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hexagon_selected->i_before = hexagon_selected->i;
                         hexagon_selected->j_before = hexagon_selected->j;
-                        if(possui_unidade("vermelho") && !hexagonos[hexagon_selected->i][hexagon_selected->j]->barrier){
+                        if(possui_unidade("vermelho") && !hexagons[hexagon_selected->i][hexagon_selected->j]->barrier){
                             blit_tela(screen,1);
                             blit_selecao(screen);
-                            blit_lateral(hexagonos[hexagon_selected->i][hexagon_selected->j]->unit,screen);
+                            blit_lateral(hexagons[hexagon_selected->i][hexagon_selected->j]->unit,screen);
                             blit_cima(urss,screen);
                             while(1){
                                 start1 = SDL_GetTicks();
@@ -82,7 +82,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("vermelho") || (hexagonos[hexagon_selected->i][hexagon_selected->j]->barrier && hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")){
+                                    if(possui_unidade("vermelho") || (hexagons[hexagon_selected->i][hexagon_selected->j]->barrier && hexagons[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
@@ -91,7 +91,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                         codifica_ataque(codigo_s);
                                         //cout << "passei codifica" << endl;
                                         enviar_msg(Sclient,codigo_s);
-                                        ataque_unidade(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
+                                        ataque_unidade(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                         dano_ataque(screen);
                                         //cout << "enviei" << endl;
                                         //cout << "animei attack" << endl;
@@ -132,7 +132,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                         //cout<<"Enviando msg..."<<endl;
                                         enviar_msg(Sclient,codigo_s);
                                         //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
-                                        mover_soldado(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
+                                        mover_soldado(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                         pontos_jogador1 -= 3;
                                         if(pontos_jogador1<3){
                                             minha_vez = 0;
@@ -319,14 +319,14 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                             blit_cima(uk,screen);
                             blit_tela(screen,1);
                             blit_selecao(screen);
-                            blit_lateral(hexagonos[hexagon_selected->i][hexagon_selected->j]->unit,screen);
+                            blit_lateral(hexagons[hexagon_selected->i][hexagon_selected->j]->unit,screen);
                                     while(1){
                                         start1 = SDL_GetTicks();
                                         blit_cima(uk,screen);
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(possui_unidade("azul") || (hexagonos[hexagon_selected->i][hexagon_selected->j]->barrier && hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")){
+                                            if(possui_unidade("azul") || (hexagons[hexagon_selected->i][hexagon_selected->j]->barrier && hexagons[hexagon_selected->i_before][hexagon_selected->j_before]->unit->unit_type != "helicoptero")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
@@ -335,7 +335,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                                 //cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
                                                 //cout << "enviei" << endl;
-                                                ataque_unidade(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
+                                                ataque_unidade(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                                 dano_ataque(screen);
                                                 //cout << "animei attack" << endl;
                                                 if(derrotado.compare(cor1) == 0){
@@ -372,7 +372,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                                 enviar_msg(Cserver,codigo_s);
                                                 //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
 
-                                                mover_soldado(screen, hexagonos[hexagon_selected->i][hexagon_selected->j]->x,hexagonos[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
+                                                mover_soldado(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                                 pontos_jogador2 -= 3;
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;

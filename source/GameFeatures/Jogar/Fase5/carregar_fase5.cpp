@@ -54,10 +54,10 @@ void carregar_fase5(SDL_Surface *screen){
     hud2 = load_Image(caminho, screen);
     //BlitImage(screen, hud2, 977, 236);
     mapeia_hexagono();
-    hexagonos[19][1]->barrier =1;
-    hexagonos[19][6]->barrier =1;
-    hexagonos[3][9]->barrier =1;
-    hexagonos[6][11]->barrier =1;
+    hexagons[19][1]->barrier =1;
+    hexagons[19][6]->barrier =1;
+    hexagons[3][9]->barrier =1;
+    hexagons[6][11]->barrier =1;
 
 
         carrega_franca(screen);
@@ -66,10 +66,10 @@ void carregar_fase5(SDL_Surface *screen){
         carrega_eua(screen);
         carrega_construcoes(screen);
 /*
-    for(int i=0; i<hexagonos.size();i++){
-        for(int j=0; j<hexagonos[i].size();j++){
-        BlitImage(screen,unidades_vermelhas[0]->name,hexagonos[i][j]->x,hexagonos[i][j]->y);
-        cout<<hexagonos[i][j]->index<<" ";
+    for(int i=0; i<hexagons.size();i++){
+        for(int j=0; j<hexagons[i].size();j++){
+        BlitImage(screen,unidades_vermelhas[0]->name,hexagons[i][j]->x,hexagons[i][j]->y);
+        cout<<hexagons[i][j]->index<<" ";
         }
         cout<<endl;
     }*/

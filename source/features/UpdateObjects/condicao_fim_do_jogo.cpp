@@ -12,13 +12,13 @@ void verifica_derrota(SDL_Surface *screen)
 	cout << "Entrei na condicao" << endl;
 	Unit *temp;
 	string unit_type = "quartel";
-	for (unsigned int i = 0; i < hexagonos.size(); i++) {
+	for (unsigned int i = 0; i < hexagons.size(); i++) {
 		cout << "andando i: " << i << endl;
-		for (unsigned int j = 0; j < hexagonos[i].size() ; j++) {
+		for (unsigned int j = 0; j < hexagons[i].size() ; j++) {
 			cout << "andando j: " << j << endl;
-			if (hexagonos[i][j]->contains_unit == 1) {
+			if (hexagons[i][j]->contains_unit == 1) {
 				cout << "achei uma unit" << endl;
-				temp = hexagonos[i][j]->unit;
+				temp = hexagons[i][j]->unit;
 				cout << "temp unit_type:" << temp->unit_type << endl;
 				if (temp->unit_type == unit_type && temp->health_points == 0) {
 					string mensagem = "Você perdeu!LOSER!!";

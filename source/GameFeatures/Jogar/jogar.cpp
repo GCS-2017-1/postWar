@@ -20,7 +20,7 @@ SDL_Surface *mapa1;
 
 vector <Unit *> unidades_azul;
 vector <Unit *> unidades_vermelhas;
-vector< vector <Hexagons*> > hexagonos;
+vector< vector <Hexagons*> > hexagons;
 int id;
 
 int pontos_jogador1 = 20;

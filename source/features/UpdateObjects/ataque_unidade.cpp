@@ -33,20 +33,20 @@ void ataque_unidade(SDL_Surface *screen,
 		int tamanho_sprites2 = 0;
 
 
-		int w = hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->x;
-		int s = hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->y;
-		int w_def = hexagonos[hexagon_selected->i][hexagon_selected->j]->x;
-		int s_def = hexagonos[hexagon_selected->i][hexagon_selected->j]->y;
+		int w = hexagons[hexagon_selected->i_before][hexagon_selected->j_before]->x;
+		int s = hexagons[hexagon_selected->i_before][hexagon_selected->j_before]->y;
+		int w_def = hexagons[hexagon_selected->i][hexagon_selected->j]->x;
+		int s_def = hexagons[hexagon_selected->i][hexagon_selected->j]->y;
 
 
-		if (hexagonos[hexagon_selected->i_before]
+		if (hexagons[hexagon_selected->i_before]
 		    [hexagon_selected->j_before]->contains_unit == 0)
 		{
 			break;
 		}
 
-		temp = hexagonos[hexagon_selected->i_before][hexagon_selected->j_before]->unit;
-		temp_defensor = hexagonos[hexagon_selected->i][hexagon_selected->j]->unit;
+		temp = hexagons[hexagon_selected->i_before][hexagon_selected->j_before]->unit;
+		temp_defensor = hexagons[hexagon_selected->i][hexagon_selected->j]->unit;
 		if (temp->unit_type == tipoquartel) {
 			cout << "Nao pode atacar" << endl;
 			return;
