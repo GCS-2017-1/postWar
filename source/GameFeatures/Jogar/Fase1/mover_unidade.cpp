@@ -14,7 +14,7 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y)
 		SDL_Rect pos = {j, y};
 		unidades_vermelhas[i]->x = j;
 		unidades_vermelhas[i]->y = y;
-		SDL_BlitSurface(unidades_vermelhas[i]->unit_name, NULL, screen, &pos);
+		SDL_BlitSurface(unidades_vermelhas[i]->name, NULL, screen, &pos);
 		SDL_Flip(screen);
 	}
 }

@@ -13,9 +13,9 @@ using namespace std;
 SDL_Rect cutBox;
 
 void setar_soldado(Unit *soldado,
-				   string unit_color,
+				   string color,
 				   string unit_type,
-				   SDL_Surface *unit_name,
+				   SDL_Surface *name,
 				   SDL_Surface *attack,
 				   SDL_Surface *down_attack,
 				   SDL_Surface *up_attack,
@@ -27,8 +27,8 @@ void setar_soldado(Unit *soldado,
 	soldado->deffense_points = 100;
 	soldado->attack_range = 1;
 	soldado->gold_coins = 100;
-	soldado->unit_color = unit_color;
-	soldado->unit_name = unit_name;
+	soldado->color = color;
+	soldado->name = name;
 	soldado->attack = attack;
 	soldado->down_attack = down_attack;
 	soldado->up_attack = up_attack;
@@ -38,9 +38,9 @@ void setar_soldado(Unit *soldado,
 }
 
 void setar_helicoptero(Unit *helicoptero,
-					   string unit_color,
+					   string color,
 					   string unit_type,
-					   SDL_Surface *unit_name,
+					   SDL_Surface *name,
 					   SDL_Surface *attack,
 					   SDL_Surface *down_attack,
 					   SDL_Surface *up_attack,
@@ -52,8 +52,8 @@ void setar_helicoptero(Unit *helicoptero,
 	helicoptero->deffense_points = 200;
 	helicoptero->attack_range = 4;
 	helicoptero->gold_coins = 400;
-	helicoptero->unit_color = unit_color;
-	helicoptero->unit_name = unit_name;
+	helicoptero->color = color;
+	helicoptero->name = name;
 	helicoptero->attack = attack;
 	helicoptero->down_attack = down_attack;
 	helicoptero->up_attack = up_attack;
@@ -63,9 +63,9 @@ void setar_helicoptero(Unit *helicoptero,
 }
 
 void setar_metralhadora(Unit *metralhadora,
-						string unit_color,
+						string color,
 						string unit_type,
-						SDL_Surface *unit_name,
+						SDL_Surface *name,
 						SDL_Surface *attack,
 						SDL_Surface *lateral,
 						int id)
@@ -75,8 +75,8 @@ void setar_metralhadora(Unit *metralhadora,
 	metralhadora->deffense_points = 300;
 	metralhadora->attack_range = 3;
 	metralhadora->gold_coins = 200;
-	metralhadora->unit_color = unit_color;
-	metralhadora->unit_name = unit_name;
+	metralhadora->color = color;
+	metralhadora->name = name;
 	metralhadora->attack = attack;
 	metralhadora->down_attack = attack;
 	metralhadora->up_attack = attack;
@@ -86,9 +86,9 @@ void setar_metralhadora(Unit *metralhadora,
 }
 
 void setar_tanque(Unit *tanque,
-				  string unit_color,
+				  string color,
 				  string unit_type,
-				  SDL_Surface *unit_name,
+				  SDL_Surface *name,
 				  SDL_Surface *attack,
 				  SDL_Surface *down_attack,
 				  SDL_Surface *up_attack,
@@ -100,8 +100,8 @@ void setar_tanque(Unit *tanque,
 	tanque->deffense_points = 400;
 	tanque->attack_range = 2;
 	tanque->gold_coins = 300;
-	tanque->unit_color = unit_color;
-	tanque->unit_name = unit_name;
+	tanque->color = color;
+	tanque->name = name;
 	tanque->attack = attack;
 	tanque->down_attack = down_attack;
 	tanque->up_attack = up_attack;
@@ -111,9 +111,9 @@ void setar_tanque(Unit *tanque,
 }
 
 void setar_quartel(Unit *quartel,
-				   string unit_color,
+				   string color,
 				   string unit_type,
-				   SDL_Surface *unit_name,
+				   SDL_Surface *name,
 				   SDL_Surface *attack,
 				   SDL_Surface *lateral,
 				   int id)
@@ -123,8 +123,8 @@ void setar_quartel(Unit *quartel,
 	quartel->deffense_points = 400;
 	quartel->attack_range = 0;
 	quartel->gold_coins = 0;
-	quartel->unit_color = unit_color;
-	quartel->unit_name = unit_name;
+	quartel->color = color;
+	quartel->name = name;
 	quartel->attack = attack;
 	quartel->down_attack = attack;
 	quartel->up_attack = attack;
@@ -133,26 +133,26 @@ void setar_quartel(Unit *quartel,
 	quartel->id = id;
 }
 
-void setar_pais(Pais *pais,
+void setar_pais(Nation *pais,
 				int gold_coins,
 				int food,
 				int minerals,
-				string unit_name,
-				string unit_color)
+				string name,
+				string color)
 {
 	pais->gold_coins = gold_coins;
 	pais->food = food;
 	pais->minerals = minerals;
-	pais->unit_name = unit_name;
-	pais->unit_color = unit_color;
+	pais->name = name;
+	pais->color = color;
 }
 void setar_construcao(Building *building,
-					  SDL_Surface *unit_name,
+					  SDL_Surface *name,
 					  string unit_type,
 					  int profit,
 					  int conquered)
 {
-	building->unit_name = unit_name;
+	building->name = name;
 	building->unit_type = unit_type;
 	building->profit = profit;
 	building->conquered = conquered;
@@ -185,7 +185,7 @@ void carrega_china(SDL_Surface *screen)
 {
 
 	string lado1("servidor");
-	string unit_color = "vermelho";
+	string color = "vermelho";
 
 	for (int i=0, j=1;i<10;i++,j+=30) {
 
@@ -202,7 +202,7 @@ void carrega_china(SDL_Surface *screen)
 		Unit *soldado = new Unit();
 
 		string unidadea1 = "soldado";
-		setar_soldado(soldado, unit_color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
+		setar_soldado(soldado, color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
 		id++;
 		unidades_azul.push_back(soldado);
 		//if(i+2<=hexagonos.size()){
@@ -211,7 +211,7 @@ void carrega_china(SDL_Surface *screen)
 		dst.y = hexagonos[i*2][3]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
+		SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
 		hexagonos[i*2][3]->unit = unidades_azul[i];
 		hexagonos[i*2][3]->contains_unit = 1;
 
@@ -220,7 +220,7 @@ void carrega_china(SDL_Surface *screen)
 		SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
 		Unit *quartel_a = new Unit();
 		string quarte = "quartel";
-		setar_quartel(quartel_a,unit_color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
+		setar_quartel(quartel_a,color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
 		id++;
 		BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
 		hexagonos[5][1]->unit = quartel_a;
@@ -248,11 +248,11 @@ void carrega_china(SDL_Surface *screen)
 	SDL_Surface *metralhadora_lateral = load_Image(caminho, screen);
 	Unit *metralhadora = new Unit();
 	string unidadea2 = "metralhadora";
-	setar_metralhadora(metralhadora, unit_color, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral, id);
+	setar_metralhadora(metralhadora, color, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral, id);
 	id++;
 	unidades_azul.push_back(metralhadora);
 
-	BlitImage(screen,unidades_azul[10]->unit_name,hexagonos[6][4]->x,hexagonos[6][4]->y);
+	BlitImage(screen,unidades_azul[10]->name,hexagonos[6][4]->x,hexagonos[6][4]->y);
 
 	hexagonos[6][4]->contains_unit=1;
 	hexagonos[6][4]->unit = metralhadora;
@@ -299,8 +299,8 @@ void carrega_eua(SDL_Surface *screen)
 		dst.y = hexagonos[i*2][12]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_vermelhas[i]->unit_name, &cutBox,  screen, &dst);
-		//BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[2][12]->x,hexagonos[2][12]->y);
+		SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
+		//BlitImage(screen,unidades_vermelhas[0]->name,hexagonos[2][12]->x,hexagonos[2][12]->y);
 		hexagonos[i*2][12]->unit = unidades_vermelhas[i];
 		hexagonos[i*2][12]->contains_unit = 1;
 		unidades_vermelhas[0]->x = hexagonos[i*2][12]->x;
@@ -332,8 +332,8 @@ void carrega_eua(SDL_Surface *screen)
 		dst.y = hexagonos[i*2][12]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_vermelhas[i]->unit_name, &cutBox,  screen, &dst);
-		//BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[2][12]->x,hexagonos[2][12]->y);
+		SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
+		//BlitImage(screen,unidades_vermelhas[0]->name,hexagonos[2][12]->x,hexagonos[2][12]->y);
 		hexagonos[i*2][12]->unit = unidades_vermelhas[i];
 		hexagonos[i*2][12]->contains_unit = 1;
 		unidades_vermelhas[0]->x = hexagonos[i*2][12]->x;
@@ -392,13 +392,13 @@ void carrega_eua(SDL_Surface *screen)
 	hexagonos[10][14]->contains_unit= 1;
 	unidades_vermelhas.push_back(quartel_a);
 
-	/*BlitImage(screen,unidades_vermelhas[5]->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
+	/*BlitImage(screen,unidades_vermelhas[5]->name,hexagonos[14][12]->x,hexagonos[14][12]->y);
 	hexagonos[14][12]->unit = unidades_vermelhas[5];
 	hexagonos[14][12]->contains_unit = 1;
 	unidades_vermelhas[5]->x = hexagonos[14][12]->x;
 	unidades_vermelhas[5]->y = hexagonos[14][12]->y;*/
 
-	BlitImage(screen,unidades_vermelhas[5]->unit_name,hexagonos[10][12]->x,hexagonos[10][12]->y);
+	BlitImage(screen,unidades_vermelhas[5]->name,hexagonos[10][12]->x,hexagonos[10][12]->y);
 	hexagonos[9][12]->unit = unidades_vermelhas[5];
 	hexagonos[9][12]->contains_unit = 1;
 	hexagonos[10][12]->unit = unidades_vermelhas[5];
@@ -420,8 +420,8 @@ void carrega_eua(SDL_Surface *screen)
 	dst.y = hexagonos[1][3]->y;
 	dst.h = 0;
 	dst.w = 0;
-	SDL_BlitSurface(unidades_vermelhas[7]->unit_name, &cutBox,  screen, &dst);
-	//BlitImage(screen,unidades _vermelhas[7]->unit_name,hexagonos[1][3]->x,hexagonos[1][3]->y);
+	SDL_BlitSurface(unidades_vermelhas[7]->name, &cutBox,  screen, &dst);
+	//BlitImage(screen,unidades _vermelhas[7]->name,hexagonos[1][3]->x,hexagonos[1][3]->y);
 	hexagonos[14][12]->unit = unidades_vermelhas[7];
 	hexagonos[14][12]->contains_unit = 1;
 	unidades_vermelhas[7]->x = hexagonos[14][12]->x;
@@ -461,7 +461,7 @@ void blit_lateral(Unit *unit,SDL_Surface *screen)
 
 }
 
-void blit_cima(Pais *pais, SDL_Surface *screen)
+void blit_cima(Nation *pais, SDL_Surface *screen)
 {
 	string gold_coins, food, minerals;
 

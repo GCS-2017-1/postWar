@@ -16,13 +16,13 @@ extern void drawCircle(SDL_Surface *screen,
                        int radius,
                        int x,
                        int y,
-                       SDL_Color unit_color);
+                       SDL_Color color);
 extern void drawLine(SDL_Surface *screen,
                      int x0,
                      int y0,
                      int x1,
                      int y1,
-                     SDL_Color unit_color);
+                     SDL_Color color);
 extern SDL_Surface *render_World();
 extern void inicio(SDL_Surface *screen);
 extern void opcoes(SDL_Surface *screen);

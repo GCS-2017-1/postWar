@@ -13,12 +13,12 @@ void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size)
 		cout << "Nao carreguei a fonte" << endl;
 	}
 	const char *txt = texto.c_str();
-	SDL_Color unit_color;
-	unit_color.r = red;
-	unit_color.g = green;
-	unit_color.b = blue;
+	SDL_Color color;
+	color.r = red;
+	color.g = green;
+	color.b = blue;
 
-	SDL_Surface *escrita = TTF_RenderText_Solid(font, txt, unit_color);
+	SDL_Surface *escrita = TTF_RenderText_Solid(font, txt, color);
 	SDL_Rect pos;
 	pos.x = x;
 	pos.y = y;

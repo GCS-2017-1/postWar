@@ -53,23 +53,23 @@ void carregar()
 }
 
 /* carrega efeito sonoro */
-Mix_Chunk *carregarSom(const char *unit_name)
+Mix_Chunk *carregarSom(const char *name)
 {
 
-	Mix_Chunk *som = Mix_LoadWAV(unit_name);
+	Mix_Chunk *som = Mix_LoadWAV(name);
 	if (!som) {
-		printf("ERRO CARREGAR EFEITO SONORO> arquivo:'%s'\n", unit_name);
+		printf("ERRO CARREGAR EFEITO SONORO> arquivo:'%s'\n", name);
 	}
 	return som;
 }
 
 /* carrega fundo musical */
-Mix_Music *carregarMus(const char *unit_name)
+Mix_Music *carregarMus(const char *name)
 {
 
-	Mix_Music *mus = Mix_LoadMUS(unit_name);
+	Mix_Music *mus = Mix_LoadMUS(name);
 	if (!mus) {
-		printf("ERRO CARREGAR MUSICA> arquivo:'%s'\n", unit_name);
+		printf("ERRO CARREGAR MUSICA> arquivo:'%s'\n", name);
 	}
 	return mus;
 }

@@ -14,7 +14,7 @@ using namespace std;
 void carrega_urss(SDL_Surface *screen){
 
     string lado1("servidor");
-    string unit_color = "vermelho";
+    string color = "vermelho";
 
     for(int i=0, j=1;i<6;i++,j+=30){
 
@@ -31,7 +31,7 @@ void carrega_urss(SDL_Surface *screen){
         Unit *soldado = new Unit();
 
         string unidadea1 = "soldado";
-        setar_soldado(soldado, unit_color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
+        setar_soldado(soldado, color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
         id++;
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
@@ -40,7 +40,7 @@ void carrega_urss(SDL_Surface *screen){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unit = unidades_azul[i];
         hexagonos[i*2][3]->contains_unit = 1;
 
@@ -49,7 +49,7 @@ void carrega_urss(SDL_Surface *screen){
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unit *quartel_a = new Unit();
         string quarte = "quartel";
-        setar_quartel(quartel_a,unit_color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
+        setar_quartel(quartel_a,color,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
         id++;
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
         hexagonos[5][1]->unit = quartel_a;
@@ -84,7 +84,7 @@ void carrega_urss(SDL_Surface *screen){
         Unit *tanque1 = new Unit();
 
         string unidadea1 = "tanque";
-        setar_tanque(tanque1, unit_color, unidadea1, tanque, ataque_tanque, down_attack, up_attack,tanque_lateral, id);
+        setar_tanque(tanque1, color, unidadea1, tanque, ataque_tanque, down_attack, up_attack,tanque_lateral, id);
         id++;
         unidades_azul.push_back(tanque1);
         //if(i+2<=hexagonos.size()){
@@ -93,7 +93,7 @@ void carrega_urss(SDL_Surface *screen){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unit = unidades_azul[i];
         hexagonos[i*2][3]->contains_unit = 1;
     }
@@ -114,7 +114,7 @@ for (int i=8;i<9;i++){
         //SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
         Unit *helicoptero = new Unit();
         string unidade1 = "helicoptero";
-        setar_helicoptero(helicoptero, unit_color, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
+        setar_helicoptero(helicoptero, color, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
         id++;
         unidades_azul.push_back(helicoptero);
 
@@ -123,7 +123,7 @@ for (int i=8;i<9;i++){
         dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->unit_name, &cutBox,  screen, &dst);
+        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unit = unidades_azul[i];
         hexagonos[i*2][3]->contains_unit = 1;
         unidades_azul[0]->x = hexagonos[i*2][3]->x;

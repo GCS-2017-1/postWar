@@ -14,7 +14,7 @@ typedef struct _Unit {
 	SDL_Surface *attack;
 	SDL_Surface *down_attack;
 	SDL_Surface *up_attack;
-	SDL_Surface *unit_name;
+	SDL_Surface *name;
 	SDL_Surface *lateral_image;
 	int health_points;
 	int attack_points;
@@ -23,7 +23,7 @@ typedef struct _Unit {
 	int gold_coins;
 	int food;
 	int minerals;
-	string unit_color;
+	string color;
 	string unit_type;
 	int x;
 	int y;
@@ -31,7 +31,7 @@ typedef struct _Unit {
 } Unit;
 
 typedef struct _Building {
-	SDL_Surface *unit_name;
+	SDL_Surface *name;
 	string unit_type;
 	int profit;
 	int conquered;
@@ -59,13 +59,13 @@ typedef struct _Hexagon_selected {
 	int j_before;
 } Hexagon_selected;
 
-typedef struct _Pais {
+typedef struct _Nation {
 	int gold_coins;
 	int food;
 	int minerals;
-	string unit_name;
-	string unit_color;
-} Pais;
+	string name;
+	string color;
+} Nation;
 
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
@@ -119,8 +119,8 @@ extern void opcoes (SDL_Surface *screen);
 extern void creditos (SDL_Surface *screen);
 extern void fase1 (SDL_Surface *screen,
 				   string zuera,
-				   Pais *pais,
-				   Pais *pais1);
+				   Nation *pais,
+				   Nation *pais1);
 extern void fase2 (SDL_Surface *screen,string qual_maquina);
 extern void fase3 (SDL_Surface *screen,string qual_maquina);
 extern void fase4 (SDL_Surface *screen,string qual_maquina);
@@ -150,7 +150,7 @@ extern void ataque_unidade (SDL_Surface *screen,
 	                        int totalElapsedTime,
 	                        int delay,
 	                        int lastdt);
-extern int possui_unidade (string unit_color);
+extern int possui_unidade (string color);
 extern int alcance_movimento_soldado ();
 extern int alcance_ataque_soldado ();
 extern void dano_ataque (SDL_Surface *screen);
@@ -164,68 +164,68 @@ extern void amigo_movimenta (char code_recv[],
 extern void codifica_ataque (char codigo[]);
 extern void verifica_derrota (SDL_Surface *screen);
 extern void blit_lateral (Unit *lateral,SDL_Surface *screen);
-extern void blit_cima (Pais *pais, SDL_Surface *screen);
-extern void setar_pais (Pais *pais,
+extern void blit_cima (Nation *pais, SDL_Surface *screen);
+extern void setar_pais (Nation *pais,
 						int gold_coins,
 						int food,
 						int minerals,
-						string unit_name,
-						string unit_color);
+						string name,
+						string color);
 extern void setar_soldado (Unit *soldado,
-						   string unit_color,
+						   string color,
 						   string unit_type,
-						   SDL_Surface *unit_name,
+						   SDL_Surface *name,
 						   SDL_Surface *attack,
 						   SDL_Surface *down_attack,
 						   SDL_Surface *up_attack,
 						   SDL_Surface *soldado_lateral,
 						   int id);
 extern void setar_helicoptero (Unit *helicoptero,
-							   string unit_color,
+							   string color,
 							   string unit_type,
-							   SDL_Surface *unit_name,
+							   SDL_Surface *name,
 							   SDL_Surface *attack,
 							   SDL_Surface *down_attack,
 							   SDL_Surface *up_attack,
 							   SDL_Surface *helicoptero_lateral,
 							   int id);
 extern void setar_metralhadora (Unit *metralhadora,
-								string unit_color,
+								string color,
 								string unit_type,
-								SDL_Surface *unit_name,
+								SDL_Surface *name,
 								SDL_Surface *attack,
 								SDL_Surface *lateral,
 								int id);
 extern void setar_tanque (Unit *tanque,
-						  string unit_color,
+						  string color,
 						  string unit_type,
-						  SDL_Surface *unit_name,
+						  SDL_Surface *name,
 						  SDL_Surface *attack,
 						  SDL_Surface *down_attack,
 						  SDL_Surface *up_attack,
 						  SDL_Surface *tanque_lateral,
 						  int id);
 extern void setar_quartel (Unit *quartel,
-						   string unit_color,
+						   string color,
 						   string unit_type,
-						   SDL_Surface *unit_name,
+						   SDL_Surface *name,
 						   SDL_Surface *attack,
 						   SDL_Surface *lateral,
 						   int id);
-extern void setar_pais (Pais *pais,
+extern void setar_pais (Nation *pais,
 						int gold_coins,
 						int food,
 						int minerals,
-						string unit_name,
-						string unit_color);
+						string name,
+						string color);
 extern void setar_construcao (Building *building,
-							  SDL_Surface *unit_name,
+							  SDL_Surface *name,
 							  string unit_type,
 							  int profit);
 extern void carrega_eua (SDL_Surface *screen,string lado);
 extern string convertInt (int number);
 extern void blit_lateral (Unit *unit,SDL_Surface *screen);
-extern void blit_cima (Pais *pais, SDL_Surface *screen);
+extern void blit_cima (Nation *pais, SDL_Surface *screen);
 extern void mapeia_hexagono ();
 extern void carrega_construcoes (SDL_Surface *screen);
 extern string convertInt (int number);
@@ -233,11 +233,11 @@ extern void desenha_pontos (int number, SDL_Surface *screen);
 extern void perdeu_jogo (SDL_Surface *screen);
 extern void venceu_jogo (SDL_Surface *screen);
 extern void blit_selecao (SDL_Surface *screen);
-extern void evolucao_soldado (Pais *pais);
-extern void evolucao_quartel (Pais *pais);
-extern void coleta_ouro (Pais *pais, int valor_coleta_ouro);
-extern void coleta_minerio (Pais *pais, int valor_coleta_minerio);
-extern void coleta_comida (Pais *pais, int valor_coleta_comida);
+extern void evolucao_soldado (Nation *pais);
+extern void evolucao_quartel (Nation *pais);
+extern void coleta_ouro (Nation *pais, int valor_coleta_ouro);
+extern void coleta_minerio (Nation *pais, int valor_coleta_minerio);
+extern void coleta_comida (Nation *pais, int valor_coleta_comida);
 extern void explode_unidade (SDL_Surface *screen,
 							 int x,
 							 int y,

@@ -8,8 +8,8 @@
 extern void criaMusicas();
 extern void init();
 extern void carregar();
-extern Mix_Chunk *carregarSom(const char *unit_name);
-extern Mix_Music *carregarMus(const char *unit_name);
+extern Mix_Chunk *carregarSom(const char *name);
+extern Mix_Music *carregarMus(const char *name);
 extern void descarregar();
 extern void play_music(struct _Mix_Music *nome_da_musica);
 extern void play_effect(struct Mix_Chunk *nome_do_efeito);

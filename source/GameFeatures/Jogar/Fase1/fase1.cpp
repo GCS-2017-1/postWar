@@ -14,8 +14,8 @@
 /* load level 1 */
 void fase1(SDL_Surface *screen,
 		   string qual_maquina,
-		   Pais *pais_serv,
-		   Pais *pais_client)
+		   Nation *pais_serv,
+		   Nation *pais_client)
 {
 	FPS = 150;
 	int lastdt = SDL_GetTicks();

@@ -38,8 +38,8 @@ void carrega_china_azul(SDL_Surface *screen){
         dst.y = hexagonos[i*2][12]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_vermelhas[i]->unit_name, &cutBox,  screen, &dst);
-        //BlitImage(screen,unidades_vermelhas[0]->unit_name,hexagonos[2][12]->x,hexagonos[2][12]->y);
+        SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
+        //BlitImage(screen,unidades_vermelhas[0]->name,hexagonos[2][12]->x,hexagonos[2][12]->y);
         hexagonos[i*2][12]->unit = unidades_vermelhas[i];
         hexagonos[i*2][12]->contains_unit = 1;
         unidades_vermelhas[0]->x = hexagonos[i*2][12]->x;
@@ -61,7 +61,7 @@ void carrega_china_azul(SDL_Surface *screen){
         id++;
         unidades_vermelhas.push_back(metralhadora);
 
-        BlitImage(screen,unidades_vermelhas[i]->unit_name,hexagonos[2][13]->x,hexagonos[2][13]->y);
+        BlitImage(screen,unidades_vermelhas[i]->name,hexagonos[2][13]->x,hexagonos[2][13]->y);
         hexagonos[2][13]->unit = unidades_vermelhas[i];
         hexagonos[2][13]->contains_unit = 1;
         hexagonos[3][13]->unit = unidades_vermelhas[i];
@@ -96,7 +96,7 @@ void carrega_china_azul(SDL_Surface *screen){
     hexagonos[10][14]->contains_unit= 1;
     unidades_vermelhas.push_back(quartel_a);
 
-    /*BlitImage(screen,unidades_vermelhas[5]->unit_name,hexagonos[14][12]->x,hexagonos[14][12]->y);
+    /*BlitImage(screen,unidades_vermelhas[5]->name,hexagonos[14][12]->x,hexagonos[14][12]->y);
     hexagonos[14][12]->unit = unidades_vermelhas[5];
     hexagonos[14][12]->contains_unit = 1;
     unidades_vermelhas[5]->x = hexagonos[14][12]->x;

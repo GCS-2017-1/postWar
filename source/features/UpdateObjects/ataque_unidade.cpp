@@ -51,7 +51,7 @@ void ataque_unidade(SDL_Surface *screen,
 			cout << "Nao pode atacar" << endl;
 			return;
 		}
-		string unit_color = "vermelho";
+		string color = "vermelho";
 		string cor2 = "azul";
 		string unit_type = "metralhadora";
 		string tipo2 = "soldado";
@@ -59,7 +59,7 @@ void ataque_unidade(SDL_Surface *screen,
 		string tipo4 = "tanque";
 
 		SDL_Rect cutBox = {0,0,32,32};
-		if (temp_defensor->unit_type == tipo4 && temp_defensor->unit_color == cor2) {
+		if (temp_defensor->unit_type == tipo4 && temp_defensor->color == cor2) {
 			efeito_ataque = 't';
 			n_sprites = 4;
 			if (s_def < s && w_def == w) {
@@ -90,7 +90,7 @@ void ataque_unidade(SDL_Surface *screen,
 			}
 		}
 		/* acha tanque vermelho */
-		if (temp_defensor->unit_type == tipo4 && temp_defensor->unit_color == unit_color) {
+		if (temp_defensor->unit_type == tipo4 && temp_defensor->color == color) {
 			efeito_ataque = 't';
 			n_sprites = 4;
 			if (s_def < s && w_def == w) {
@@ -119,7 +119,7 @@ void ataque_unidade(SDL_Surface *screen,
 			}
 		}
 		/* acha helicoptero vermelho */
-		if (temp_defensor->unit_type == tipo3 && temp_defensor->unit_color == unit_color) {
+		if (temp_defensor->unit_type == tipo3 && temp_defensor->color == color) {
 			efeito_ataque = 'h';
 			if (s_def < s && w_def == w) {
 				temp_s2 = temp_defensor->down_attack;
@@ -151,7 +151,7 @@ void ataque_unidade(SDL_Surface *screen,
 
 		}
 		/* acha helicoptero azul */
-		if (temp_defensor->unit_type == tipo3 && temp_defensor->unit_color == cor2) {
+		if (temp_defensor->unit_type == tipo3 && temp_defensor->color == cor2) {
 			efeito_ataque = 'h';
 			cout << "Achei helicoptero azul" << endl;
 			if (s_def < s && w_def == w) {
@@ -184,7 +184,7 @@ void ataque_unidade(SDL_Surface *screen,
 
 		}
 		/* acha metralhadora azul */
-		if (temp_defensor->unit_type == unit_type && temp_defensor->unit_color == cor2) {
+		if (temp_defensor->unit_type == unit_type && temp_defensor->color == cor2) {
 			efeito_ataque = 'm';
 			temp_s2 = temp_defensor->attack;
 			cout << "Achei metralhadora" << endl;;
@@ -196,7 +196,7 @@ void ataque_unidade(SDL_Surface *screen,
 			n_sprites = 5;
 		}
 		/* acha metralhadora vermelha */
-		if (temp_defensor->unit_type == unit_type && temp_defensor->unit_color == unit_color) {
+		if (temp_defensor->unit_type == unit_type && temp_defensor->color == color) {
 			cout << "Achei metralhadora" << endl;
 			temp_s2 = temp_defensor->attack;
 			cutBox.x = 0;
@@ -207,7 +207,7 @@ void ataque_unidade(SDL_Surface *screen,
 			n_sprites = 5;
 		}
 		/* acha soldado vermelho */
-		if (temp_defensor->unit_color == unit_color && temp_defensor->unit_type == tipo2) {
+		if (temp_defensor->color == color && temp_defensor->unit_type == tipo2) {
 			efeito_ataque = 's';
 			cout << "Achei vermelho" << endl;
 			n_sprites = 5;
@@ -238,7 +238,7 @@ void ataque_unidade(SDL_Surface *screen,
 		}
 
 		/* acha soldado azul */
-		if (temp_defensor->unit_color == cor2 && temp_defensor->unit_type == tipo2) {
+		if (temp_defensor->color == cor2 && temp_defensor->unit_type == tipo2) {
 			efeito_ataque = 's';
 			cout << "Achei azul" << endl;
 			n_sprites = 5;
@@ -270,7 +270,7 @@ void ataque_unidade(SDL_Surface *screen,
 		SDL_Rect cutBox2 = {0, 0, 32, 32};
 
 		/* acha tanque azul */
-		if (temp->unit_type == tipo4 && temp->unit_color == cor2) {
+		if (temp->unit_type == tipo4 && temp->color == cor2) {
 			efeito_ataque = 't';
 			n_sprites2 = 4;
 			if (s < y && w == x) {
@@ -301,7 +301,7 @@ void ataque_unidade(SDL_Surface *screen,
 			}
 		}
 		/* acha tanque vermelho */
-		if (temp->unit_type == tipo4 && temp->unit_color == unit_color) {
+		if (temp->unit_type == tipo4 && temp->color == color) {
 			efeito_ataque = 't';
 			n_sprites2 = 4;
 			if (s < y && w == x) {
@@ -330,7 +330,7 @@ void ataque_unidade(SDL_Surface *screen,
 			}
 		}
 		/* acha helicoptero vermelho */
-		if (temp->unit_type == tipo3 && temp->unit_color == unit_color) {
+		if (temp->unit_type == tipo3 && temp->color == color) {
 			efeito_ataque = 'h';
 			if (s < y && w == x) {
 				temp_s = temp->down_attack;
@@ -361,7 +361,7 @@ void ataque_unidade(SDL_Surface *screen,
 			}
 		}
 		/* acha helicoptero azul */
-		if (temp->unit_type == tipo3 && temp->unit_color == cor2) {
+		if (temp->unit_type == tipo3 && temp->color == cor2) {
 			cout << "Achei helicoptero azul" << endl;
 			if (s < y && w == x) {
 				temp_s = temp->down_attack;
@@ -393,7 +393,7 @@ void ataque_unidade(SDL_Surface *screen,
 
 		}
 		/* acha metralhadora azul */
-		if (temp->unit_type == unit_type && temp->unit_color == cor2) {
+		if (temp->unit_type == unit_type && temp->color == cor2) {
 			efeito_ataque = 'm';
 			temp_s = temp->attack;
 			cutBox2.x = 64;
@@ -404,7 +404,7 @@ void ataque_unidade(SDL_Surface *screen,
 			n_sprites2 = 5;
 		}
 		/* acha metralhadora vermelha */
-		if (temp->unit_type == unit_type && temp->unit_color == unit_color) {
+		if (temp->unit_type == unit_type && temp->color == color) {
 			efeito_ataque = 'm';
 			cout << "Achei metralhadora" << endl;
 			temp_s = temp->attack;
@@ -416,7 +416,7 @@ void ataque_unidade(SDL_Surface *screen,
 			n_sprites2 = 5;
 		}
 		/* acha soldado vermelho */
-		if (temp->unit_color == unit_color && temp->unit_type == tipo2) {
+		if (temp->color == color && temp->unit_type == tipo2) {
 			efeito_ataque = 's';
 			cout << "Achei vermelho" << endl;
 			n_sprites2 = 5;
@@ -447,7 +447,7 @@ void ataque_unidade(SDL_Surface *screen,
 		}
 
 		/* acha soldado azul */
-		if (temp->unit_color == cor2 && temp->unit_type == tipo2) {
+		if (temp->color == cor2 && temp->unit_type == tipo2) {
 			efeito_ataque = 's';
 			cout << "Achei azul" << endl;
 			n_sprites2 = 5;

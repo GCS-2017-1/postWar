@@ -53,8 +53,8 @@ void dano_ataque(SDL_Surface *screen)
 	}
 
 	if (defensor->unit_type == tipoquartel && defensor->health_points == 0) {
-		cout << "defensor:" << defensor->unit_color << endl;
-		derrotado = defensor->unit_color;
+		cout << "defensor:" << defensor->color << endl;
+		derrotado = defensor->color;
 		cout << "derrotado:" << derrotado << endl;
 	}
 	cout << "atacante health_points:" << atacante->health_points << endl;
@@ -84,7 +84,7 @@ void dano_ataque(SDL_Surface *screen)
 				hexagonos[hex_selecao->i][hex_selecao->j]->unit = NULL;
 				hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit = 0;
 			}
-			else if (defensor->unit_color == "azul") {
+			else if (defensor->color == "azul") {
 				play_effect(efeito_explosao);
 				hexagonos[9][12]->unit = NULL;
 				hexagonos[9][12]->contains_unit = 0;
@@ -107,7 +107,7 @@ void dano_ataque(SDL_Surface *screen)
 				hexagonos[8][4]->contains_unit = 0;
 			}
 		}
-		else if (defensor->unit_color == "azul") {
+		else if (defensor->color == "azul") {
 			play_effect(efeito_explosao);
 			hexagonos[7][13]->unit = NULL;
 			hexagonos[7][13]->contains_unit = 0;

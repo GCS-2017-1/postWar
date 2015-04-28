@@ -15,7 +15,7 @@ SDL_Surface *screen;
 SDL_Surface *nome1;
 
 /* describes the soldier evolution */
-void evolucao_soldado(Pais *pais)
+void evolucao_soldado(Nation *pais)
 {
 	pais->gold_coins -= 30;
 	if (pais->gold_coins < 0) {
@@ -41,7 +41,7 @@ void evolucao_soldado(Pais *pais)
 	for (unsigned int i=0;i<hexagonos.size();i++) {
 		for (unsigned int j=0;j<hexagonos[i].size();j++) {
 			if (hexagonos[i][j]->contains_unit==1) {
-				if (hexagonos[i][j]->unit->unit_color == pais->unit_color) {
+				if (hexagonos[i][j]->unit->color == pais->color) {
 					if (hexagonos[i][j]->unit->unit_type == "soldado") {
 						hexagonos[i][j]->unit->health_points = 250;
 						hexagonos[i][j]->unit->attack_points = 150;
@@ -63,7 +63,7 @@ void evolucao_soldado(Pais *pais)
 }
 
 /* describes the evolution of the quartel */
-void evolucao_quartel(Pais *pais)
+void evolucao_quartel(Nation *pais)
 {
 	pais->gold_coins -= 50;
 	if (pais->gold_coins < 0) {
@@ -89,9 +89,9 @@ void evolucao_quartel(Pais *pais)
 	for (unsigned int i=0;i<hexagonos.size();i++) {
 		for (unsigned int j=0;j<hexagonos[i].size();j++) {
 			if (hexagonos[i][j]->contains_unit==1) {
-				if (hexagonos[i][j]->unit->unit_color == pais->unit_color) {
+				if (hexagonos[i][j]->unit->color == pais->color) {
 					if (hexagonos[i][j]->unit->unit_type == "quartel") {
-						if (hexagonos[i][j]->unit->unit_color == "azul") {
+						if (hexagonos[i][j]->unit->color == "azul") {
 							string caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_quartel_azul.png";
 							nome1 = load_Image(caminho, screen);
 						}
@@ -102,7 +102,7 @@ void evolucao_quartel(Pais *pais)
 						hexagonos[i][j]->unit->health_points = 1250;
 						hexagonos[i][j]->unit->attack_points = 0;
 						hexagonos[i][j]->unit->deffense_points = 500;
-						hexagonos[i][j]->unit->unit_name = nome1;
+						hexagonos[i][j]->unit->name = nome1;
 					}
 					else {
 					   /* nothing to do */

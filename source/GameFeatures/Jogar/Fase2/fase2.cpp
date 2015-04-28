@@ -15,14 +15,14 @@
 void fase2(SDL_Surface *screen,string qual_maquina)
 {
 	FPS = 150;
-	Pais *franca = new Pais();
-	string unit_name = "França";
-	string unit_color = "vermelho";
-	setar_pais(franca, 50, 50, 100, unit_name, unit_color);
-	Pais *uk = new Pais();
-	unit_name = "UK";
-	unit_color = "azul";
-	setar_pais(uk, 100, 40, 50, unit_name, unit_color);
+	Nation *franca = new Nation();
+	string name = "França";
+	string color = "vermelho";
+	setar_pais(franca, 50, 50, 100, name, color);
+	Nation *uk = new Nation();
+	name = "UK";
+	color = "azul";
+	setar_pais(uk, 100, 40, 50, name, color);
 
 	char pais_serv[100] = "franca";
 	char pais_client[100] = "uk";

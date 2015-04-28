@@ -99,7 +99,7 @@ void mover_soldado(SDL_Surface *screen,
 		{
 			cout<<"WOLOLOLO"<<endl;
 		}
-		SDL_BlitSurface(temp->unit_name, &cutBox, screen, &dest);
+		SDL_BlitSurface(temp->name, &cutBox, screen, &dest);
 		SDL_Delay(tempo_delay);
 		SDL_Flip(screen);
 	}
