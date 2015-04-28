@@ -52,12 +52,12 @@ typedef struct _Hexagons {
 } Hexagons;
 
 
-typedef struct _Hexagono_selecao {
+typedef struct _Hexagon_selected {
 	int i;
 	int j;
-	int i_antes;
-	int j_antes;
-} Hex_selecao;
+	int i_before;
+	int j_before;
+} Hexagon_selected;
 
 typedef struct _Pais {
 	int gold_coins;
@@ -69,7 +69,7 @@ typedef struct _Pais {
 
 extern char codigo_s[100];
 extern SDL_Rect cutBox;
-extern Hex_selecao *hex_selecao;
+extern Hexagon_selected *hex_selecao;
 extern vector<vector <Hexagons *> > hexagonos;
 extern vector<Unit *> unidades_azul;
 extern vector<Unit *> unidades_vermelhas;

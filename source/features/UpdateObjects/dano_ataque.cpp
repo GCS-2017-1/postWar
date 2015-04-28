@@ -27,8 +27,8 @@ void dano_ataque(SDL_Surface *screen)
 	int rand_defensor = rand() % 50 + 30;
 	int rand_atacante = rand() % 50 + 40;
 
-	Unit *atacante = hexagonos[hex_selecao->i_antes]
-								 [hex_selecao->j_antes]->unit;
+	Unit *atacante = hexagonos[hex_selecao->i_before]
+								 [hex_selecao->j_before]->unit;
 	Unit *defensor = hexagonos[hex_selecao->i]
 								 [hex_selecao->j]->unit;
 
@@ -62,16 +62,16 @@ void dano_ataque(SDL_Surface *screen)
 
 	if (atacante->health_points <= 0) {
 		explode_unidade(screen,
-						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x,
-						hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y,
+						hexagonos[hex_selecao->i_before][hex_selecao->j_before]->x,
+						hexagonos[hex_selecao->i_before][hex_selecao->j_before]->y,
 						totalElapsedTime, delay, lastdt);
-		hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit = NULL;
-		hexagonos[hex_selecao->i_antes]
-				 [hex_selecao->j_antes]->contains_unit = 0;
+		hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit = NULL;
+		hexagonos[hex_selecao->i_before]
+				 [hex_selecao->j_before]->contains_unit = 0;
 	}
 	else {
-		hexagonos[hex_selecao->i_antes]
-				 [hex_selecao->j_antes]->unit->health_points = atacante->health_points;
+		hexagonos[hex_selecao->i_before]
+				 [hex_selecao->j_before]->unit->health_points = atacante->health_points;
 	}
 	if (defensor->health_points <= 0) {
 		if (defensor->unit_type.compare("quartel") != 0) {

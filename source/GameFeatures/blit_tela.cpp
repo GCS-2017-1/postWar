@@ -139,19 +139,19 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 				 *      << hexagonos[x][y]->unit
 				 *      << endl;
 				 * cout << "unit unit_type:"
-				 *      << hexagonos[hex_selecao->i_antes]
-				 *      			[hex_selecao->j_antes]->unit->unit_type
+				 *      << hexagonos[hex_selecao->i_before]
+				 *      			[hex_selecao->j_before]->unit->unit_type
 				 *      << endl;
 				 */
 				if (hexagonos[i][j]->unit->id == id) {
 					/* cout << "entrei if" << endl; */
-					int w = hexagonos[hex_selecao->i_antes]
-					                 [hex_selecao->j_antes]->unit->x;
-					int s = hexagonos[hex_selecao->i_antes]
-					                 [hex_selecao->j_antes]->unit->y;
+					int w = hexagonos[hex_selecao->i_before]
+					                 [hex_selecao->j_before]->unit->x;
+					int s = hexagonos[hex_selecao->i_before]
+					                 [hex_selecao->j_before]->unit->y;
 					Unit *temp;
-					temp = hexagonos[hex_selecao->i_antes]
-					                [hex_selecao->j_antes]->unit;
+					temp = hexagonos[hex_selecao->i_before]
+					                [hex_selecao->j_before]->unit;
 					/* cout << "temp:" << temp->unit_type << endl; */
 					SDL_Surface *temp_s;
 					string unit_color = "vermelho";

@@ -68,8 +68,8 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                        hex_selecao->i_antes = hex_selecao->i;
-                        hex_selecao->j_antes = hex_selecao->j;
+                        hex_selecao->i_before = hex_selecao->i;
+                        hex_selecao->j_before = hex_selecao->j;
                         if(possui_unidade("vermelho") && !hexagonos[hex_selecao->i][hex_selecao->j]->barrier){
                             blit_tela(screen,1);
                             blit_selecao(screen);
@@ -82,7 +82,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")){
+                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
@@ -125,8 +125,8 @@ void fase4(SDL_Surface *screen,string qual_maquina){
 
                                     if(alcance_movimento_soldado()){
                                         strcpy (codigo_s,"00");
-                                        codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-                                        codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+                                        codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
+                                        codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
                                         codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
                                         codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
                                         //cout<<"Enviando msg..."<<endl;
@@ -311,8 +311,8 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                             clica_menu_menor(screen);
                         }
 
-                        hex_selecao->i_antes = hex_selecao->i;
-                        hex_selecao->j_antes = hex_selecao->j;
+                        hex_selecao->i_before = hex_selecao->i;
+                        hex_selecao->j_before = hex_selecao->j;
                         if(possui_unidade("azul")){
                             blit_cima(china,screen);
                             blit_tela(screen,1);
@@ -324,7 +324,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")){
+                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
@@ -362,8 +362,8 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                             if(alcance_movimento_soldado()){
 
                                                 strcpy (codigo_s,"00");
-                                                codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-                                                codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+                                                codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
+                                                codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
                                                 codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
                                                 codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
                                                 //cout<<"Enviando msg..."<<endl;

@@ -33,19 +33,19 @@ void ataque_unidade(SDL_Surface *screen,
 		int tamanho_sprites2 = 0;
 
 
-		int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
-		int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
+		int w = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->x;
+		int s = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->y;
 		int w_def = hexagonos[hex_selecao->i][hex_selecao->j]->x;
 		int s_def = hexagonos[hex_selecao->i][hex_selecao->j]->y;
 
 
-		if (hexagonos[hex_selecao->i_antes]
-		    [hex_selecao->j_antes]->contains_unit == 0)
+		if (hexagonos[hex_selecao->i_before]
+		    [hex_selecao->j_before]->contains_unit == 0)
 		{
 			break;
 		}
 
-		temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit;
+		temp = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit;
 		temp_defensor = hexagonos[hex_selecao->i][hex_selecao->j]->unit;
 		if (temp->unit_type == tipoquartel) {
 			cout << "Nao pode atacar" << endl;

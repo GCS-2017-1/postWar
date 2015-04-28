@@ -25,7 +25,8 @@ int verifica_hexagono(int x, int y)
 			re = (vx*vx)+(vy*vy);
 			re = sqrt(re);
 			if (re <= 20) {
-				hex_selecao->i = i;
+				hex_sele
+				cao->i = i;
 				hex_selecao->j = j;
 				return 1;
 			}
@@ -56,11 +57,11 @@ int possui_unidade(string unit_color)
 /* verifies the range of moving of a soldier */
 int alcance_movimento_soldado()
 {
-	if ((abs(hex_selecao->j_antes - hex_selecao->j) <= 1)
-		 &&(abs(hex_selecao->i_antes - hex_selecao -> i)  >0)
-		 &&(abs(hex_selecao->i_antes - hex_selecao->i) < 3)) {
-		if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2)
-			 &&(abs(hex_selecao->j_antes - hex_selecao->j) == 1 )) {
+	if ((abs(hex_selecao->j_before - hex_selecao->j) <= 1)
+		 &&(abs(hex_selecao->i_before - hex_selecao -> i)  >0)
+		 &&(abs(hex_selecao->i_before - hex_selecao->i) < 3)) {
+		if ((abs(hex_selecao->i_before - hex_selecao->i) == 2)
+			 &&(abs(hex_selecao->j_before - hex_selecao->j) == 1 )) {
 			return 0;
 		}
 		else {
@@ -84,11 +85,11 @@ int alcance_movimento_soldado()
 /* verifies the range of the soldier's atack */
 int alcance_ataque_soldado()
 {
-	if ((abs(hex_selecao->j_antes - hex_selecao->j) <= 1)
-		 &&(abs(hex_selecao->i_antes - hex_selecao->i) > 0)
-		 &&(abs(hex_selecao->i_antes - hex_selecao->i) < 3)) {
-		if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2)
-			 &&(abs(hex_selecao->j_antes - hex_selecao->j) == 1 )) {
+	if ((abs(hex_selecao->j_before - hex_selecao->j) <= 1)
+		 &&(abs(hex_selecao->i_before - hex_selecao->i) > 0)
+		 &&(abs(hex_selecao->i_before - hex_selecao->i) < 3)) {
+		if ((abs(hex_selecao->i_before - hex_selecao->i) == 2)
+			 &&(abs(hex_selecao->j_before - hex_selecao->j) == 1 )) {
 			return 0;
 		}
 		else {
@@ -96,7 +97,7 @@ int alcance_ataque_soldado()
 		}
 
 		if (hexagonos[hex_selecao->i][hex_selecao->j]->contains_unit) {
-			Unit *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit;
+			Unit *temp1 = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit;
 			Unit *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unit;
 			if (temp2->unit_color != temp1->unit_color) {
 				return 1;

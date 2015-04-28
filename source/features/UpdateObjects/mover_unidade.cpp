@@ -20,15 +20,15 @@ void mover_soldado(SDL_Surface *screen,
 	string tipo2 = "metralhadora";
 	Unit *temp;
 
-	temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit;
+	temp = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit;
 
 	if (temp->unit_type == tipo1 || temp->unit_type == tipo2) {
 		cout << "Nao pode mover" << endl;
 		return;
 	}
 
-	hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit = NULL;
-	hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contains_unit = 0;
+	hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit = NULL;
+	hexagonos[hex_selecao->i_before][hex_selecao->j_before]->contains_unit = 0;
 
 	SDL_Rect cutBox = {32,0,32,32};
 
@@ -41,8 +41,8 @@ void mover_soldado(SDL_Surface *screen,
 		tempo_delay = 50;
 	}
 
-	int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
-	int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
+	int w = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->x;
+	int s = hexagonos[hex_selecao->i_before][hex_selecao->j_before]->y;
 
 	while (w != x || y != s) {
 		blit_tela(screen,1);
@@ -94,8 +94,8 @@ void mover_soldado(SDL_Surface *screen,
 		}
 
 		SDL_Rect dest = {(Sint16)w, (Sint16)s, 0, 0};
-		if (hexagonos[hex_selecao->i_antes]
-		    [hex_selecao->j_antes]->contains_unit)
+		if (hexagonos[hex_selecao->i_before]
+		    [hex_selecao->j_before]->contains_unit)
 		{
 			cout<<"WOLOLOLO"<<endl;
 		}

@@ -47,8 +47,8 @@ void fase1(SDL_Surface *screen,
 						/* nothing to do */
 					}
 					if (verifica_hexagono(vetor->x,vetor->y)) {
-						hex_selecao->i_antes = hex_selecao->i;
-						hex_selecao->j_antes = hex_selecao->j;
+						hex_selecao->i_before = hex_selecao->i;
+						hex_selecao->j_before = hex_selecao->j;
 						if (possui_unidade("vermelho") ) {
 							blit_tela(screen,1);
 							blit_selecao(screen);
@@ -59,7 +59,7 @@ void fase1(SDL_Surface *screen,
 								vetor = get_Input();
 								if (vetor->click == 1) {
 									verifica_hexagono(vetor->x,vetor->y);
-									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")) {
+									if (possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")) {
 										break;
 									}
 									else {
@@ -133,8 +133,8 @@ void fase1(SDL_Surface *screen,
 											/* nothing to do */
 										}
 										strcpy (codigo_s,"00");
-										codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-										codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+										codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
+										codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
 										codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
 										codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
 										enviar_msg(Sclient,codigo_s);
@@ -375,8 +375,8 @@ void fase1(SDL_Surface *screen,
 						/* nothing to do */
 					}
 					if (verifica_hexagono(vetor->x,vetor->y)) {
-						hex_selecao->i_antes = hex_selecao->i;
-						hex_selecao->j_antes = hex_selecao->j;
+						hex_selecao->i_before = hex_selecao->i;
+						hex_selecao->j_before = hex_selecao->j;
 						if (possui_unidade("azul")) {
 							blit_cima(pais_client,screen);
 							blit_tela(screen,1);
@@ -388,7 +388,7 @@ void fase1(SDL_Surface *screen,
 									vetor = get_Input();
 									if (vetor->click == 1) {
 										verifica_hexagono(vetor->x,vetor->y);
-										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unit->unit_type != "helicoptero")) {
+										if (possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->barrier && hexagonos[hex_selecao->i_before][hex_selecao->j_before]->unit->unit_type != "helicoptero")) {
 											break;
 										}
 										else {
@@ -452,8 +452,8 @@ void fase1(SDL_Surface *screen,
 												/* nothing to do */
 											}
 											strcpy (codigo_s,"00");
-											codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-											codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+											codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
+											codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
 											codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
 											codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
 											enviar_msg(Cserver,codigo_s);
@@ -547,8 +547,8 @@ void fase1(SDL_Surface *screen,
 void codifica_ataque(char codigo_s[])
 {
 	strcpy(codigo_s,"01");
-	codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-	codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+	codigo_s[2] = (char)(((int)'0')+hex_selecao->i_before);
+	codigo_s[3] = (char)(((int)'0')+hex_selecao->j_before);
 	codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
 	codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
 	/*codigo_s[6] = hp1/1000;
@@ -569,8 +569,8 @@ void amigo_movimenta(char code_recv[],
 					 int lastdt)
 {
 	if (code_recv[0] == '0' && code_recv[1] == '0') {
-	hex_selecao->i_antes = code_recv[2] - 48;
-	hex_selecao->j_antes = code_recv[3] - 48;
+	hex_selecao->i_before = code_recv[2] - 48;
+	hex_selecao->j_before = code_recv[3] - 48;
 	hex_selecao->i = code_recv[4] - 48;
 	hex_selecao->j = code_recv[5] - 48;
 	mover_soldado(screen,
@@ -582,8 +582,8 @@ void amigo_movimenta(char code_recv[],
 	blit_tela(screen,0);
 	}
 	else if (code_recv[0] == '0' && code_recv[1] == '1') {
-		hex_selecao->i_antes = code_recv[2] - 48;
-		hex_selecao->j_antes = code_recv[3] - 48;
+		hex_selecao->i_before = code_recv[2] - 48;
+		hex_selecao->j_before = code_recv[3] - 48;
 		hex_selecao->i = code_recv[4] - 48;
 		hex_selecao->j = code_recv[5] - 48;
 		ataque_unidade(screen,
