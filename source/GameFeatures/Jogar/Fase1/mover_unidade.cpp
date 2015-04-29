@@ -9,12 +9,12 @@
 /* allow the soldiers to be moved */
 void mover_soldado(SDL_Surface *screen, int i, int x, int y)
 {
-	int posi = unidades_vermelhas[i]->x;
+	int posi = red_units[i]->x;
 	for (int j = posi;j<x;j++) {
 		SDL_Rect pos = {j, y};
-		unidades_vermelhas[i]->x = j;
-		unidades_vermelhas[i]->y = y;
-		SDL_BlitSurface(unidades_vermelhas[i]->name, NULL, screen, &pos);
+		red_units[i]->x = j;
+		red_units[i]->y = y;
+		SDL_BlitSurface(red_units[i]->name, NULL, screen, &pos);
 		SDL_Flip(screen);
 	}
 }

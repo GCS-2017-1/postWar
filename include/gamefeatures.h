@@ -72,7 +72,7 @@ extern SDL_Rect cutBox;
 extern Hexagon_selected *hexagon_selected;
 extern vector<vector <Hexagons *> > hexagons;
 extern vector<Unit *> blue_units;
-extern vector<Unit *> unidades_vermelhas;
+extern vector<Unit *> red_units;
 extern SDL_Surface *malha;
 extern SDL_Surface *hud;
 extern SDL_Surface *sem_malha;

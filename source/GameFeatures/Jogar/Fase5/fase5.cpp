@@ -67,7 +67,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
 
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
-                    //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
+                    //if(compara_selecao(red_units[0]->x, red_units[0]->x+32, vetor->x, red_units[0]->y, red_units[0]->y+32, vetor->y)){
                         hexagon_selected->i_before = hexagon_selected->i;
                         hexagon_selected->j_before = hexagon_selected->j;
                         if(possui_unidade("vermelho") && !hexagons[hexagon_selected->i][hexagon_selected->j]->barrier){
@@ -315,7 +315,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
 
-                    //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
+                    //if(compara_selecao(red_units[0]->x, red_units[0]->x+32, vetor->x, red_units[0]->y, red_units[0]->y+32, vetor->y)){
                         hexagon_selected->i_before = hexagon_selected->i;
                         hexagon_selected->j_before = hexagon_selected->j;
                         if(possui_unidade("azul")){

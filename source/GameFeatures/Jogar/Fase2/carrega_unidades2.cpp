@@ -186,18 +186,18 @@ void carrega_uk(SDL_Surface *screen)
 					  soldado_lateral_v,
 					  id);
 		id++;
-		unidades_vermelhas.push_back(soldado);
+		red_units.push_back(soldado);
 
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][12]->x;
 		dst.y = hexagons[i*2][12]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][12]->unit = unidades_vermelhas[i];
+		SDL_BlitSurface(red_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][12]->unit = red_units[i];
 		hexagons[i*2][12]->contains_unit = 1;
-		unidades_vermelhas[0]->x = hexagons[i*2][12]->x;
-		unidades_vermelhas[0]->y = hexagons[i*2][12]->y;
+		red_units[0]->x = hexagons[i*2][12]->x;
+		red_units[0]->y = hexagons[i*2][12]->y;
 
 	}
 
@@ -224,18 +224,18 @@ void carrega_uk(SDL_Surface *screen)
 						  helicoptero_lateral,
 						  id);
 		id++;
-		unidades_vermelhas.push_back(helicoptero);
+		red_units.push_back(helicoptero);
 
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][12]->x;
 		dst.y = hexagons[i*2][12]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][12]->unit = unidades_vermelhas[i];
+		SDL_BlitSurface(red_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][12]->unit = red_units[i];
 		hexagons[i*2][12]->contains_unit = 1;
-		unidades_vermelhas[0]->x = hexagons[i*2][12]->x;
-		unidades_vermelhas[0]->y = hexagons[i*2][12]->y;
+		red_units[0]->x = hexagons[i*2][12]->x;
+		red_units[0]->y = hexagons[i*2][12]->y;
 	}
 
 
@@ -262,17 +262,17 @@ void carrega_uk(SDL_Surface *screen)
 					 tanque_lateral,
 					 id);
 		id++;
-		unidades_vermelhas.push_back(tanque);
+		red_units.push_back(tanque);
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][12]->x;
 		dst.y = hexagons[i*2][12]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_vermelhas[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][12]->unit = unidades_vermelhas[i];
+		SDL_BlitSurface(red_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][12]->unit = red_units[i];
 		hexagons[i*2][12]->contains_unit = 1;
-		unidades_vermelhas[0]->x = hexagons[i*2][12]->x;
-		unidades_vermelhas[0]->y = hexagons[i*2][12]->y;
+		red_units[0]->x = hexagons[i*2][12]->x;
+		red_units[0]->y = hexagons[i*2][12]->y;
 	}
 
 
@@ -304,7 +304,7 @@ void carrega_uk(SDL_Surface *screen)
 	hexagons[9][14]->contains_unit= 1;
 	hexagons[10][14]->unit = quartel_a;
 	hexagons[10][14]->contains_unit= 1;
-	unidades_vermelhas.push_back(quartel_a);
+	red_units.push_back(quartel_a);
 }
 
 

@@ -19,7 +19,7 @@ char codigo[100];
 SDL_Surface *mapa1;
 
 vector <Unit *> blue_units;
-vector <Unit *> unidades_vermelhas;
+vector <Unit *> red_units;
 vector< vector <Hexagons*> > hexagons;
 int id;
 
