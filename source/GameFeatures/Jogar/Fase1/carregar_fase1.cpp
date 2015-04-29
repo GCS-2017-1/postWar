@@ -125,14 +125,14 @@ void carregar_fase1(SDL_Surface *screen)
 	caminho = "source/GameFeatures/Jogar/Fase1/images/sair_selecionado.png";
 	sair_sel = load_Image(caminho, screen);
 
-	caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
+	caminho = "source/GameFeatures/Jogar/Fase1/images/mesh.png";
 	com_malha = load_Image(caminho, screen);
 
 
 
 	caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
-	hud = load_Image(caminho, screen);
-	BlitImage(screen, hud, 0, 0);
+	heads_up_display = load_Image(caminho, screen);
+	BlitImage(screen, heads_up_display, 0, 0);
 
 	caminho = "source/GameFeatures/Jogar/Fase1/images/painel_status.png";
 	hud2 = load_Image(caminho, screen);

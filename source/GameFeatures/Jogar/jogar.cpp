@@ -40,7 +40,7 @@ int comida_azul = 10;
 
 SDL_Surface *sem_malha;
 SDL_Surface *com_malha;
-SDL_Surface *hud;
+SDL_Surface *heads_up_display;
 SDL_Surface *hud2;
 SDL_Surface *menu_meio;
 SDL_Surface *menu_jogo;

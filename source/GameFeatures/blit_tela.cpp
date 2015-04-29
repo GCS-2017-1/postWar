@@ -16,7 +16,7 @@ void blit_tela(SDL_Surface *screen, int tela)
 	else {
 		BlitImage(screen, com_malha, 0, 0);
 	}
-	BlitImage(screen, hud, 0, 0);
+	BlitImage(screen, heads_up_display, 0, 0);
 	BlitImage(screen, menu_meio, 568, 78);
 	/*
 	 * string bora;
@@ -123,7 +123,7 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 		BlitImage(screen, com_malha, 0, 0);
 	}
 
-	BlitImage(screen, hud, 0, 0);
+	BlitImage(screen, heads_up_display, 0, 0);
 
 	for (unsigned int i = 0; i < hexagons.size(); i++) {
 		for (unsigned int j = 0; j < hexagons[i].size(); j++) {

@@ -47,8 +47,8 @@ void carregar_fase5(SDL_Surface *screen){
 
 
     caminho = "source/GameFeatures/Jogar/Fase5/images/FundoHUD.png";
-    hud = load_Image(caminho, screen);
-    BlitImage(screen, hud, 0, 0);
+    heads_up_display = load_Image(caminho, screen);
+    BlitImage(screen, heads_up_display, 0, 0);
 
     caminho = "source/GameFeatures/Jogar/Fase5/images/painel_status.png";
     hud2 = load_Image(caminho, screen);
