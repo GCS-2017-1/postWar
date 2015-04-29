@@ -29,7 +29,7 @@ void mapeia_hexagono()
 		vector <Hexagons *> hex_temp;
 		for (ia=35, ie=44;ia<1050;ia+=68,ie+=68) {
 
-			//BlitImage(screen,unidades_azul[0]->name,ia,ja);
+			//BlitImage(screen,blue_units[0]->name,ia,ja);
 			Hexagons *hexagon = new Hexagons;
 			hexagon->center_in_x = ie;
 			hexagon->center_in_y = je;
@@ -58,7 +58,7 @@ void mapeia_hexagono()
 		vector <Hexagons *> hex_temp2;
 		for (ia=65,ie=78;ia<1050;ia+=68,ie+=68) {
 
-			//BlitImage(screen,unidades_azul[0]->name,ia,ja);
+			//BlitImage(screen,blue_units[0]->name,ia,ja);
 
 			Hexagons *hexagon = new Hexagons;
 			hexagon->x = ia;

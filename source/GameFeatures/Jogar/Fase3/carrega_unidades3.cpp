@@ -33,15 +33,15 @@ void carrega_urss(SDL_Surface *screen){
         string unidadea1 = "soldado";
         setar_soldado(soldado, color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
         id++;
-        unidades_azul.push_back(soldado);
+        blue_units.push_back(soldado);
         //if(i+2<=hexagons.size()){
         SDL_Rect dst;
         dst.x = hexagons[i*2][3]->x;
         dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagons[i*2][3]->unit = unidades_azul[i];
+        SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+        hexagons[i*2][3]->unit = blue_units[i];
         hexagons[i*2][3]->contains_unit = 1;
 
 
@@ -86,15 +86,15 @@ void carrega_urss(SDL_Surface *screen){
         string unidadea1 = "tanque";
         setar_tanque(tanque1, color, unidadea1, tanque, ataque_tanque, down_attack, up_attack,tanque_lateral, id);
         id++;
-        unidades_azul.push_back(tanque1);
+        blue_units.push_back(tanque1);
         //if(i+2<=hexagons.size()){
         SDL_Rect dst;
         dst.x = hexagons[i*2][3]->x;
         dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagons[i*2][3]->unit = unidades_azul[i];
+        SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+        hexagons[i*2][3]->unit = blue_units[i];
         hexagons[i*2][3]->contains_unit = 1;
     }
 
@@ -116,18 +116,18 @@ for (int i=8;i<9;i++){
         string unidade1 = "helicoptero";
         setar_helicoptero(helicoptero, color, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
         id++;
-        unidades_azul.push_back(helicoptero);
+        blue_units.push_back(helicoptero);
 
         SDL_Rect dst;
         dst.x = hexagons[i*2][3]->x;
         dst.y = hexagons[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
-        SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-        hexagons[i*2][3]->unit = unidades_azul[i];
+        SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+        hexagons[i*2][3]->unit = blue_units[i];
         hexagons[i*2][3]->contains_unit = 1;
-        unidades_azul[0]->x = hexagons[i*2][3]->x;
-        unidades_azul[0]->y = hexagons[i*2][3]->y;
+        blue_units[0]->x = hexagons[i*2][3]->x;
+        blue_units[0]->y = hexagons[i*2][3]->y;
     }
 
 

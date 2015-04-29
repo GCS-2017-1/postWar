@@ -71,7 +71,7 @@ extern char code_s[100];
 extern SDL_Rect cutBox;
 extern Hexagon_selected *hexagon_selected;
 extern vector<vector <Hexagons *> > hexagons;
-extern vector<Unit *> unidades_azul;
+extern vector<Unit *> blue_units;
 extern vector<Unit *> unidades_vermelhas;
 extern SDL_Surface *malha;
 extern SDL_Surface *hud;

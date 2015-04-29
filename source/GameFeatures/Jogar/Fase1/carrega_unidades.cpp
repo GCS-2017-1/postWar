@@ -204,15 +204,15 @@ void carrega_china(SDL_Surface *screen)
 		string unidadea1 = "soldado";
 		setar_soldado(soldado, color, unidadea1, soldado1, ataque_soldado, down_attack, up_attack,soldado_lateral_a, id);
 		id++;
-		unidades_azul.push_back(soldado);
+		blue_units.push_back(soldado);
 		//if(i+2<=hexagons.size()){
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][3]->x;
 		dst.y = hexagons[i*2][3]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][3]->unit = unidades_azul[i];
+		SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][3]->unit = blue_units[i];
 		hexagons[i*2][3]->contains_unit = 1;
 
 
@@ -250,9 +250,9 @@ void carrega_china(SDL_Surface *screen)
 	string unidadea2 = "metralhadora";
 	setar_metralhadora(metralhadora, color, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral, id);
 	id++;
-	unidades_azul.push_back(metralhadora);
+	blue_units.push_back(metralhadora);
 
-	BlitImage(screen,unidades_azul[10]->name,hexagons[6][4]->x,hexagons[6][4]->y);
+	BlitImage(screen,blue_units[10]->name,hexagons[6][4]->x,hexagons[6][4]->y);
 
 	hexagons[6][4]->contains_unit=1;
 	hexagons[6][4]->unit = metralhadora;

@@ -41,14 +41,14 @@ void carrega_franca(SDL_Surface *screen)
 					  soldado_lateral_a,
 					  id);
 		id++;
-		unidades_azul.push_back(soldado);
+		blue_units.push_back(soldado);
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][3]->x;
 		dst.y = hexagons[i*2][3]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][3]->unit = unidades_azul[i];
+		SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][3]->unit = blue_units[i];
 		hexagons[i*2][3]->contains_unit = 1;
 
 		caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_vermelha.png";
@@ -107,14 +107,14 @@ void carrega_franca(SDL_Surface *screen)
 					 tanque_lateral,
 					 id);
 		id++;
-		unidades_azul.push_back(tanque1);
+		blue_units.push_back(tanque1);
 		SDL_Rect dst;
 		dst.x = hexagons[i*2][3]->x;
 		dst.y = hexagons[i*2][3]->y;
 		dst.h = 0;
 		dst.w = 0;
-		SDL_BlitSurface(unidades_azul[i]->name, &cutBox,  screen, &dst);
-		hexagons[i*2][3]->unit = unidades_azul[i];
+		SDL_BlitSurface(blue_units[i]->name, &cutBox,  screen, &dst);
+		hexagons[i*2][3]->unit = blue_units[i];
 		hexagons[i*2][3]->contains_unit = 1;
 	}
 
@@ -134,10 +134,10 @@ void carrega_franca(SDL_Surface *screen)
 					   metralhadora_lateral,
 					   id);
 	id++;
-	unidades_azul.push_back(metralhadora);
+	blue_units.push_back(metralhadora);
 
 	BlitImage(screen,
-			  unidades_azul[8]->name,
+			  blue_units[8]->name,
 			  hexagons[6][4]->x,
 			  hexagons[6][4]->y);
 

@@ -18,7 +18,7 @@ Hexagon_selected *hexagon_selected;
 char codigo[100];
 SDL_Surface *mapa1;
 
-vector <Unit *> unidades_azul;
+vector <Unit *> blue_units;
 vector <Unit *> unidades_vermelhas;
 vector< vector <Hexagons*> > hexagons;
 int id;
