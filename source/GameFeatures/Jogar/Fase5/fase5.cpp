@@ -47,7 +47,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
 
         while(1){
             start = SDL_GetTicks();
-            //memset (codigo_s,'0',100);
+            //memset (code_s,'0',100);
             if(minha_vez){
 
                 blit_cima(franca,screen); //verifica_hexagono.cpp
@@ -88,9 +88,9 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                     }
                                     if(alcance_ataque_soldado()){
 
-                                        codifica_ataque(codigo_s);
+                                        codifica_ataque(code_s);
                                         //cout << "passei codifica" << endl;
-                                        enviar_msg(Sclient,codigo_s);
+                                        enviar_msg(Sclient,code_s);
                                         ataque_unidade(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                         dano_ataque(screen);
                                         //cout << "enviei" << endl;
@@ -124,14 +124,14 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                     }
 
                                     if(alcance_movimento_soldado()){
-                                        strcpy (codigo_s,"00");
-                                        codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-                                        codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-                                        codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-                                        codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
+                                        strcpy (code_s,"00");
+                                        code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+                                        code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+                                        code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+                                        code_s[5] = (char)(((int)'0')+hexagon_selected->j);
                                         //cout<<"Enviando msg..."<<endl;
-                                        enviar_msg(Sclient,codigo_s);
-                                        //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+                                        enviar_msg(Sclient,code_s);
+                                        //cout<<"A mensagem enviada foi: "<<code_s  <<endl;
                                         mover_soldado(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                         pontos_jogador1 -= 3;
                                         if(pontos_jogador1<3){
@@ -334,9 +334,9 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                             }
                                             if(alcance_ataque_soldado()){
 
-                                                codifica_ataque(codigo_s);
+                                                codifica_ataque(code_s);
                                                 //cout << "passei codifica" << endl;
-                                                enviar_msg(Cserver,codigo_s);
+                                                enviar_msg(Cserver,code_s);
                                                 //cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                                 dano_ataque(screen);
@@ -366,14 +366,14 @@ void fase5(SDL_Surface *screen,string qual_maquina){
 
                                             if(alcance_movimento_soldado()){
 
-                                                strcpy (codigo_s,"00");
-                                                codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-                                                codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-                                                codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-                                                codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
+                                                strcpy (code_s,"00");
+                                                code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+                                                code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+                                                code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+                                                code_s[5] = (char)(((int)'0')+hexagon_selected->j);
                                                 //cout<<"Enviando msg..."<<endl;
-                                                enviar_msg(Cserver,codigo_s);
-                                                //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+                                                enviar_msg(Cserver,code_s);
+                                                //cout<<"A mensagem enviada foi: "<<code_s  <<endl;
 
                                                 mover_soldado(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
                                                 pontos_jogador2 -= 3;

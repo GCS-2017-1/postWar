@@ -12,7 +12,7 @@
 
 using namespace std;
 
-char codigo_s[100];
+char code_s[100];
 
 Hexagon_selected *hexagon_selected;
 char codigo[100];
@@ -186,8 +186,8 @@ void escolha_mapa(SDL_Surface *screen)
 			BlitImage(screen,pais_selecionado,77,378);
 			SDL_Flip(screen);
 			if(vetor->click == 1) {
-				strcpy(codigo_s,"1");
-				enviar_msg(Sclient,codigo_s);
+				strcpy(code_s,"1");
+				enviar_msg(Sclient,code_s);
 				Nation *china = new Nation();
 				string name = "China";
 				string color = "vermelho";
@@ -208,8 +208,8 @@ void escolha_mapa(SDL_Surface *screen)
 			BlitImage(screen,pais_selecionado,250,378);
 			SDL_Flip(screen);
 			if(vetor->click == 1) {
-				strcpy(codigo_s,"2");
-				enviar_msg(Sclient,codigo_s);
+				strcpy(code_s,"2");
+				enviar_msg(Sclient,code_s);
 				Nation *franca = new Nation();
 				string name = "França";
 				string color = "vermelho";
@@ -230,8 +230,8 @@ void escolha_mapa(SDL_Surface *screen)
 			BlitImage(screen,pais_selecionado,433,378);
 			SDL_Flip(screen);
 			if(vetor->click == 1) {
-				strcpy(codigo_s,"3");
-				enviar_msg(Sclient,codigo_s);
+				strcpy(code_s,"3");
+				enviar_msg(Sclient,code_s);
 				Nation *urss = new Nation();
 				string name = "URSS";
 				string color = "vermelho";
@@ -252,8 +252,8 @@ void escolha_mapa(SDL_Surface *screen)
 			BlitImage(screen,pais_selecionado,673,378);
 			SDL_Flip(screen);
 			if(vetor->click == 1) {
-				strcpy(codigo_s,"4");
-				enviar_msg(Sclient,codigo_s);
+				strcpy(code_s,"4");
+				enviar_msg(Sclient,code_s);
 				Nation *urss = new Nation();
 				string name = "URSS";
 				string color = "vermelho";
@@ -274,8 +274,8 @@ void escolha_mapa(SDL_Surface *screen)
 			BlitImage(screen,pais_selecionado,952,378);
 			SDL_Flip(screen);
 			if(vetor->click == 1) {
-				strcpy(codigo_s,"5");
-				enviar_msg(Sclient,codigo_s);
+				strcpy(code_s,"5");
+				enviar_msg(Sclient,code_s);
 				Nation *franca = new Nation();
 				string name = "França";
 				string color = "vermelho";

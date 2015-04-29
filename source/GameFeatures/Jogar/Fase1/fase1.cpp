@@ -66,9 +66,9 @@ void fase1(SDL_Surface *screen,
 										/* nothing to do */
 									}
 									if (alcance_ataque_soldado()) {
-										codifica_ataque(codigo_s);
+										codifica_ataque(code_s);
 										//cout << "passei codifica" << endl;
-										enviar_msg(Sclient,codigo_s);
+										enviar_msg(Sclient,code_s);
 										ataque_unidade(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
 										dano_ataque(screen);
 										//cout << "enviei" << endl;
@@ -132,12 +132,12 @@ void fase1(SDL_Surface *screen,
 										else {
 											/* nothing to do */
 										}
-										strcpy (codigo_s,"00");
-										codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-										codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-										codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-										codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
-										enviar_msg(Sclient,codigo_s);
+										strcpy (code_s,"00");
+										code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+										code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+										code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+										code_s[5] = (char)(((int)'0')+hexagon_selected->j);
+										enviar_msg(Sclient,code_s);
 										mover_soldado(screen, hexagons[hexagon_selected->i][hexagon_selected->j]->x,hexagons[hexagon_selected->i][hexagon_selected->j]->y, totalElapsedTime, delay, lastdt);
 										pontos_jogador1 -= 3;
 										if (pontos_jogador1<3) {
@@ -395,8 +395,8 @@ void fase1(SDL_Surface *screen,
 											/* nothing to do */
 										}
 										if (alcance_ataque_soldado()) {
-											codifica_ataque(codigo_s);
-											enviar_msg(Cserver,codigo_s);
+											codifica_ataque(code_s);
+											enviar_msg(Cserver,code_s);
 											ataque_unidade(screen,
 														   hexagons[hexagon_selected->i][hexagon_selected->j]->x,
 														   hexagons[hexagon_selected->i][hexagon_selected->j]->y,
@@ -451,12 +451,12 @@ void fase1(SDL_Surface *screen,
 											else {
 												/* nothing to do */
 											}
-											strcpy (codigo_s,"00");
-											codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-											codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-											codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-											codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
-											enviar_msg(Cserver,codigo_s);
+											strcpy (code_s,"00");
+											code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+											code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+											code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+											code_s[5] = (char)(((int)'0')+hexagon_selected->j);
+											enviar_msg(Cserver,code_s);
 											mover_soldado(screen,
 														  hexagons[hexagon_selected->i][hexagon_selected->j]->x,
 														  hexagons[hexagon_selected->i][hexagon_selected->j]->y,
@@ -544,21 +544,21 @@ void fase1(SDL_Surface *screen,
 }
 
 /* make the atack's code */
-void codifica_ataque(char codigo_s[])
+void codifica_ataque(char code_s[])
 {
-	strcpy(codigo_s,"01");
-	codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-	codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-	codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-	codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
-	/*codigo_s[6] = hp1/1000;
-	codigo_s[7] = ((hp1%1000) - (hp1%100))/100;
-	codigo_s[8] = ((hp1%100) - (hp1%10))/10;
-	codigo_s[9] = hp1%10;
-	codigo_s[10] = hp2/1000;
-	codigo_s[11] = ((hp2%1000) - (hp2%100))/100;
-	codigo_s[12] = ((hp2%100) - (hp2%10))/10;
-	codigo_s[13] = hp2%10;*/
+	strcpy(code_s,"01");
+	code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+	code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+	code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+	code_s[5] = (char)(((int)'0')+hexagon_selected->j);
+	/*code_s[6] = hp1/1000;
+	code_s[7] = ((hp1%1000) - (hp1%100))/100;
+	code_s[8] = ((hp1%100) - (hp1%10))/10;
+	code_s[9] = hp1%10;
+	code_s[10] = hp2/1000;
+	code_s[11] = ((hp2%1000) - (hp2%100))/100;
+	code_s[12] = ((hp2%100) - (hp2%10))/10;
+	code_s[13] = hp2%10;*/
 }
 
 /* allow the partner to make a move */

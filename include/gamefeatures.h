@@ -67,7 +67,7 @@ typedef struct _Nation {
 	string color;
 } Nation;
 
-extern char codigo_s[100];
+extern char code_s[100];
 extern SDL_Rect cutBox;
 extern Hexagon_selected *hexagon_selected;
 extern vector<vector <Hexagons *> > hexagons;
@@ -255,7 +255,7 @@ extern void amigo_movimenta (char code_recv[],
 							 int totalElapsedTime,
 							 int delay,
 							 int lastdt);
-extern void codifica_ataque (char codigo_s[]);
+extern void codifica_ataque (char code_s[]);
 extern void eventos (void *);
 extern int eventos2 (void *);
 

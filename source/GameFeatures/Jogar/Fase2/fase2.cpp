@@ -82,8 +82,8 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 										/* nothing to do */
 									}
 									if (alcance_ataque_soldado()) {
-										codifica_ataque(codigo_s);
-										enviar_msg(Sclient,codigo_s);
+										codifica_ataque(code_s);
+										enviar_msg(Sclient,code_s);
 										ataque_unidade(screen,
 													   hexagons[hexagon_selected->i][hexagon_selected->j]->x,
 													   hexagons[hexagon_selected->i][hexagon_selected->j]->y,
@@ -135,12 +135,12 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 										/* nothing to do */
 									}
 									if (alcance_movimento_soldado()) {
-										strcpy (codigo_s,"00");
-										codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-										codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-										codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-										codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
-										enviar_msg(Sclient,codigo_s);
+										strcpy (code_s,"00");
+										code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+										code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+										code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+										code_s[5] = (char)(((int)'0')+hexagon_selected->j);
+										enviar_msg(Sclient,code_s);
 										mover_soldado(screen,
 													  hexagons[hexagon_selected->i][hexagon_selected->j]->x,
 													  hexagons[hexagon_selected->i][hexagon_selected->j]->y,
@@ -407,8 +407,8 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 										/* nothing to do */
 									}
 									if (alcance_ataque_soldado()) {
-										codifica_ataque(codigo_s);
-										enviar_msg(Cserver,codigo_s);
+										codifica_ataque(code_s);
+										enviar_msg(Cserver,code_s);
 										ataque_unidade(screen,
 													   hexagons[hexagon_selected->i][hexagon_selected->j]->x,
 													   hexagons[hexagon_selected->i][hexagon_selected->j]->y,
@@ -448,12 +448,12 @@ void fase2(SDL_Surface *screen,string qual_maquina)
 										/* nothing to do */
 									}
 									if (alcance_movimento_soldado()) {
-										strcpy (codigo_s,"00");
-										codigo_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
-										codigo_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
-										codigo_s[4] = (char)(((int)'0')+hexagon_selected->i);
-										codigo_s[5] = (char)(((int)'0')+hexagon_selected->j);
-										enviar_msg(Cserver,codigo_s);
+										strcpy (code_s,"00");
+										code_s[2] = (char)(((int)'0')+hexagon_selected->i_before);
+										code_s[3] = (char)(((int)'0')+hexagon_selected->j_before);
+										code_s[4] = (char)(((int)'0')+hexagon_selected->i);
+										code_s[5] = (char)(((int)'0')+hexagon_selected->j);
+										enviar_msg(Cserver,code_s);
 
 										mover_soldado(screen,
 													  hexagons[hexagon_selected->i][hexagon_selected->j]->x,
