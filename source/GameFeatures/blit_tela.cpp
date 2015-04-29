@@ -14,7 +14,7 @@ void blit_tela(SDL_Surface *screen, int tela)
 		BlitImage(screen, without_mesh, 0, 0);
 	}
 	else {
-		BlitImage(screen, com_malha, 0, 0);
+		BlitImage(screen, with_mesh, 0, 0);
 	}
 	BlitImage(screen, heads_up_display, 0, 0);
 	BlitImage(screen, menu_meio, 568, 78);
@@ -120,7 +120,7 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 		BlitImage(screen, without_mesh, 0, 0);
 	}
 	else {
-		BlitImage(screen, com_malha, 0, 0);
+		BlitImage(screen, with_mesh, 0, 0);
 	}
 
 	BlitImage(screen, heads_up_display, 0, 0);

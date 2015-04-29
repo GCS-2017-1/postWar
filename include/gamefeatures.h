@@ -76,7 +76,7 @@ extern vector<Unit *> red_units;
 extern SDL_Surface *mesh;
 extern SDL_Surface *heads_up_display;
 extern SDL_Surface *without_mesh;
-extern SDL_Surface *com_malha;
+extern SDL_Surface *with_mesh;
 extern TCPsocket Sclient;
 extern TCPsocket Cserver;
 extern char texto_global[100];

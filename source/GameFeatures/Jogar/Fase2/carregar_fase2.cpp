@@ -40,7 +40,7 @@ void carregar_fase2(SDL_Surface *screen)
 	sair_sel = load_Image(caminho, screen);
 
 	caminho = "source/GameFeatures/Jogar/Fase2/images/fase_2_malha.png";
-	com_malha = load_Image(caminho, screen);
+	with_mesh = load_Image(caminho, screen);
 
 	caminho = "source/GameFeatures/Jogar/Fase2/images/FundoHUD.png";
 	heads_up_display = load_Image(caminho, screen);

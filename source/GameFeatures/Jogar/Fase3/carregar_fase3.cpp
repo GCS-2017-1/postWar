@@ -42,7 +42,7 @@ void carregar_fase3(SDL_Surface *screen){
     sair_sel = load_Image(caminho, screen);
 
     caminho = "source/GameFeatures/Jogar/Fase3/images/fase_3_malha.png";
-    com_malha = load_Image(caminho, screen);
+    with_mesh = load_Image(caminho, screen);
 
 
 

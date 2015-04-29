@@ -6,10 +6,7 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-
 using namespace std;
-
-
 
 void mapeia_hexagono()
 {
@@ -126,7 +123,7 @@ void carregar_fase1(SDL_Surface *screen)
 	sair_sel = load_Image(caminho, screen);
 
 	caminho = "source/GameFeatures/Jogar/Fase1/images/mesh.png";
-	com_malha = load_Image(caminho, screen);
+	with_mesh = load_Image(caminho, screen);
 
 
 
