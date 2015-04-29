@@ -21,8 +21,8 @@ void carregar_fase5(SDL_Surface *screen){
     SDL_Flip(screen);
 
     caminho = "source/GameFeatures/Jogar/Fase5/images/fase_5.png";
-    sem_malha = load_Image(caminho, screen);
-    BlitImage(screen,sem_malha,0,0);
+    without_mesh = load_Image(caminho, screen);
+    BlitImage(screen,without_mesh,0,0);
 
     caminho = "source/GameFeatures/Jogar/Fase5/images/menu_meio_jogo.png";
     menu_meio = load_Image(caminho,screen);

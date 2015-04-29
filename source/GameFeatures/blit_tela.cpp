@@ -11,7 +11,7 @@ using namespace std;
 void blit_tela(SDL_Surface *screen, int tela)
 {
 	if (tela == 0) {
-		BlitImage(screen, sem_malha, 0, 0);
+		BlitImage(screen, without_mesh, 0, 0);
 	}
 	else {
 		BlitImage(screen, com_malha, 0, 0);
@@ -117,7 +117,7 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y)
 	 * cout << "y:" << y << endl;
 	 */
 	if (tela == 0) {
-		BlitImage(screen, sem_malha, 0, 0);
+		BlitImage(screen, without_mesh, 0, 0);
 	}
 	else {
 		BlitImage(screen, com_malha, 0, 0);

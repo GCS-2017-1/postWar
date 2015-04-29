@@ -38,7 +38,7 @@ int ouro_azul = 10;
 int comida_vermelha = 10;
 int comida_azul = 10;
 
-SDL_Surface *sem_malha;
+SDL_Surface *without_mesh;
 SDL_Surface *com_malha;
 SDL_Surface *heads_up_display;
 SDL_Surface *hud2;
