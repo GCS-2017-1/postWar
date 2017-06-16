@@ -11,7 +11,7 @@
 
 using namespace std;
 
-init_audio()
+void init_audio()
 {
 
 }

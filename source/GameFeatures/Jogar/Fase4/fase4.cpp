@@ -28,7 +28,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
     char pais_client[100] = "china";
 
 
-    carregar_fase4(screen,pais_serv,pais_client);
+    carregar_fase4(screen);
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;
     int delay = 200;
