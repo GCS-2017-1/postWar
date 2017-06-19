@@ -25,7 +25,6 @@ compiler:
   - g++
 
 script:
-  - mkdir build/
   - cd build/
   - cmake ..
   - make
