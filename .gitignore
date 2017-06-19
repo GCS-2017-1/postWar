@@ -3,6 +3,11 @@
 *.lo
 *.o
 
+CMakeCache.txt
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CMakeFiles
+
 # Compiled Dynamic libraries
 *.so
 *.dylib

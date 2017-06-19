@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 3.8.1)
 project(postwar LANGUAGES CXX)
 
-set( INCLUDE_DIR "${PROJECT_SOURCE_DIR}" )
-set( SRC_DIR "${PROJECT_SOURCE_DIR}/sources" )
+#set( INCLUDE_DIR "${PROJECT_SOURCE_DIR}" )
+#set( SRC_DIR "${PROJECT_SOURCE_DIR}/sources" )
 set (PROJECT_ASSETS_DIR  "${PROJECT_SOURCE_DIR}")
 
 
@@ -69,3 +69,32 @@ target_link_libraries(postwar SDL SDL_image SDL_net SDL_ttf SDL_mixer)
 add_custom_command(TARGET postwar POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
                    ${PROJECT_ASSETS_DIR} ${CMAKE_BINARY_DIR})
+
+# Installation - Install each needed file to a designated folder
+
+INSTALL(TARGETS postwar DESTINATION PostWar_GAME)
+INSTALL(DIRECTORY sounds/sounds_effects sounds/sound_track DESTINATION PostWar_GAME)
+INSTALL(DIRECTORY source/  DESTINATION PostWar_GAME/source)
+INSTALL(FILES ${IMAGES} DESTINATION PostWar_GAME)
+
+
+# SECTION - Packaging for Debian systems
+## Needed for .deb generation
+SET(CPACK_GENERATOR "DEB")
+SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "FgaGameDev <https://github.com/GCS-2017-1/postwar.git>")
+
+## Setting dependences - Auto Discovery
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+
+## Installation info
+set(CPACK_PACKAGING_INSTALL_PREFIX /usr/local/)
+
+## Adding info
+set(CPACK_PACKAGE_CONTACT "https://github.com/GCS-2017-1/postwar.git")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Post War game, from UnB-FGA students.")
+set(CPACK_PACKAGE_VERSION_MAJOR "1")
+set(CPACK_PACKAGE_VERSION_MINOR "0")
+set(CPACK_PACKAGE_VERSION_PATCH "0")
+
+## This should be the last item on this file
+include(CPack)

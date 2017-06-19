@@ -1,0 +1,10 @@
+Package: postwar
+Version: 1.0.0
+Section: devel
+Priority: optional
+Architecture: amd64
+Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.0), libsdl-image1.2 (>= 1.2.10), libsdl-mixer1.2, libsdl-net1.2, libsdl-ttf2.0-0, libsdl1.2debian (>= 1.2.11), libstdc++6 (>= 5.2)
+Installed-Size: 92249
+Maintainer: FgaGameDev <https://github.com/GCS-2017-1/postwar.git>
+Description: Post War game, from UnB-FGA students.
+
