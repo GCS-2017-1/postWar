@@ -1,0 +1,31 @@
+sudo: required
+dist: trusty
+language: cpp
+
+# whitelist
+branches:
+  only:
+    - master
+
+install:
+  - wget http://www.cmake.org/files/v3.8/cmake-3.8.1.tar.gz
+  - tar -xvzf cmake-3.8.1.tar.gz
+  - cd cmake-3.8.1/
+  - ./configure
+  - sudo make install
+  - cd ..
+  - sudo apt-get update
+  - sudo apt-get install libsdl1.2-dev libsdl1.2debian -y
+  - sudo apt-get install libsdl-image1.2 libsdl-image1.2-dev -y
+  - sudo apt-get install libsdl-net1.2 libsdl-net1.2-dev -y
+  - sudo apt-get install libsdl-mixer1.2 libsdl-mixer1.2-dev -y
+  - sudo apt-get install libsdl-ttf2.0 libsdl-ttf2.0-dev -y
+
+compiler:
+  - g++
+
+script:
+  - mkdir build/
+  - cd build/
+  - cmake ..
+  - make
