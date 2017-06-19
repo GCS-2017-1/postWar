@@ -1,9 +1,8 @@
 # PostWar
 
-<a href="https://scan.coverity.com/projects/5048">
-  <img alt="Coverity Scan Build Status"
-       src="https://scan.coverity.com/projects/5048/badge.svg"/>
-</a>
+<p align="left">
+    <a href="https://travis-ci.org/GCS-2017-1/postwar.svg?branch=master"><img src="https://travis-ci.org/GCS-2017-1/postwar.svg?branch=master" alt="Build Status"></a>
+</p>
 
 <p align="justify">Post War é um jogo baseado em turnos de estratégia, ele se passa em um mundo pós apocalíptico. O jogo foi desenvolvido na disciplina de Introdução aos Jogos Eletrônicos no segundo semestre de 2013 na Universidade de Brasília Campus Gama pelo grupo bryjstudios.
 
@@ -14,51 +13,70 @@
 Instale o SDL1.2
 - **SDL 1.2**: https://www.libsdl.org/download-1.2.php
 
+Ou instale o SDL com sudo
+```shell
+$ sudo apt-get install libsdl1.2-dev && libsdl1.2debian
+```
+
 Instale o SDL Image
 ```shell
-sudo apt-get install libsdl-image1.2 && libsdl-image1.2-dev
+$ sudo apt-get install libsdl-image1.2 && libsdl-image1.2-dev
 ```
 
 Instale o SDL Net
 ```shell
-sudo apt-get install libsdl-net1.2 && libsdl-net1.2-dev
+$ sudo apt-get install libsdl-net1.2 && libsdl-net1.2-dev
 ```
 
 Instale o SDL Mixer
 ```shell
-sudo apt-get install libsdl-mixer1.2 && libsdl-mixer1.2-dev
+$ sudo apt-get install libsdl-mixer1.2 && libsdl-mixer1.2-dev
 ```
 
 Instale o SDL ttf
 ```shell
-sudo apt-get install libsdl-ttf2.0-0 && libsdl-ttf2.0-0-dev
+$ sudo apt-get install libsdl-ttf2.0 && libsdl-ttf2.0-dev
+```
+
+Instale o CMake 3.8.1
+```shell
+$ wget http://www.cmake.org/files/v3.8/cmake-3.8.1.tar.gz
+$ tar -xvzf cmake-3.8.1.tar.gz
+$ cd cmake-3.8.1/
+$ ./configure
+$ sudo make install
+$ cd ..
 ```
 
 ## Execução
 
-Digite em um terminal na pasta do projeto
+Glone o repositório e entre na pasta do projeto
 ```shell
-make
-```
-Execute o jogo
-```shell
-./Postwar
+https://github.com/GCS-2017-1/postwar/
+cd postwar
 ```
 
-###### Em desenvolvimento
-Para criar um Makefile a partir do cmake, entre na pasta build e digite:
+Crie uma pasta build, caso não exista
+```shell
+mkdir build
+```
 
+Entre na pasta build
+```shell
+cd build
+```
+
+Para criar um Makefile a partir do cmake digite:
 ```shell
 cmake ..
 ```
-Volte a pasta raiz do projeto e execute o Makefile
+Execute o Makefile
 ```shell
 make
 ```
-
 Execute o jogo
 ```shell
-./Postwar
+./postwar
 ```
 
 #### Desenvolvido por bryjstudios
